@@ -1,6 +1,6 @@
 "use client";
 
-import { Key, PropsWithChildren, ReactNode, useContext } from "react";
+import { Key, PropsWithChildren, ReactNode, useContext, useMemo, useState } from "react";
 
 import {
   Card,
@@ -15,6 +15,7 @@ import {
   TableCell,
   CardFooter,
   Tooltip,
+  Pagination,
 } from "@nextui-org/react";
 import {
   RiAddFill,
@@ -36,6 +37,7 @@ export interface DataGridProps<T extends BaseModel, C, U>
   entitySlug: string;
   data: T[];
   schema: ColumnDef[];
+  rowsPerPage?: number;
   enableActios?: boolean;
   enableAdd?: boolean;
   enableDetails?: boolean;
@@ -51,6 +53,7 @@ function DataGrid<T extends BaseModel, C, U>({
   data,
   schema,
   children,
+  rowsPerPage = 4,
   enableActios = true,
   enableAdd = true,
   enableDetails = true,
@@ -59,7 +62,18 @@ function DataGrid<T extends BaseModel, C, U>({
   onDelete = () => {},
   onCreate = () => {},
 }: DataGridProps<T, C, U>) {
+  const [page, setPage] = useState(1);
+
+  const pages = Math.ceil(data.length / rowsPerPage);
+
   const { onClose, handleModal } = useContext(ModalContext);
+
+  const paginatedData = useMemo(() => {
+    const start = (page - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+
+    return data.slice(start, end);
+  }, [data, page, rowsPerPage]);
 
   const handleCreateEntity = (data: C) => {
     onCreate(data);
@@ -202,14 +216,29 @@ function DataGrid<T extends BaseModel, C, U>({
       </CardHeader>
 
       <CardBody>
-        <Table aria-label={`Таблиця ${title}`}>
+        <Table 
+          aria-label={`Таблиця ${title}`}
+          bottomContent={
+            <div className="flex w-full justify-center">
+              <Pagination
+                isCompact
+                showControls
+                showShadow
+                color="danger"
+                page={page}
+                total={pages}
+                onChange={(page) => setPage(page)}
+              />
+            </div>
+          }
+        >
           <TableHeader columns={getColumns()}>
             {(column) => (
               <TableColumn key={column.name}>{column.label}</TableColumn>
             )}
           </TableHeader>
 
-          <TableBody items={data} emptyContent={"Данні не додані"}>
+          <TableBody items={paginatedData} emptyContent={"Данні не додані"}>
             {(item) => (
               <TableRow key={item.id}>
                 {(columnKey) => (
