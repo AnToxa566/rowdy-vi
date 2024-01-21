@@ -1,5 +1,6 @@
 import { ColumnKey, FormFieldType } from "../enums";
 import { ColumnDef } from "../types";
+import { formateDate } from "../utils";
 
 export const transactionSchema: ColumnDef[] = [
   {
@@ -26,6 +27,7 @@ export const transactionSchema: ColumnDef[] = [
     label: "Дата",
     placeholder: "12.12.2012",
     labelPlacement: "outside",
+    defaultValue: formateDate(new Date()),
     isFormField: true,
     isRequired: true,
   },
