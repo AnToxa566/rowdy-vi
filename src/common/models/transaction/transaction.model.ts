@@ -1,10 +1,9 @@
-import { BaseModel } from "@/common/models";
-import { TransactionType } from "@/common/enums";
+import { BaseModel } from "..";
 
 export interface Transaction extends BaseModel {
   name: string;
   sum: number;
-  type: TransactionType;
-  date: string;
+  type: string;
+  date: Date;
   description?: string;
 }

@@ -1,0 +1,79 @@
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
+
+import { DataGrid } from "@/components";
+import { useAppSelector, useAppDispatch } from "@/hooks";
+import { transactionService } from "@/services";
+import { EntitySlug, TransactionType } from "@/common/enums";
+import { incomeTransactionSchema } from "@/common/form-schemas";
+import { CreateTransactionDto, Transaction } from "@/common/models";
+import { compareDates } from "@/common/utils";
+import { dashboardCountsActions } from "@/store";
+
+const IncomeTransactionsGrid = () => {
+  const { startDate, endDate } = useAppSelector((state) => state.dashboardDate);
+
+  const { totalIncome } = useAppSelector((state) => state.dashboardCounts);
+
+  const dispatch = useAppDispatch();
+
+  const [incomeTransactions, setIncomeTransactions] = useState<Transaction[]>(
+    []
+  );
+
+  const uploadTransactions = useCallback(async () => {
+    const { data } = await transactionService.findAll({
+      type: TransactionType.INCOME,
+    });
+    const incomeTransactions = data.filter((tr) =>
+      compareDates(new Date(tr.date), startDate, endDate)
+    );
+
+    dispatch(
+      dashboardCountsActions.setTotalIncome(
+        incomeTransactions.reduce(
+          (acc, transaction) => (acc += transaction.sum),
+          0
+        )
+      )
+    );
+
+    setIncomeTransactions(incomeTransactions);
+  }, [dispatch, endDate, startDate]);
+
+  const handleCreateTransaction = async (data: CreateTransactionDto) => {
+    await transactionService.create({
+      ...data,
+      sum: Number(data.sum),
+    });
+    await uploadTransactions();
+  };
+
+  const handleDeleteTransaction = async (id: string) => {
+    await transactionService.delete(id);
+    await uploadTransactions();
+  };
+
+  useEffect(() => {
+    uploadTransactions();
+  }, [uploadTransactions]);
+
+  return (
+    <DataGrid
+      title="Доходи"
+      entitySlug={EntitySlug.INCOME_TRANSACTION}
+      schema={incomeTransactionSchema}
+      data={incomeTransactions}
+      onCreate={handleCreateTransaction}
+      onDelete={handleDeleteTransaction}
+    >
+      <p className="font-semibold">
+        Загальний дохід:{" "}
+        <span className="text-success">{totalIncome}&#8372;</span>
+      </p>
+    </DataGrid>
+  );
+};
+
+export { IncomeTransactionsGrid };

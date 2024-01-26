@@ -1,5 +1,6 @@
 "use client";
 
+import { Provider } from "react-redux";
 import { ReactNode, createContext, useState } from "react";
 import {
   Modal,
@@ -8,6 +9,8 @@ import {
   NextUIProvider,
   useDisclosure,
 } from "@nextui-org/react";
+
+import { store } from "@/store";
 
 export interface ModalOptions {
   content: ReactNode;
@@ -35,21 +38,23 @@ export function Providers({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <NextUIProvider>
-      <ModalContext.Provider value={{ ...disclosure, handleModal }}>
-        {children}
+    <Provider store={store}>
+      <NextUIProvider>
+        <ModalContext.Provider value={{ ...disclosure, handleModal }}>
+          {children}
 
-        <Modal
-          isOpen={disclosure.isOpen}
-          onOpenChange={disclosure.onOpenChange}
-        >
-          <ModalContent>
-            <>
-              <ModalBody className="py-6">{modalContent}</ModalBody>
-            </>
-          </ModalContent>
-        </Modal>
-      </ModalContext.Provider>
-    </NextUIProvider>
+          <Modal
+            isOpen={disclosure.isOpen}
+            onOpenChange={disclosure.onOpenChange}
+          >
+            <ModalContent>
+              <>
+                <ModalBody className="py-6">{modalContent}</ModalBody>
+              </>
+            </ModalContent>
+          </Modal>
+        </ModalContext.Provider>
+      </NextUIProvider>
+    </Provider>
   );
 }

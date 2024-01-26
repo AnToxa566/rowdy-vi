@@ -1,18 +1,18 @@
-import { BaseService } from "@/services";
-import { StorageKey } from "@/common/enums";
+import { ApiBaseService } from "@/services";
 import {
   Transaction,
   CreateTransactionDto,
   UpdateTransactionDto,
 } from "@/common/models";
+import { ApiEndPoint } from "@/common/enums";
 
-export class TransactionService extends BaseService<
+export class TransactionService extends ApiBaseService<
   Transaction,
   CreateTransactionDto,
   UpdateTransactionDto
 > {
   constructor() {
-    super(StorageKey.TRANSACTIONS);
+    super(ApiEndPoint.TRANSACTIONS);
   }
 }
 

@@ -1,6 +1,13 @@
 "use client";
 
-import { Key, PropsWithChildren, ReactNode, useContext, useMemo, useState } from "react";
+import {
+  Key,
+  PropsWithChildren,
+  ReactNode,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 
 import {
   Card,
@@ -168,7 +175,7 @@ function DataGrid<T extends BaseModel, C, U>({
             <Tooltip color="danger" content="Видалити">
               <span
                 className="text-lg text-danger cursor-pointer active:opacity-50"
-                onClick={() => handleOpenDeleteModal(item.id)}
+                onClick={() => handleOpenDeleteModal(item._id)}
               >
                 <RiDeleteBinLine />
               </span>
@@ -216,7 +223,7 @@ function DataGrid<T extends BaseModel, C, U>({
       </CardHeader>
 
       <CardBody>
-        <Table 
+        <Table
           aria-label={`Таблиця ${title}`}
           bottomContent={
             <div className="flex w-full justify-center">
@@ -240,7 +247,7 @@ function DataGrid<T extends BaseModel, C, U>({
 
           <TableBody items={paginatedData} emptyContent={"Данні не додані"}>
             {(item) => (
-              <TableRow key={item.id}>
+              <TableRow key={item._id}>
                 {(columnKey) => (
                   <TableCell>{renderCell(item, columnKey)}</TableCell>
                 )}
