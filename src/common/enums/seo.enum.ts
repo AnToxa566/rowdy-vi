@@ -1,0 +1,16 @@
+export enum SEO {
+  TITLE = "Rowdy Barbershop | Чоловіча перукарня в місті Запоріжжя",
+  DESCRIPTION = "Rowdy Barbershop ✄ Барбершоп в місті Запоріжжя ✄ Запишись онлайн вже сьогодні! ✄ Чоловіча перукарня в Запоріжжі ✄ 066 337 27 63 ✄ Професійні стрижки, гоління та багато іншого",
+  EMAIL = "rowdy.barbershop@gmail.com",
+  PHONE_NUMBER_1 = "+38 (066) 337 27 63",
+  PHONE_NUMBER_2 = "+38 (068) 771 03 37",
+  LOCALE = "uk_UA",
+  APLICATION_NAME = "Rowdy Barbershop",
+  AUTHOR_NAME = "Anton Bohachuk",
+  AUTHOR_URL = "https://antoxa566.github.io/resume/",
+  KEYWORDS = "rowdy, роуді, роуди, барбершоп, barbershop, чоловіча перукарня, мужская парикмахерская, Запоріжжя, Запорожье, чоловіча стрижка, мужская стрижка, гоління, бритьё, барбер, barber, барбершоп рядом, барбершоп поруч, барбершоп Запорожье, барбершоп Запоріжжя, барбершоп цены, барбершоп ціни, барбершоп вознесеновский район, барбершоп победа, барбершоп Запорожье Сталеваров, парикмахерская, перукарня",
+  GENERATOR = "Next.js",
+  PUBLISHER = "Vercel",
+  COUNTRY_NAME = "Ukraine",
+  OG_TYPE = "website",
+}

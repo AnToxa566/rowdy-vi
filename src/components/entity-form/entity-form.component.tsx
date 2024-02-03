@@ -94,7 +94,7 @@ const EntityForm: FC<EntityFormProps> = ({
                   label={field.label}
                   placeholder={field.placeholder}
                   labelPlacement={field.labelPlacement}
-                  value={field.defaultValue}
+                  defaultValue={field.defaultValue}
                   isRequired={field.isRequired}
                   disabled={field.disabled}
                   {...register(field.name)}

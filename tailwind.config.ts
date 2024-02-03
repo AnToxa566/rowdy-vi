@@ -7,7 +7,19 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        levitate: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "30%": { transform: "translateY(-10px)" },
+          "50%": { transform: "translateY(4px)" },
+          "70%": { transform: "translateY(-15px)" },
+        },
+      },
+      animation: {
+        levitate: "levitate 10s ease infinite",
+      },
+    },
   },
   darkMode: "class",
   plugins: [nextui()],
