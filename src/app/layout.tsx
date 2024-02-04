@@ -1,3 +1,4 @@
+import Script from "next/script";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 
@@ -44,6 +45,27 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-Q38M0BCLHQ"
+        ></Script>
+
+        <Script
+          id="google-analytics"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+    
+              gtag('config', 'G-Q38M0BCLHQ');
+            `,
+          }}
+        ></Script>
+      </head>
+
       <body className={montserrat.className}>
         <Providers>{children}</Providers>
       </body>
