@@ -5,5 +5,6 @@ export interface Transaction extends BaseModel {
   sum: number;
   type: string;
   date: Date;
+  account: string;
   description?: string;
 }

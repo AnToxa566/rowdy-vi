@@ -2,46 +2,44 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-import { DataGrid } from "@/components";
+import { DataGrid } from "@/app/(admin)/components";
 import { useAppSelector, useAppDispatch } from "@/hooks";
 import { transactionService } from "@/services";
 import { EntitySlug, TransactionType } from "@/common/enums";
-import { expenseTransactionSchema } from "@/common/form-schemas";
+import { incomeTransactionSchema } from "@/common/form-schemas";
 import { CreateTransactionDto, Transaction } from "@/common/models";
 import { compareDates } from "@/common/utils";
 import { dashboardCountsActions } from "@/store";
 
-const ExpenseTransactionsGrid = () => {
+const IncomeTransactionsGrid = () => {
   const { startDate, endDate } = useAppSelector((state) => state.dashboardDate);
 
-  const { totalExpense } = useAppSelector((state) => state.dashboardCounts);
+  const { totalIncome } = useAppSelector((state) => state.dashboardCounts);
 
   const dispatch = useAppDispatch();
 
-  const [expenseTransactions, setExpenseTransactions] = useState<Transaction[]>(
+  const [incomeTransactions, setIncomeTransactions] = useState<Transaction[]>(
     []
   );
 
   const uploadTransactions = useCallback(async () => {
     const { data } = await transactionService.findAll({
-      type: TransactionType.EXPENSE,
+      type: TransactionType.INCOME,
     });
-    const expenseTransactions = data.filter((tr) =>
+    const incomeTransactions = data.filter((tr) =>
       compareDates(new Date(tr.date), startDate, endDate)
     );
 
     dispatch(
-      dashboardCountsActions.setTotalExpense(
-        expenseTransactions.reduce(
+      dashboardCountsActions.setTotalIncome(
+        incomeTransactions.reduce(
           (acc, transaction) => (acc += transaction.sum),
           0
         )
       )
     );
 
-    setExpenseTransactions(
-      data.filter((tr) => compareDates(new Date(tr.date), startDate, endDate))
-    );
+    setIncomeTransactions(incomeTransactions);
   }, [dispatch, endDate, startDate]);
 
   const handleCreateTransaction = async (data: CreateTransactionDto) => {
@@ -63,19 +61,19 @@ const ExpenseTransactionsGrid = () => {
 
   return (
     <DataGrid
-      title="Витрати"
-      entitySlug={EntitySlug.EXPENSE_TRANSACTION}
-      schema={expenseTransactionSchema}
-      data={expenseTransactions}
+      title="Доходи"
+      entitySlug={EntitySlug.INCOME_TRANSACTION}
+      schema={incomeTransactionSchema}
+      data={incomeTransactions}
       onCreate={handleCreateTransaction}
       onDelete={handleDeleteTransaction}
     >
       <p className="font-semibold">
-        Загальні витрати:{" "}
-        <span className="text-danger">{totalExpense}&#8372;</span>
+        Загальний дохід:{" "}
+        <span className="text-success">{totalIncome}&#8372;</span>
       </p>
     </DataGrid>
   );
 };
 
-export { ExpenseTransactionsGrid };
+export { IncomeTransactionsGrid };

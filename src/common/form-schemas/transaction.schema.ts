@@ -22,6 +22,16 @@ export const transactionSchema: ColumnDef[] = [
     isRequired: true,
   },
   {
+    type: FormFieldType.ACCOUNT_SELECT,
+    name: ColumnKey.ACCOUNT,
+    label: "Рахунок",
+    placeholder: "Виберіть рахунок",
+    labelPlacement: "outside",
+    isHidden: true,
+    isFormField: true,
+    isRequired: true,
+  },
+  {
     type: FormFieldType.DATE,
     name: ColumnKey.DATE,
     label: "Дата",

@@ -17,7 +17,11 @@ export default function HomePage() {
     <section className="text-white h-screen">
       <header className="fixed px-4 py-4 w-full">
         <div className="container mx-auto flex items-center justify-between">
-          <Link href={AppPath.HOME} className="shrink-0" aria-label="Головна сторінка">
+          <Link
+            href={AppPath.HOME}
+            className="shrink-0"
+            aria-label="Головна сторінка"
+          >
             <Image
               width={130}
               height={25}
@@ -46,7 +50,11 @@ export default function HomePage() {
                 <RiTiktokFill />
               </Link>
 
-              <Link href="tel:380663372763" target="_blank" className="md:hidden">
+              <Link
+                href="tel:380663372763"
+                target="_blank"
+                className="md:hidden"
+              >
                 <RiPhoneFill />
               </Link>
             </div>
@@ -80,7 +88,11 @@ export default function HomePage() {
             </h2>
 
             <div className="flex flex-col md:flex-row items-center gap-4">
-              <Link href={AppLink.ALTEGIO} target="_blank" className="w-full md:w-auto">
+              <Link
+                href={AppLink.ALTEGIO}
+                target="_blank"
+                className="w-full md:w-auto"
+              >
                 <Button
                   color="primary"
                   radius="full"
@@ -92,7 +104,11 @@ export default function HomePage() {
                 </Button>
               </Link>
 
-              <Link href={AppLink.GOOGLE_MAPS} target="_blank" className="w-full md:w-auto">
+              <Link
+                href={AppLink.GOOGLE_MAPS}
+                target="_blank"
+                className="w-full md:w-auto"
+              >
                 <Button
                   radius="full"
                   size="lg"
@@ -158,7 +174,9 @@ export default function HomePage() {
             <Link href={AppLink.ALTEGIO} target="_blank">
               <Card className="absolute top-[130px] left-[180px] animate-[levitate_6s_ease_infinite] hover:bg-gray-100">
                 <CardBody>
-                  <p className="whitespace-nowrap">👃 Видалення волосся воском</p>
+                  <p className="whitespace-nowrap">
+                    👃 Видалення волосся воском
+                  </p>
                 </CardBody>
               </Card>
             </Link>

@@ -3,5 +3,6 @@ export enum FormFieldType {
   DATE = "date",
   NUMBER = "number",
   SELECT = "select",
+  ACCOUNT_SELECT = "accountSelect",
   TEXTAREA = "textarea",
 }

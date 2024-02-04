@@ -7,6 +7,7 @@ import { Button, Input, Select, SelectItem, Textarea } from "@nextui-org/react";
 
 import { ColumnDef } from "@/common/types";
 import { FormFieldType } from "@/common/enums";
+import { AccountSelect } from "..";
 
 export interface InputsTemplate {
   [key: string]: string;
@@ -85,6 +86,14 @@ const EntityForm: FC<EntityFormProps> = ({
                     </SelectItem>
                   ))}
                 </Select>
+              );
+            } else if (field.type === FormFieldType.ACCOUNT_SELECT) {
+              return (
+                <AccountSelect
+                  key={field.name}
+                  field={field}
+                  register={register}
+                />
               );
             } else {
               return (

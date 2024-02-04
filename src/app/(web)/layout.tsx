@@ -4,7 +4,7 @@ import { Montserrat } from "next/font/google";
 
 import { SEO } from "@/common/enums";
 
-import { Providers } from "./providers";
+import { Providers } from "../providers";
 
 import "./globals.scss";
 

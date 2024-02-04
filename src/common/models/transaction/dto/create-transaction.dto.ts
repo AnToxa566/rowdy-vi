@@ -5,5 +5,6 @@ export interface CreateTransactionDto {
   sum: number;
   type: TransactionType;
   date: Date;
+  account: string;
   description?: string;
 }
