@@ -10,12 +10,14 @@ import { Account } from "@/common/models";
 
 interface AccountSelectProps<TFieldValues extends FieldValues> {
   field: ColumnDef;
+  defaultSelectedKey?: string;
   register: UseFormRegister<TFieldValues>;
 }
 
 export const AccountSelect = <TFieldValues extends FieldValues>({
   field,
   register,
+  defaultSelectedKey = "",
 }: AccountSelectProps<TFieldValues>) => {
   const [accounts, setAccounts] = useState<Account[]>([]);
 
@@ -29,20 +31,24 @@ export const AccountSelect = <TFieldValues extends FieldValues>({
   }, []);
 
   return (
-    <Select
-      label={field.label}
-      placeholder={field.placeholder}
-      labelPlacement={field.labelPlacement}
-      isRequired={field.isRequired}
-      disabled={field.disabled}
-      defaultSelectedKeys={field.defaultSelectedKeys}
-      {...register(field.name as Path<TFieldValues>)}
-    >
-      {accounts.map((account) => (
-        <SelectItem key={account._id} value={account._id}>
-          {account.name}
-        </SelectItem>
-      ))}
-    </Select>
+    accounts.length && (
+      <Select
+        label={field.label}
+        placeholder={field.placeholder}
+        labelPlacement={field.labelPlacement}
+        isRequired={field.isRequired}
+        disabled={field.disabled}
+        defaultSelectedKeys={
+          defaultSelectedKey ? [defaultSelectedKey] : field.defaultSelectedKeys
+        }
+        {...register(field.name as Path<TFieldValues>)}
+      >
+        {accounts.map((account) => (
+          <SelectItem key={account._id} value={account._id}>
+            {account.name}
+          </SelectItem>
+        ))}
+      </Select>
+    )
   );
 };

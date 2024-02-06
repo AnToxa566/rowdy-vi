@@ -1,33 +1,35 @@
 "use client";
 
-import { FC } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-
 import { Button, Input, Select, SelectItem, Textarea } from "@nextui-org/react";
 
 import { ColumnDef } from "@/common/types";
 import { FormFieldType } from "@/common/enums";
+
 import { AccountSelect } from "..";
+import { formateDate } from "@/common/utils";
 
 export interface InputsTemplate {
   [key: string]: string;
 }
 
-export interface EntityFormProps {
+export interface EntityFormProps<T> {
   schema: ColumnDef[];
   entitySlug: string;
+  item?: T;
   updateState?: boolean;
   onCancel?: () => void;
   onSave?: (data: InputsTemplate) => void;
 }
 
-const EntityForm: FC<EntityFormProps> = ({
+export function EntityForm<T>({
   schema,
   entitySlug,
+  item,
   updateState = false,
   onCancel = () => {},
   onSave = () => {},
-}) => {
+}: EntityFormProps<T>) {
   const inputsTemplate: InputsTemplate = {};
 
   schema.forEach((field) => {
@@ -60,7 +62,9 @@ const EntityForm: FC<EntityFormProps> = ({
                   labelPlacement={field.labelPlacement}
                   isRequired={field.isRequired}
                   disabled={field.disabled}
-                  value={field.defaultValue}
+                  defaultValue={
+                    item ? item[field.name as keyof T] : field.defaultValue
+                  }
                   {...register(field.name)}
                 />
               );
@@ -77,7 +81,11 @@ const EntityForm: FC<EntityFormProps> = ({
                   labelPlacement={field.labelPlacement}
                   isRequired={field.isRequired}
                   disabled={field.disabled}
-                  defaultSelectedKeys={field.defaultSelectedKeys}
+                  defaultSelectedKeys={
+                    item
+                      ? [item[field.name as keyof T] as string | number]
+                      : field.defaultSelectedKeys
+                  }
                   {...register(field.name)}
                 >
                   {field.options.map((option) => (
@@ -92,7 +100,28 @@ const EntityForm: FC<EntityFormProps> = ({
                 <AccountSelect
                   key={field.name}
                   field={field}
+                  defaultSelectedKey={
+                    item ? (item[field.name as keyof T] as string) : ""
+                  }
                   register={register}
+                />
+              );
+            } else if (field.type === FormFieldType.DATE) {
+              return (
+                <Input
+                  key={field.name}
+                  type={field.type}
+                  label={field.label}
+                  placeholder={field.placeholder}
+                  labelPlacement={field.labelPlacement}
+                  defaultValue={formateDate(
+                    new Date(
+                      item ? item[field.name as keyof T] : field.defaultValue
+                    )
+                  )}
+                  isRequired={field.isRequired}
+                  disabled={field.disabled}
+                  {...register(field.name)}
                 />
               );
             } else {
@@ -103,7 +132,9 @@ const EntityForm: FC<EntityFormProps> = ({
                   label={field.label}
                   placeholder={field.placeholder}
                   labelPlacement={field.labelPlacement}
-                  defaultValue={field.defaultValue}
+                  defaultValue={
+                    item ? item[field.name as keyof T] : field.defaultValue
+                  }
                   isRequired={field.isRequired}
                   disabled={field.disabled}
                   {...register(field.name)}
@@ -125,6 +156,4 @@ const EntityForm: FC<EntityFormProps> = ({
       </footer>
     </form>
   );
-};
-
-export { EntityForm };
+}

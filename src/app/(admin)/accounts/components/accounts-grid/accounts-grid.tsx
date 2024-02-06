@@ -6,7 +6,7 @@ import { accountService } from "@/services";
 import { EntitySlug } from "@/common/enums";
 import { DataGrid } from "@/app/(admin)/components";
 import { accountSchema } from "@/common/form-schemas";
-import { Account, CreateAccountDto } from "@/common/models";
+import { Account, CreateAccountDto, UpdateAccountDto } from "@/common/models";
 
 export const AccountsGrid = () => {
   const [accounts, setAccounts] = useState<Account[]>([]);
@@ -18,6 +18,15 @@ export const AccountsGrid = () => {
 
   const handleCreateAccount = async (data: CreateAccountDto) => {
     await accountService.create({
+      ...data,
+      sum: Number(data.sum),
+    });
+
+    await fetchAccounts();
+  };
+
+  const handleUpdateAccount = async (id: string, data: UpdateAccountDto) => {
+    await accountService.update(id, {
       ...data,
       sum: Number(data.sum),
     });
@@ -41,6 +50,7 @@ export const AccountsGrid = () => {
       schema={accountSchema}
       data={accounts}
       onCreate={handleCreateAccount}
+      onUpdate={handleUpdateAccount}
       onDelete={handleDeleteTransaction}
     ></DataGrid>
   );

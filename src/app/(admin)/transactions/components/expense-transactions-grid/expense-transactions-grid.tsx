@@ -7,7 +7,11 @@ import { useAppSelector, useAppDispatch } from "@/hooks";
 import { transactionService } from "@/services";
 import { EntitySlug, TransactionType } from "@/common/enums";
 import { expenseTransactionSchema } from "@/common/form-schemas";
-import { CreateTransactionDto, Transaction } from "@/common/models";
+import {
+  CreateTransactionDto,
+  Transaction,
+  UpdateTransactionDto,
+} from "@/common/models";
 import { compareDates } from "@/common/utils";
 import { dashboardCountsActions } from "@/store";
 
@@ -52,6 +56,17 @@ const ExpenseTransactionsGrid = () => {
     await uploadTransactions();
   };
 
+  const handleUpdateTransaction = async (
+    id: string,
+    data: UpdateTransactionDto
+  ) => {
+    await transactionService.update(id, {
+      ...data,
+      sum: Number(data.sum),
+    });
+    await uploadTransactions();
+  };
+
   const handleDeleteTransaction = async (id: string) => {
     await transactionService.delete(id);
     await uploadTransactions();
@@ -68,6 +83,7 @@ const ExpenseTransactionsGrid = () => {
       schema={expenseTransactionSchema}
       data={expenseTransactions}
       onCreate={handleCreateTransaction}
+      onUpdate={handleUpdateTransaction}
       onDelete={handleDeleteTransaction}
     >
       <p className="font-semibold">

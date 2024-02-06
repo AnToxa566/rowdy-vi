@@ -52,6 +52,7 @@ export interface DataGridProps<T extends BaseModel, C, U>
   enableDelete?: boolean;
   onDelete?: (id: string) => void;
   onCreate?: (data: C) => void;
+  onUpdate?: (id: string, data: U) => void;
 }
 
 function DataGrid<T extends BaseModel, C, U>({
@@ -68,6 +69,7 @@ function DataGrid<T extends BaseModel, C, U>({
   enableDelete = true,
   onDelete = () => {},
   onCreate = () => {},
+  onUpdate = () => {},
 }: DataGridProps<T, C, U>) {
   const [page, setPage] = useState(1);
 
@@ -84,6 +86,11 @@ function DataGrid<T extends BaseModel, C, U>({
 
   const handleCreateEntity = (data: C) => {
     onCreate(data);
+    onClose();
+  };
+
+  const handleUpdateEntity = (id: string, data: U) => {
+    onUpdate(id, data);
     onClose();
   };
 
@@ -111,14 +118,16 @@ function DataGrid<T extends BaseModel, C, U>({
     });
   };
 
-  const handleOpenUpdateModal = () => {
+  const handleOpenUpdateModal = (item: T) => {
     handleModal({
       content: (
         <EntityForm
           schema={schema}
+          item={item}
           updateState={true}
           entitySlug={entitySlug}
           onCancel={onClose}
+          onSave={(data) => handleUpdateEntity(item._id, data as U)}
         />
       ),
     });
@@ -164,7 +173,7 @@ function DataGrid<T extends BaseModel, C, U>({
             <Tooltip content="Редагувати">
               <span
                 className="text-lg text-default-400 cursor-pointer active:opacity-50"
-                onClick={handleOpenUpdateModal}
+                onClick={() => handleOpenUpdateModal(item)}
               >
                 <RiEdit2Line />
               </span>
