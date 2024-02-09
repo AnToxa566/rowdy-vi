@@ -15,7 +15,7 @@ import { AppLink, AppPath } from "@/common/enums";
 export default function HomePage() {
   return (
     <section className="text-white h-screen">
-      <header className="fixed px-4 py-4 w-full">
+      <header className="fixed px-4 py-4 w-full z-20">
         <div className="container mx-auto flex items-center justify-between">
           <Link
             href={AppPath.HOME}
@@ -76,7 +76,7 @@ export default function HomePage() {
         </div>
       </header>
 
-      <main className="py-8 px-4 bg-black h-full">
+      <main className="relative py-8 px-4 h-full z-20">
         <div className="container mx-auto h-full flex items-center">
           <div className="flex flex-col gap-6 lg:w-1/2">
             <h1 className="text-center md:text-left text-[2.1rem] lg:text-5xl font-bold leading-tight">
@@ -183,6 +183,17 @@ export default function HomePage() {
           </div>
         </div>
       </main>
+
+      <Image
+        unoptimized
+        width={1200}
+        height={800}
+        src="/images/barbershop-bg.jpeg"
+        alt=""
+        className="absolute top-0 left-0 h-screen w-screen object-cover z-0"
+      />
+
+      <div className="absolute top-0 left-0 h-screen w-screen z-10 bg-black opacity-85"></div>
     </section>
   );
 }

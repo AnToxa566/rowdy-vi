@@ -43,7 +43,8 @@ export const AccountsGrid = () => {
     fetchAccounts();
   }, []);
 
-  const getTotal = () => accounts.reduce((acc, account) => acc += account.sum, 0);
+  const getTotal = () =>
+    accounts.reduce((acc, account) => (acc += account.sum), 0).toFixed(2);
 
   return (
     <DataGrid
@@ -55,9 +56,8 @@ export const AccountsGrid = () => {
       onUpdate={handleUpdateAccount}
       onDelete={handleDeleteTransaction}
     >
-       <p className="font-semibold">
-        Загальна сума:{" "}
-        <span className="text-success">{getTotal()}&#8372;</span>
+      <p className="font-semibold">
+        Загальна сума: <span className="text-success">{getTotal()}&#8372;</span>
       </p>
     </DataGrid>
   );
