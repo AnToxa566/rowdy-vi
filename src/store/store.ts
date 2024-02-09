@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import { dashboardDateReducer } from "./dashboard-date";
 import { dashboardCountsReducer } from "./dashboard-couts";
+import { dashboardPeriodReducer } from "./dashboard-period";
 
 export const store = configureStore({
   reducer: {
     dashboardDate: dashboardDateReducer,
     dashboardCounts: dashboardCountsReducer,
+    dashboardPeriod: dashboardPeriodReducer,
   },
 });
 

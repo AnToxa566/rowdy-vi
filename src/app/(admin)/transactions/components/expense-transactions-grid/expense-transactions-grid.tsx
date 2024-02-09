@@ -12,7 +12,6 @@ import {
   Transaction,
   UpdateTransactionDto,
 } from "@/common/models";
-import { compareDates } from "@/common/utils";
 import { dashboardCountsActions } from "@/store";
 
 const ExpenseTransactionsGrid = () => {
@@ -29,23 +28,17 @@ const ExpenseTransactionsGrid = () => {
   const uploadTransactions = useCallback(async () => {
     const { data } = await transactionService.findAll({
       type: TransactionType.EXPENSE,
+      startDate: startDate.toString(),
+      endDate: endDate.toString(),
     });
-    const expenseTransactions = data.filter((tr) =>
-      compareDates(new Date(tr.date), startDate, endDate)
-    );
 
     dispatch(
       dashboardCountsActions.setTotalExpense(
-        expenseTransactions.reduce(
-          (acc, transaction) => (acc += transaction.sum),
-          0
-        )
+        data.reduce((acc, transaction) => (acc += transaction.sum), 0)
       )
     );
 
-    setExpenseTransactions(
-      data.filter((tr) => compareDates(new Date(tr.date), startDate, endDate))
-    );
+    setExpenseTransactions(data);
   }, [dispatch, endDate, startDate]);
 
   const handleCreateTransaction = async (data: CreateTransactionDto) => {

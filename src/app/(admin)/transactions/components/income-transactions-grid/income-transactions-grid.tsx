@@ -12,7 +12,6 @@ import {
   Transaction,
   UpdateTransactionDto,
 } from "@/common/models";
-import { compareDates } from "@/common/utils";
 import { dashboardCountsActions } from "@/store";
 
 const IncomeTransactionsGrid = () => {
@@ -29,21 +28,17 @@ const IncomeTransactionsGrid = () => {
   const uploadTransactions = useCallback(async () => {
     const { data } = await transactionService.findAll({
       type: TransactionType.INCOME,
+      startDate: startDate.toString(),
+      endDate: endDate.toString(),
     });
-    const incomeTransactions = data.filter((tr) =>
-      compareDates(new Date(tr.date), startDate, endDate)
-    );
 
     dispatch(
       dashboardCountsActions.setTotalIncome(
-        incomeTransactions.reduce(
-          (acc, transaction) => (acc += transaction.sum),
-          0
-        )
+        data.reduce((acc, transaction) => (acc += transaction.sum), 0)
       )
     );
 
-    setIncomeTransactions(incomeTransactions);
+    setIncomeTransactions(data);
   }, [dispatch, endDate, startDate]);
 
   const handleCreateTransaction = async (data: CreateTransactionDto) => {
