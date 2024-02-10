@@ -23,6 +23,7 @@ import {
   CardFooter,
   Tooltip,
   Pagination,
+  Progress,
 } from "@nextui-org/react";
 import {
   RiAddFill,
@@ -44,6 +45,7 @@ export interface DataGridProps<T extends BaseModel, C, U>
   entitySlug: string;
   data: T[];
   schema: ColumnDef[];
+  loading?: boolean;
   rowsPerPage?: number;
   enableActios?: boolean;
   enableAdd?: boolean;
@@ -61,6 +63,7 @@ function DataGrid<T extends BaseModel, C, U>({
   data,
   schema,
   children,
+  loading = false,
   rowsPerPage = 4,
   enableActios = true,
   enableAdd = true,
@@ -234,6 +237,17 @@ function DataGrid<T extends BaseModel, C, U>({
       <CardBody>
         <Table
           aria-label={`Таблиця ${title}`}
+          topContent={
+            loading && (
+              <Progress
+                size="sm"
+                isIndeterminate
+                color="danger"
+                aria-label="Loading..."
+                className="mb-2"
+              />
+            )
+          }
           bottomContent={
             <div className="flex w-full justify-center">
               <Pagination

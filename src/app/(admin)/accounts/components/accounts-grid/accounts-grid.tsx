@@ -1,20 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
+import { accountsActions } from "@/store";
 import { accountService } from "@/services";
 import { EntitySlug } from "@/common/enums";
 import { DataGrid } from "@/app/(admin)/components";
 import { accountSchema } from "@/common/form-schemas";
-import { Account, CreateAccountDto, UpdateAccountDto } from "@/common/models";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import { CreateAccountDto, UpdateAccountDto } from "@/common/models";
 
 export const AccountsGrid = () => {
-  const [accounts, setAccounts] = useState<Account[]>([]);
+  const dispatch = useAppDispatch();
 
-  const fetchAccounts = async () => {
-    const { data } = await accountService.findAll();
-    setAccounts(data);
-  };
+  const { accounts, loading } = useAppSelector((state) => state.accounts);
 
   const handleCreateAccount = async (data: CreateAccountDto) => {
     await accountService.create({
@@ -22,7 +21,7 @@ export const AccountsGrid = () => {
       sum: Number(data.sum),
     });
 
-    await fetchAccounts();
+    dispatch(accountsActions.fetchAccounts());
   };
 
   const handleUpdateAccount = async (id: string, data: UpdateAccountDto) => {
@@ -31,17 +30,17 @@ export const AccountsGrid = () => {
       sum: Number(data.sum),
     });
 
-    await fetchAccounts();
+    dispatch(accountsActions.fetchAccounts());
   };
 
-  const handleDeleteTransaction = async (id: string) => {
+  const handleDeleteAccount = async (id: string) => {
     await accountService.delete(id);
-    await fetchAccounts();
+    dispatch(accountsActions.fetchAccounts());
   };
 
   useEffect(() => {
-    fetchAccounts();
-  }, []);
+    dispatch(accountsActions.fetchAccounts());
+  }, [dispatch]);
 
   const getTotal = () =>
     accounts.reduce((acc, account) => (acc += account.sum), 0).toFixed(2);
@@ -49,12 +48,13 @@ export const AccountsGrid = () => {
   return (
     <DataGrid
       title="Рахунки"
+      loading={loading}
       entitySlug={EntitySlug.ACCOUNT}
       schema={accountSchema}
       data={accounts}
       onCreate={handleCreateAccount}
       onUpdate={handleUpdateAccount}
-      onDelete={handleDeleteTransaction}
+      onDelete={handleDeleteAccount}
     >
       <p className="font-semibold">
         Загальна сума: <span className="text-success">{getTotal()}&#8372;</span>

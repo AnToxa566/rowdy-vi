@@ -1,12 +1,14 @@
 "use client";
 
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { Button, Input, Select, SelectItem } from "@nextui-org/react";
 
-import { Account, TransferDto } from "@/common/models";
+import { accountsActions } from "@/store";
 import { accountService } from "@/services";
+import { TransferDto } from "@/common/models";
+import { useAppDispatch, useAppSelector } from "@/hooks";
 
 interface TransferFormProps {
   onTransfer?: (data: TransferDto) => void;
@@ -23,7 +25,9 @@ export const TransferForm: FC<TransferFormProps> = ({
   onTransfer = () => {},
   onCancel = () => {},
 }) => {
-  const [accounts, setAccounts] = useState<Account[]>([]);
+  const dispatch = useAppDispatch();
+
+  const { accounts, loading } = useAppSelector((state) => state.accounts);
 
   const { register, handleSubmit } = useForm<Inputs>();
 
@@ -34,17 +38,14 @@ export const TransferForm: FC<TransferFormProps> = ({
     };
 
     await accountService.transfer(payload);
+    await dispatch(accountsActions.fetchAccounts());
+
     onTransfer(payload);
   };
 
-  const fetchAccounts = async () => {
-    const { data } = await accountService.findAll();
-    setAccounts(data);
-  };
-
   useEffect(() => {
-    fetchAccounts();
-  }, []);
+    dispatch(accountsActions.fetchAccounts());
+  }, [dispatch]);
 
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
@@ -88,11 +89,16 @@ export const TransferForm: FC<TransferFormProps> = ({
       />
 
       <div className="flex items-center justify-end gap-2">
-        <Button color="danger" variant="light" onClick={onCancel}>
+        <Button
+          color="danger"
+          variant="light"
+          isLoading={loading}
+          onClick={onCancel}
+        >
           Відміна
         </Button>
 
-        <Button type="submit" color="primary">
+        <Button type="submit" color="primary" isLoading={loading}>
           Перевести
         </Button>
       </div>
