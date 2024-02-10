@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Select, SelectItem } from "@nextui-org/react";
 import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
+import { Account } from "@/common/models";
 import { ColumnDef } from "@/common/types";
-import { accountsActions } from "@/store";
-import { useAppDispatch, useAppSelector } from "@/hooks";
+import { accountService } from "@/services";
 
 interface AccountSelectProps<TFieldValues extends FieldValues> {
   field: ColumnDef;
@@ -19,13 +19,16 @@ export const AccountSelect = <TFieldValues extends FieldValues>({
   register,
   defaultSelectedKey = "",
 }: AccountSelectProps<TFieldValues>) => {
-  const dispatch = useAppDispatch();
+  const [accounts, setAccounts] = useState<Account[]>([]);
 
-  const { accounts, loading } = useAppSelector((state) => state.accounts);
+  const fetchAccounts = async () => {
+    const { data } = await accountService.findAll();
+    setAccounts(data);
+  };
 
   useEffect(() => {
-    dispatch(accountsActions.fetchAccounts());
-  }, [dispatch]);
+    fetchAccounts();
+  }, []);
 
   return (
     accounts.length && (
@@ -35,7 +38,6 @@ export const AccountSelect = <TFieldValues extends FieldValues>({
         labelPlacement={field.labelPlacement}
         isRequired={field.isRequired}
         disabled={field.disabled}
-        isLoading={loading}
         defaultSelectedKeys={
           defaultSelectedKey ? [defaultSelectedKey] : field.defaultSelectedKeys
         }

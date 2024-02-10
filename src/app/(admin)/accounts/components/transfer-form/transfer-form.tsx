@@ -1,13 +1,13 @@
 "use client";
 
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { Button, Input, Select, SelectItem } from "@nextui-org/react";
 
 import { accountsActions } from "@/store";
 import { accountService } from "@/services";
-import { TransferDto } from "@/common/models";
+import { Account, TransferDto } from "@/common/models";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 
 interface TransferFormProps {
@@ -27,7 +27,9 @@ export const TransferForm: FC<TransferFormProps> = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  const { accounts, loading } = useAppSelector((state) => state.accounts);
+  const { loading } = useAppSelector((state) => state.accounts);
+
+  const [accounts, setAccounts] = useState<Account[]>([]);
 
   const { register, handleSubmit } = useForm<Inputs>();
 
@@ -43,9 +45,14 @@ export const TransferForm: FC<TransferFormProps> = ({
     onTransfer(payload);
   };
 
+  const fetchAccounts = async () => {
+    const { data } = await accountService.findAll();
+    setAccounts(data);
+  };
+
   useEffect(() => {
-    dispatch(accountsActions.fetchAccounts());
-  }, [dispatch]);
+    fetchAccounts();
+  }, []);
 
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>

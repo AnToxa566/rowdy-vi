@@ -15,11 +15,11 @@ import {
 import { dashboardCountsActions } from "@/store";
 
 const ExpenseTransactionsGrid = () => {
-  const { startDate, endDate } = useAppSelector((state) => state.dashboardDate);
+  const dispatch = useAppDispatch();
 
   const { totalExpense } = useAppSelector((state) => state.dashboardCounts);
 
-  const dispatch = useAppDispatch();
+  const { startDate, endDate } = useAppSelector((state) => state.dashboardDate);
 
   const [expenseTransactions, setExpenseTransactions] = useState<Transaction[]>(
     []
