@@ -6,6 +6,8 @@ import { SEO } from "@/common/enums";
 
 import { Providers } from "../providers";
 
+import { Header } from "./components";
+
 import "./globals.scss";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
@@ -72,7 +74,10 @@ export default function RootLayout({
         </noscript>
         {/* End Google Tag Manager (noscript) */}
 
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          <main>{children}</main>
+        </Providers>
       </body>
     </html>
   );
