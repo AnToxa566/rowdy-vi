@@ -30,7 +30,7 @@ export const Header = () => {
   return (
     <header
       className={`fixed px-4 py-4 w-full z-30 transition-all ${
-        scrolled ? "bg-black bg-opacity-90 backdrop-blur-sm shadow" : ""
+        scrolled ? "bg-black bg-opacity-80 backdrop-blur-sm shadow" : ""
       }`}
     >
       <div className="container mx-auto flex items-center justify-between">
@@ -70,6 +70,7 @@ export const Header = () => {
             <Link
               href="tel:380663372763"
               target="_blank"
+              aria-label="Зателефонувати адміністратору"
               className="text-white md:hidden"
             >
               <RiPhoneFill />

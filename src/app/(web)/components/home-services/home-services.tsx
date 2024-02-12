@@ -78,9 +78,7 @@ export const HomeServices = () => {
 
         <div className="flex items-center gap-4 overflow-x-scroll">
           {services.map((service) => (
-            <Link key={service.label} href={AppLink.ALTEGIO} target="_blank">
-              <ServiceCard service={service} />
-            </Link>
+            <ServiceCard key={service.label} service={service} />
           ))}
         </div>
 
@@ -96,7 +94,7 @@ export const HomeServices = () => {
             endContent={<RiArrowRightLine />}
             className="bg-[#e62621] w-full"
           >
-            Записатись
+            Вибрати послугу
           </Button>
         </Link>
       </div>

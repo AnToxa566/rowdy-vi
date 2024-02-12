@@ -1,0 +1,25 @@
+.master-card {
+  &__backdrop {
+    @apply transition-opacity;
+  }
+
+  &__image {
+    @apply transition-transform;
+  }
+
+  &__actions {
+    @apply max-h-0 overflow-hidden transition-all;
+  }
+
+  &:hover &__backdrop {
+    @apply opacity-20;
+  }
+
+  &:hover &__image {
+    @apply scale-110;
+  }
+
+  &:hover &__actions {
+    @apply max-h-40;
+  }
+}

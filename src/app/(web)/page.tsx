@@ -1,10 +1,11 @@
-import { HomeHero, HomeServices } from "./components";
+import { HomeHero, HomeMasters, HomeServices } from "./components";
 
 export default function HomePage() {
   return (
     <>
       <HomeHero />
       <HomeServices />
+      <HomeMasters />
     </>
   );
 }

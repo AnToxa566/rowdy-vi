@@ -11,12 +11,13 @@ export const HomeHero = () => {
     <section className="text-white h-screen">
       <div className="relative py-8 px-4 h-full z-20">
         <div className="container mx-auto h-full flex items-center">
-          <div className="flex flex-col gap-6 lg:w-1/2">
-            <h1 className="text-center md:text-left text-[2.1rem] lg:text-5xl font-bold leading-tight">
-              Rowdy Barbershop - місце, де починається ваш стиль
+          <div className="flex flex-col gap-4 lg:gap-6 lg:w-1/2">
+            <h1 className="text-2xl lg:text-5xl font-semibold leading-tight">
+              <span className="font-black">Rowdy Barbershop</span> - місце, де
+              починається ваш стиль
             </h1>
 
-            <h2 className="my-2 text-center md:text-left text-lg lg:text-xl font-normal text-default-500">
+            <h2 className="my-2 lg:text-xl font-light">
               Відчуй Енергію Бунту у Кожній Стрижці 🔥
             </h2>
 
