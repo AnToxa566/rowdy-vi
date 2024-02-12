@@ -60,6 +60,13 @@ export default function RootLayout({
           }}
         />
         {/* End Google Tag Manager */}
+
+        {/* Start Altegio Widget */}
+        <Script
+          type="text/javascript"
+          src="https://w848214.alteg.io/widgetJS"
+        />
+        {/* End Altegio Widget */}
       </head>
 
       <body className={montserrat.className}>
