@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 import { Button } from "@nextui-org/react";
 import { RiInstagramFill, RiTiktokFill, RiPhoneFill } from "@remixicon/react";
@@ -7,8 +10,29 @@ import { RiInstagramFill, RiTiktokFill, RiPhoneFill } from "@remixicon/react";
 import { AppPath, AppLink } from "@/common/enums";
 
 export const Header = () => {
+  const [scrolled, setScrolled] = useState<boolean>(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 20) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    handleScroll();
+    addEventListener("scroll", handleScroll);
+
+    return () => removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="fixed px-4 py-4 w-full z-20">
+    <header
+      className={`fixed px-4 py-4 w-full z-30 transition-all ${
+        scrolled ? "bg-black bg-opacity-90 backdrop-blur-sm shadow" : ""
+      }`}
+    >
       <div className="container mx-auto flex items-center justify-between">
         <Link
           href={AppPath.HOME}
@@ -43,7 +67,11 @@ export const Header = () => {
               <RiTiktokFill />
             </Link>
 
-            <Link href="tel:380663372763" target="_blank" className="md:hidden">
+            <Link
+              href="tel:380663372763"
+              target="_blank"
+              className="text-white md:hidden"
+            >
               <RiPhoneFill />
             </Link>
           </div>

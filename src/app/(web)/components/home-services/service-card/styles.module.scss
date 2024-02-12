@@ -1,0 +1,17 @@
+.service-card {
+  &__backdrop {
+    @apply transition-opacity;
+  }
+
+  &__image {
+    @apply transition-transform;
+  }
+
+  &:hover &__backdrop {
+    @apply opacity-30;
+  }
+
+  &:hover &__image {
+    @apply scale-125;
+  }
+}
