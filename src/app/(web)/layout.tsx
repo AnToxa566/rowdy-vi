@@ -66,6 +66,15 @@ export default function RootLayout({
           type="text/javascript"
           src="https://w848214.alteg.io/widgetJS"
         />
+
+        <Script
+          id="altegio_widget"
+          dangerouslySetInnerHTML={{
+            __html: `var yWidgetSettings = {
+              buttonText : 'Стартуй кіпіш',
+            };`,
+          }}
+        />
         {/* End Altegio Widget */}
       </head>
 
