@@ -1,6 +1,12 @@
 import Link from "next/link";
 
-import { Button } from "@nextui-org/react";
+import {
+  Button,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@nextui-org/react";
+import { RiInformationLine } from "@remixicon/react";
 
 import { AppLink } from "@/common/enums";
 
@@ -63,6 +69,57 @@ export const HomeMasters = () => {
             <MasterCard key={idx} master={master} />
           ))}
         </div>
+
+        <Popover showArrow offset={10} placement="bottom" backdrop="blur">
+          <PopoverTrigger>
+            <Button
+              radius="full"
+              color="primary"
+              className="bg-[#e62621] mx-auto"
+              startContent={<RiInformationLine size={18} />}
+            >
+              <span className="hidden md:flex gap-1">
+                Чим відрізняється
+                <span className="font-bold">Top Barber</span> від
+                <span className="font-bold">Expert&apos;а?</span>
+              </span>
+
+              <span className="md:hidden flex gap-1">
+                <span className="font-bold">Top Barber</span> vs
+                <span className="font-bold">Expert</span>
+              </span>
+            </Button>
+          </PopoverTrigger>
+
+          <PopoverContent className="max-w-[600px] flex flex-col gap-2 text-left items-start p-4">
+            <p>
+              У нашому барбершопі є дві категорії майстрів:{" "}
+              <b className="text-[#e62621]">Expert</b> та{" "}
+              <b className="text-[#e62621]">Top Barber.</b>
+            </p>
+
+            <p>
+              <b className="text-[#e62621]">Expert</b> - це досвідчені майстри з
+              багаторічним стажем та великою клієнтською базою, які пропонують
+              високий рівень послуг.
+            </p>
+
+            <p>
+              <b className="text-[#e62621]">Top Barber</b> - це такі ж самі
+              професіонали своєї справи як і експерти, але за рахунок меншого
+              стажу, вони мають меншу клієнтську базу, і тому за рахунок
+              доступних цін, ми допомагаємо майстру знайти свого клієнта, а
+              клієнту свого майстра.
+            </p>
+
+            <p>
+              <b className="text-[#e62621]">
+                І запам&apos;ятайте - незалежно від того, до кого ви запишитесь,
+                ви завжди отримаєте сервіс та результат на вищому рівні!
+              </b>
+            </p>
+          </PopoverContent>
+        </Popover>
       </div>
     </section>
   );
