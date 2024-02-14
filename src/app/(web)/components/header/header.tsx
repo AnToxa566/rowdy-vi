@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { Button } from "@nextui-org/react";
+import { Button, Tooltip } from "@nextui-org/react";
 import { RiInstagramFill, RiTiktokFill, RiPhoneFill } from "@remixicon/react";
 
 import { AppPath, AppLink } from "@/common/enums";
@@ -77,19 +77,31 @@ export const Header = () => {
             </Link>
           </div>
 
-          <div className="items-center gap-2 hidden md:flex">
-            <Link href="tel:380663372763" target="_blank">
-              <Button radius="full" variant="bordered" className="text-white">
-                +38 (066) 337 2763
-              </Button>
-            </Link>
+          <Tooltip
+            showArrow={true}
+            content={
+              <div className="px-1 py-2">
+                <div className="text-small font-bold uppercase">
+                  Години роботи
+                </div>
+                <div className="">10:00 - 20:00</div>
+              </div>
+            }
+          >
+            <div className="items-center gap-2 hidden md:flex">
+              <Link href="tel:380663372763" target="_blank">
+                <Button radius="full" variant="bordered" className="text-white">
+                  +38 (066) 337 2763
+                </Button>
+              </Link>
 
-            <Link href="tel:380687710337" target="_blank">
-              <Button radius="full" variant="bordered" className="text-white">
-                +38 (068) 771 0337
-              </Button>
-            </Link>
-          </div>
+              <Link href="tel:380687710337" target="_blank">
+                <Button radius="full" variant="bordered" className="text-white">
+                  +38 (068) 771 0337
+                </Button>
+              </Link>
+            </div>
+          </Tooltip>
         </div>
       </div>
     </header>
