@@ -3,5 +3,9 @@ export enum AppPath {
   TRANSACTIONS = "/transactions",
   ACCOUNTS = "/accounts",
   HOME = "/",
+  HOME_HERO = "/#hero",
+  HOME_SERVICES = "/#services",
+  HOME_MASTERS = "/#masters",
+  HOME_CONTACTS = "/#contacts",
   LOGIN = "/login",
 }

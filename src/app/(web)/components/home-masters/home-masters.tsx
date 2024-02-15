@@ -45,7 +45,7 @@ export const HomeMasters = () => {
   ];
 
   return (
-    <section className="py-10 px-4 bg-black text-white">
+    <section className="py-10 px-4 bg-black text-white" id="masters">
       <div className="container mx-auto flex flex-col gap-8">
         <div className="flex items-center gap-4">
           <h2 className="text-3xl lg:text-4xl font-bold leading-tight">

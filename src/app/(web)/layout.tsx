@@ -6,7 +6,7 @@ import { SEO } from "@/common/enums";
 
 import { Providers } from "../providers";
 
-import { Header } from "./components";
+import { Footer, Header } from "./components";
 
 import "./globals.scss";
 
@@ -93,6 +93,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           <main>{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>

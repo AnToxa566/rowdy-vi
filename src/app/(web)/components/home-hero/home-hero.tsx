@@ -8,7 +8,7 @@ import { AppLink } from "@/common/enums";
 
 export const HomeHero = () => {
   return (
-    <section className="text-white h-screen">
+    <section className="text-white h-screen" id="hero">
       <div className="relative py-8 px-4 h-full z-20">
         <div className="container mx-auto h-full flex items-center">
           <div className="flex flex-col gap-4 lg:gap-6 lg:w-1/2">
