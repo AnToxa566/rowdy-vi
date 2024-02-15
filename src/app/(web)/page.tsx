@@ -1,4 +1,9 @@
-import { HomeHero, HomeMasters, HomeServices } from "./components";
+import {
+  HomeContacts,
+  HomeHero,
+  HomeMasters,
+  HomeServices,
+} from "./components";
 
 export default function HomePage() {
   return (
@@ -6,6 +11,7 @@ export default function HomePage() {
       <HomeHero />
       <HomeServices />
       <HomeMasters />
+      <HomeContacts />
     </>
   );
 }

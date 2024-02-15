@@ -83,7 +83,7 @@ export const HomeServices = () => {
         </div>
 
         <Link
-          href={AppLink.ALTEGIO}
+          href={AppLink.ALTEGIO_SERVICES}
           target="_blank"
           className="w-full md:w-auto md:mx-auto"
         >

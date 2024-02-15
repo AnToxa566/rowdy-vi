@@ -5,7 +5,12 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import { Button, Tooltip } from "@nextui-org/react";
-import { RiInstagramFill, RiTiktokFill, RiPhoneFill } from "@remixicon/react";
+import {
+  RiInstagramFill,
+  RiTiktokFill,
+  RiPhoneFill,
+  RiTelegramFill,
+} from "@remixicon/react";
 
 import { AppPath, AppLink } from "@/common/enums";
 
@@ -65,6 +70,15 @@ export const Header = () => {
               className="text-white hover:text-gray-300 transition"
             >
               <RiTiktokFill />
+            </Link>
+
+            <Link
+              href={AppLink.TELEGRAM}
+              target="_blank"
+              aria-label="Написати в Телеграм"
+              className="text-white hover:text-gray-300 transition"
+            >
+              <RiTelegramFill />
             </Link>
 
             <Link
