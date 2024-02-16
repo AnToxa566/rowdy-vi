@@ -10,6 +10,7 @@ export const Footer = () => {
     { label: "Послуги", href: AppPath.HOME_SERVICES },
     { label: "Барбери", href: AppPath.HOME_MASTERS },
     { label: "Галерея", href: AppPath.HOME_GALLERY },
+    { label: "Про нас", href: AppPath.HOME_ABOUT },
     { label: "Контакти", href: AppPath.HOME_CONTACTS },
   ];
 
@@ -29,12 +30,12 @@ export const Footer = () => {
           />
         </Link>
 
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden items-center gap-4 lg:flex">
           {links.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="hover:text-gray-300 transition-colors uppercase"
+              className="hover:text-gray-300 transition-colors uppercase whitespace-nowrap"
             >
               {link.label}
             </Link>
@@ -43,12 +44,12 @@ export const Footer = () => {
 
         <Link
           href={AppPath.HOME_HERO}
-          className="flex items-center gap-1 font-medium hover:text-gray-300 transition-colors"
+          className="flex items-center gap-1 font-medium hover:text-gray-300 transition-colors whitespace-nowrap"
         >
           До гори <RiArrowUpSLine />
         </Link>
 
-        <span className="text-xs">© ROWDY</span>
+        <span className="text-xs whitespace-nowrap">© ROWDY</span>
       </div>
     </footer>
   );

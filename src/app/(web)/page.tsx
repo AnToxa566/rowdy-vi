@@ -1,4 +1,5 @@
 import {
+  HomeAbout,
   HomeContacts,
   HomeGallery,
   HomeHero,
@@ -13,6 +14,7 @@ export default function HomePage() {
       <HomeServices />
       <HomeMasters />
       <HomeGallery />
+      <HomeAbout />
       <HomeContacts />
     </>
   );

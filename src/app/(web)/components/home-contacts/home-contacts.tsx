@@ -110,7 +110,7 @@ export const HomeContacts = () => {
                 endContent={<RiArrowRightLine />}
                 className="bg-[#e62621] w-full md:w-auto"
               >
-                Записатись
+                Забронювати візит
               </Button>
             </Link>
           </div>
