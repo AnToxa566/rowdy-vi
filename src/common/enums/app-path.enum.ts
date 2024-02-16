@@ -6,6 +6,7 @@ export enum AppPath {
   HOME_HERO = "/#hero",
   HOME_SERVICES = "/#services",
   HOME_MASTERS = "/#masters",
+  HOME_GALLERY = "/#gallery",
   HOME_CONTACTS = "/#contacts",
   LOGIN = "/login",
 }

@@ -9,6 +9,7 @@ export const Footer = () => {
   const links = [
     { label: "Послуги", href: AppPath.HOME_SERVICES },
     { label: "Барбери", href: AppPath.HOME_MASTERS },
+    { label: "Галерея", href: AppPath.HOME_GALLERY },
     { label: "Контакти", href: AppPath.HOME_CONTACTS },
   ];
 
