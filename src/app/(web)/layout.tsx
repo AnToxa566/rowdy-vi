@@ -8,6 +8,7 @@ import { Providers } from "../providers";
 
 import { Footer, Header } from "./components";
 
+import "swiper/scss";
 import "./globals.scss";
 
 const montserrat = Montserrat({ subsets: ["latin"] });

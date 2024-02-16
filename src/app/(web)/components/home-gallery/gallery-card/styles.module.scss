@@ -1,0 +1,17 @@
+.gallery-card {
+  &__backdrop {
+    @apply lg:bg-black lg:opacity-30 transition-opacity;
+  }
+
+  &__image {
+    @apply transition-transform;
+  }
+
+  &:hover &__backdrop {
+    @apply opacity-0;
+  }
+
+  &:hover &__image {
+    @apply scale-125;
+  }
+}

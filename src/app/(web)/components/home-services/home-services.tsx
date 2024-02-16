@@ -71,7 +71,7 @@ export const HomeServices = () => {
               color="primary"
               className="bg-[#e62621]"
             >
-              Дивитися всі
+              Дивитися ціни
             </Button>
           </Link>
         </div>
