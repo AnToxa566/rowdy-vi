@@ -2,9 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { Button, Card, CardBody } from "@nextui-org/react";
-import { RiArrowRightLine, RiMapPinLine } from "@remixicon/react";
+import {
+  RiArrowDownLine,
+  RiArrowRightLine,
+  RiMapPinLine,
+} from "@remixicon/react";
 
-import { AppLink } from "@/common/enums";
+import { AppLink, AppPath } from "@/common/enums";
 
 export const HomeHero = () => {
   return (
@@ -127,7 +131,22 @@ export const HomeHero = () => {
         className="absolute top-0 left-0 h-screen w-screen object-cover z-0"
       />
 
-      <div className="absolute top-0 left-0 h-screen w-screen z-10 bg-black opacity-85"></div>
+      <Link
+        href={AppPath.HOME_SERVICES}
+        className="absolute bottom-6 left-1/2 z-20 translate-x-[-50%]"
+      >
+        <Button
+          isIconOnly
+          radius="full"
+          variant="bordered"
+          aria-label="Вниз"
+          className="text-white animate-bounce"
+        >
+          <RiArrowDownLine />
+        </Button>
+      </Link>
+
+      <div className="absolute top-0 h-screen w-screen z-10 bg-black opacity-85"></div>
     </section>
   );
 };
