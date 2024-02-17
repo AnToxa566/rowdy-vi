@@ -15,6 +15,14 @@ import {
 import { AppPath, AppLink } from "@/common/enums";
 
 export const Header = () => {
+  const links = [
+    { label: "Послуги", href: AppPath.HOME_SERVICES },
+    { label: "Барбери", href: AppPath.HOME_MASTERS },
+    { label: "Галерея", href: AppPath.HOME_GALLERY },
+    { label: "Про нас", href: AppPath.HOME_ABOUT },
+    { label: "Контакти", href: AppPath.HOME_CONTACTS },
+  ];
+
   const [scrolled, setScrolled] = useState<boolean>(false);
 
   const handleScroll = () => {
@@ -51,6 +59,18 @@ export const Header = () => {
             src="/images/logo-white.png"
           />
         </Link>
+
+        <div className="hidden items-center gap-4 xl:flex">
+          {links.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="hover:text-gray-300 text-white transition-colors uppercase whitespace-nowrap"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
 
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
