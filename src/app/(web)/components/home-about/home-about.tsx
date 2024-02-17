@@ -41,8 +41,8 @@ export const HomeAbout = () => {
             <p className="font-light">
               <b className="font-semibold">Rowdy Barbershop</b> - це не просто
               чоловіча перукарня, це місце, де кожен чоловік може відчути себе
-              справжнім джентльменом. Запрошуємо до нас і переконайтеся в цьому
-              особисто!
+              стильним і впевненим у собі. Запрошуємо до нас і переконайтеся в
+              цьому особисто!
             </p>
 
             <Link href={AppLink.ALTEGIO} target="_blank">
