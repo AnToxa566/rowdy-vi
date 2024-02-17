@@ -85,14 +85,14 @@ export const HomeServices = () => {
         <Link
           href={AppLink.ALTEGIO_SERVICES}
           target="_blank"
-          className="w-full md:w-auto md:mx-auto"
+          className="mx-auto"
         >
           <Button
             color="primary"
             radius="full"
             size="lg"
             endContent={<RiArrowRightLine />}
-            className="bg-[#e62621] w-full"
+            className="bg-[#e62621] animate-pulsate"
           >
             Вибрати послугу
           </Button>

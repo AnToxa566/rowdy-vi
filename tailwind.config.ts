@@ -15,9 +15,14 @@ const config: Config = {
           "50%": { transform: "translateY(4px)" },
           "70%": { transform: "translateY(-15px)" },
         },
+        pulsate: {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.05)" },
+        },
       },
       animation: {
         levitate: "levitate 10s ease infinite",
+        pulsate: "pulsate 2s ease-in-out infinite both;",
       },
     },
   },

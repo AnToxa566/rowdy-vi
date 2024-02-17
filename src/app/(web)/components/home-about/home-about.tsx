@@ -1,8 +1,10 @@
-import { AppLink } from "@/common/enums";
+import Link from "next/link";
+import Image from "next/image";
+
 import { Button } from "@nextui-org/react";
 import { RiArrowRightLine } from "@remixicon/react";
-import Image from "next/image";
-import Link from "next/link";
+
+import { AppLink } from "@/common/enums";
 
 export const HomeAbout = () => {
   return (
@@ -51,7 +53,7 @@ export const HomeAbout = () => {
                 radius="full"
                 size="lg"
                 endContent={<RiArrowRightLine />}
-                className="bg-[#e62621] w-full md:w-auto"
+                className="bg-[#e62621] w-full md:w-auto animate-pulsate"
               >
                 Онлайн запис
               </Button>

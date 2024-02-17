@@ -108,7 +108,7 @@ export const HomeContacts = () => {
                 radius="full"
                 size="lg"
                 endContent={<RiArrowRightLine />}
-                className="bg-[#e62621] w-full md:w-auto"
+                className="bg-[#e62621] w-full md:w-auto animate-pulsate"
               >
                 Забронювати візит
               </Button>

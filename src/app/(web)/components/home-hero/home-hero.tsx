@@ -36,7 +36,7 @@ export const HomeHero = () => {
                   radius="full"
                   size="lg"
                   endContent={<RiArrowRightLine />}
-                  className="bg-[#e62621] w-full"
+                  className="bg-[#e62621] w-full animate-pulsate"
                 >
                   Записатись
                 </Button>
