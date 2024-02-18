@@ -14,6 +14,8 @@ import {
 
 import { AppPath, AppLink } from "@/common/enums";
 
+import styles from "./styles.module.scss";
+
 export const Header = () => {
   const links = [
     { label: "Послуги", href: AppPath.HOME_SERVICES },
@@ -24,6 +26,8 @@ export const Header = () => {
   ];
 
   const [scrolled, setScrolled] = useState<boolean>(false);
+
+  const [menuOpened, setMenuOpened] = useState<boolean>(false);
 
   const handleScroll = () => {
     if (window.scrollY > 20) {
@@ -44,7 +48,7 @@ export const Header = () => {
     <header
       className={`fixed px-4 py-4 w-full z-30 transition-all ${
         scrolled ? "bg-black bg-opacity-80 backdrop-blur-sm shadow" : ""
-      }`}
+      } ${menuOpened ? "bg-black bg-opacity-100" : ""}`}
     >
       <div className="container mx-auto flex items-center justify-between">
         <Link
@@ -100,15 +104,6 @@ export const Header = () => {
             >
               <RiTelegramFill />
             </Link>
-
-            <Link
-              href="tel:380663372763"
-              target="_blank"
-              aria-label="Зателефонувати адміністратору"
-              className="text-white md:hidden"
-            >
-              <RiPhoneFill />
-            </Link>
           </div>
 
           <Tooltip
@@ -136,6 +131,61 @@ export const Header = () => {
               </Link>
             </div>
           </Tooltip>
+
+          <button
+            className={`${styles["header__burger"]} ${
+              menuOpened ? styles["header__burger--active"] : ""
+            }`}
+            onClick={() => setMenuOpened(!menuOpened)}
+          >
+            <span></span>
+            <span></span>
+          </button>
+
+          <div
+            className={`${styles["header__burger-menu"]} ${
+              menuOpened ? styles["header__burger-menu--active"] : ""
+            }`}
+          >
+            <div className="container mx-auto">
+              <div className="flex flex-col gap-6">
+                {links.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="hover:text-gray-300 text-white transition-colors uppercase whitespace-nowrap"
+                    onClick={() => setMenuOpened(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+
+                <div className="flex items-center justify-center gap-2 md:hidden">
+                  <Link href="tel:380663372763" target="_blank">
+                    <Button
+                      radius="full"
+                      variant="bordered"
+                      className="text-white"
+                      onClick={() => setMenuOpened(false)}
+                    >
+                      +38 (066) 337 2763
+                    </Button>
+                  </Link>
+
+                  <Link href="tel:380687710337" target="_blank">
+                    <Button
+                      radius="full"
+                      variant="bordered"
+                      className="text-white"
+                      onClick={() => setMenuOpened(false)}
+                    >
+                      +38 (068) 771 0337
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
