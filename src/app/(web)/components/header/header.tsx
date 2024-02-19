@@ -8,7 +8,6 @@ import { Button, Tooltip } from "@nextui-org/react";
 import {
   RiInstagramFill,
   RiTiktokFill,
-  RiPhoneFill,
   RiTelegramFill,
 } from "@remixicon/react";
 
@@ -47,8 +46,10 @@ export const Header = () => {
   return (
     <header
       className={`fixed px-4 py-4 w-full z-30 transition-all ${
-        scrolled ? "bg-black bg-opacity-80 backdrop-blur-sm shadow" : ""
-      } ${menuOpened ? "bg-black bg-opacity-100" : ""}`}
+        scrolled && !menuOpened
+          ? "bg-black bg-opacity-80 backdrop-blur-sm shadow"
+          : ""
+      } ${menuOpened ? "bg-black" : ""}`}
     >
       <div className="container mx-auto flex items-center justify-between">
         <Link
