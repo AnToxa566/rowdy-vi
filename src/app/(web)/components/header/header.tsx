@@ -14,6 +14,7 @@ import {
 import { AppPath, AppLink } from "@/common/enums";
 
 import styles from "./styles.module.scss";
+import { useOutsideClick } from "@/hooks";
 
 export const Header = () => {
   const links = [
@@ -23,6 +24,8 @@ export const Header = () => {
     { label: "Про нас", href: AppPath.HOME_ABOUT },
     { label: "Контакти", href: AppPath.HOME_CONTACTS },
   ];
+
+  const menuRef = useOutsideClick(() => setMenuOpened(false));
 
   const [scrolled, setScrolled] = useState<boolean>(false);
 
@@ -133,57 +136,59 @@ export const Header = () => {
             </div>
           </Tooltip>
 
-          <button
-            aria-label="Меню"
-            className={`${styles["header__burger"]} ${
-              menuOpened ? styles["header__burger--active"] : ""
-            }`}
-            onClick={() => setMenuOpened(!menuOpened)}
-          >
-            <span></span>
-            <span></span>
-          </button>
+          <div ref={menuRef}>
+            <button
+              aria-label="Меню"
+              className={`${styles["header__burger"]} ${
+                menuOpened ? styles["header__burger--active"] : ""
+              }`}
+              onClick={() => setMenuOpened(!menuOpened)}
+            >
+              <span></span>
+              <span></span>
+            </button>
 
-          <div
-            className={`${styles["header__burger-menu"]} ${
-              menuOpened ? styles["header__burger-menu--active"] : ""
-            }`}
-          >
-            <div className="container mx-auto">
-              <div className="flex flex-col gap-6">
-                {links.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    className="hover:text-gray-300 text-white transition-colors uppercase whitespace-nowrap"
-                    onClick={() => setMenuOpened(false)}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-
-                <div className="flex items-center justify-center gap-2 md:hidden">
-                  <Link href="tel:380663372763" target="_blank">
-                    <Button
-                      radius="full"
-                      variant="bordered"
-                      className="text-white"
+            <div
+              className={`${styles["header__burger-menu"]} ${
+                menuOpened ? styles["header__burger-menu--active"] : ""
+              }`}
+            >
+              <div className="container mx-auto">
+                <div className="flex flex-col gap-6">
+                  {links.map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="hover:text-gray-300 text-white transition-colors uppercase whitespace-nowrap"
                       onClick={() => setMenuOpened(false)}
                     >
-                      +38 (066) 337 2763
-                    </Button>
-                  </Link>
+                      {link.label}
+                    </Link>
+                  ))}
 
-                  <Link href="tel:380687710337" target="_blank">
-                    <Button
-                      radius="full"
-                      variant="bordered"
-                      className="text-white"
-                      onClick={() => setMenuOpened(false)}
-                    >
-                      +38 (068) 771 0337
-                    </Button>
-                  </Link>
+                  <div className="flex items-center justify-center gap-2 md:hidden">
+                    <Link href="tel:380663372763" target="_blank">
+                      <Button
+                        radius="full"
+                        variant="bordered"
+                        className="text-white"
+                        onClick={() => setMenuOpened(false)}
+                      >
+                        +38 (066) 337 2763
+                      </Button>
+                    </Link>
+
+                    <Link href="tel:380687710337" target="_blank">
+                      <Button
+                        radius="full"
+                        variant="bordered"
+                        className="text-white"
+                        onClick={() => setMenuOpened(false)}
+                      >
+                        +38 (068) 771 0337
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
