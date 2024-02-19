@@ -134,6 +134,7 @@ export const Header = () => {
           </Tooltip>
 
           <button
+            aria-label="Меню"
             className={`${styles["header__burger"]} ${
               menuOpened ? styles["header__burger--active"] : ""
             }`}
