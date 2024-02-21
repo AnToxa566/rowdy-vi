@@ -18,37 +18,37 @@ export const HomeMasters = () => {
 
   const masters: Master[] = [
     {
-      imageSrc: "/images/masters/waiting.jpg",
+      imageSrc: "/images/masters/oleg.jpg",
       name: t("oleg"),
       graduation: "Expert",
       instagramLink: "https://www.instagram.com/_barber_marcus_1337/",
       altegioLink: "https://b829839.alteg.io/company/778954/menu?o=m2222922",
     },
     {
-      imageSrc: "/images/masters/waiting.jpg",
+      imageSrc: "/images/masters/roma.jpg",
       name: t("roma"),
       graduation: "Expert",
       instagramLink: "https://www.instagram.com/rg.ruslanovich/",
       altegioLink: "https://b829839.alteg.io/company/778954/menu?o=m2231976",
     },
     {
-      imageSrc: "/images/masters/waiting.jpg",
+      imageSrc: "/images/masters/maksim.jpg",
       name: t("maksim"),
       graduation: "Expert",
       instagramLink: "https://www.instagram.com/maxim.tsirylnik/",
       altegioLink: "https://b829839.alteg.io/company/778954/menu?o=m2231978",
     },
     {
-      imageSrc: "/images/masters/waiting.jpg",
+      imageSrc: "/images/masters/liza.jpg",
       name: t("liza"),
-      graduation: "Tob Barber",
+      graduation: "Top Barber",
       instagramLink: "https://www.instagram.com/ewaitingbaydak_/",
       altegioLink: "https://b829839.alteg.io/company/778954/menu?o=m2231977",
     },
   ];
 
   return (
-    <section className="py-10 px-4 bg-black text-white" id="masters">
+    <section className="relative py-10 px-4 bg-black text-white z-30" id="masters">
       <div className="container mx-auto flex flex-col gap-8">
         <div className="flex items-center gap-4">
           <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">

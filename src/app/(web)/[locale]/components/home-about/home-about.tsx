@@ -11,7 +11,7 @@ export const HomeAbout = () => {
   const t = useTranslations();
 
   return (
-    <section className="py-10 px-4 bg-black text-white" id="about">
+    <section className="relative z-30 py-10 px-4 bg-black text-white" id="about">
       <div className="container mx-auto flex flex-col gap-8">
         <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
           {t("home.about.title")}

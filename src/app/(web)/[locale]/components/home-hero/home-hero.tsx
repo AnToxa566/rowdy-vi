@@ -120,9 +120,9 @@ export const HomeHero = () => {
       <Image
         width={1200}
         height={800}
-        src="/images/barbershop-bg.jpeg"
+        src="/images/barbershop-bg.jpg"
         alt=""
-        className="absolute top-0 left-0 h-screen w-screen object-cover z-0"
+        className="fixed top-0 left-0 h-screen w-screen object-cover z-0"
       />
 
       <Link
@@ -140,7 +140,7 @@ export const HomeHero = () => {
         </Button>
       </Link>
 
-      <div className="absolute top-0 h-screen w-screen z-10 bg-black opacity-85"></div>
+      <div className="absolute top-0 h-screen w-screen z-10 bg-black opacity-75"></div>
     </section>
   );
 };

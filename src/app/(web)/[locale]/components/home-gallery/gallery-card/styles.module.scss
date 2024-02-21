@@ -1,6 +1,6 @@
 .gallery-card {
   &__backdrop {
-    @apply lg:bg-black lg:opacity-30 transition-opacity;
+    @apply lg:bg-black lg:opacity-10 transition-opacity;
   }
 
   &__image {

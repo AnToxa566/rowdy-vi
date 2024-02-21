@@ -25,7 +25,7 @@ export const MasterCard: FC<MasterCardProps> = ({ master }) => {
 
   return (
     <div
-      className={`relative rounded-xl overflow-hidden min-w-[300px] w-full aspect-[3/5] cursor-pointer border-2 border-white ${styles["master-card"]}`}
+      className={`relative rounded-xl overflow-hidden min-w-[300px] w-full aspect-[3/5] cursor-pointer ${styles["master-card"]}`}
     >
       <Image
         width={300}
@@ -36,7 +36,7 @@ export const MasterCard: FC<MasterCardProps> = ({ master }) => {
       />
 
       <div
-        className={`absolute top-0 left-0 w-full h-full z-10 bg-black opacity-40 ${styles["master-card__backdrop"]}`}
+        className={`absolute top-0 left-0 w-full h-full z-10 bg-black ${styles["master-card__backdrop"]}`}
       ></div>
 
       <div className="absolute z-20 bottom-0 left-0 p-3 text-white flex flex-col w-full">

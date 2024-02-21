@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: locale,
       url: process.env.APP_URL,
       countryName: SEO.COUNTRY_NAME,
-      images: `${process.env.APP_URL}/images/logo-circle.jpg`,
+      images: `${process.env.APP_URL}/images/barbershop-bg.jpg`,
     },
     twitter: {
       card: "summary",

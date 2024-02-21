@@ -1,6 +1,6 @@
 .master-card {
   &__backdrop {
-    @apply transition-opacity;
+    @apply transition-opacity opacity-0;
   }
 
   &__image {
@@ -12,7 +12,7 @@
   }
 
   &:hover &__backdrop {
-    @apply opacity-20;
+    @apply opacity-30;
   }
 
   &:hover &__image {
