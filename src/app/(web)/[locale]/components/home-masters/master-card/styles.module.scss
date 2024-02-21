@@ -4,7 +4,7 @@
   }
 
   &__image {
-    @apply transition-transform;
+    @apply transition-transform scale-[1.25];
   }
 
   &__actions {
@@ -12,11 +12,11 @@
   }
 
   &:hover &__backdrop {
-    @apply opacity-30;
+    @apply opacity-20;
   }
 
   &:hover &__image {
-    @apply scale-110;
+    @apply scale-[1.3];
   }
 
   &:hover &__actions {
