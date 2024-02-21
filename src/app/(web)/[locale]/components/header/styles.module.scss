@@ -3,7 +3,7 @@
     @apply xl:hidden;
 
     &-burger {
-      @apply relative w-8 h-8 flex flex-col gap-3 justify-center cursor-pointer;
+      @apply relative w-5 h-8 flex flex-col gap-3 justify-center cursor-pointer;
 
       span {
         @apply w-full h-[2px] bg-white transition-all;
@@ -23,11 +23,11 @@
     &--active &-burger {
       span {
         &:nth-child(odd) {
-          @apply absolute rotate-45 left-0 top-[50%] -translate-y-1/2;
+          @apply rotate-45 origin-left;
         }
 
         &:nth-child(even) {
-          @apply absolute -rotate-45 left-0 bottom-[50%] translate-y-1/2;
+          @apply -rotate-45 origin-left;
         }
       }
     }
