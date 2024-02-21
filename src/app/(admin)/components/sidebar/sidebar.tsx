@@ -16,7 +16,7 @@ export const Sidebar = () => {
 
   return (
     <aside className="sticky top-0 p-4 h-screen min-w-[250px] shadow-lg flex flex-col gap-4">
-      <h1 className="font-bold text-2xl">Rowdy</h1>
+      <h1 className="font-black text-2xl text-[#e62621]">Rowdy</h1>
 
       <div className="flex flex-col gap-4">
         {pages.map((page) => (
