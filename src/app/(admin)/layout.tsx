@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { Montserrat } from "next/font/google";
+
+import { AppPath, CookieKey } from "@/common/enums";
 
 import { Providers } from "../providers";
 
@@ -22,6 +26,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const cookieStore = cookies();
+  const accessToken = cookieStore.get(CookieKey.ACCESS_TOKEN);
+
+  if (!accessToken) {
+    redirect(AppPath.LOGIN);
+  }
+
   return (
     <html lang="ru">
       <body

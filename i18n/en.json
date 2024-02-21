@@ -1,0 +1,87 @@
+{
+  "shared": {
+    "booking": "Booking",
+    "online_booking": "Online booking",
+    "book_visit": "Book a visit",
+    "we_on_map": "Where are we",
+    "down": "Down",
+    "services": "Services",
+    "barbers": "Barbers",
+    "gallery": "Gallery",
+    "about_us": "About us",
+    "contacts": "Contacts",
+    "menu": "Menu",
+    "start_rowdy": "Start rowdy",
+    "select_lang": "Select the language for the website"
+  },
+  "header": {
+    "instagram": "Rowdy Barbershop in Instagram",
+    "tik_tok": "Rowdy Barbershop in Tik-Tok",
+    "telegram": "Send message in Telegram",
+    "work_hours": "Hours of work"
+  },
+  "footer": {
+    "up": "Up"
+  },
+  "home": {
+    "hero": {
+      "titleHTML": "<span class='font-black'>Rowdy Barbershop</span> - the place where your style begins",
+      "subtitle": "Feel the Energy of Rowdy in Every Haircut 🔥",
+      "services": {
+        "haircut": "👨 Men's haircut",
+        "beard": "🧔‍♂️ Beard trim",
+        "shaving": "👑 Royal shave",
+        "kids": "🍼 Children's haircut",
+        "coloring": "🎨 Camouflage gray hair",
+        "styling": "💆‍♂️ Hair Styling",
+        "wax": "👃 Hair removal with wax"
+      }
+    },
+    "services": {
+      "title": "Services",
+      "look_prices": "Look the prices",
+      "select_service": "Select a service",
+      "cards": {
+        "haircut": "Men's haircut",
+        "beard": "Beard trim",
+        "haircut_and_beard": "Haircut + beard",
+        "shaving": "Shaving",
+        "kids": "Children's haircut",
+        "coloring": "Gray hair coloring",
+        "long_hair": "Long hair",
+        "styling": "Hair Styling",
+        "wax": "Wax",
+        "price_from": "From {price} uah"
+      }
+    },
+    "masters": {
+      "title": "Masters",
+      "select_master": "Select a master",
+      "expert_vs_top_desktop_HTML": "What is the difference between <span class='font-bold'>Top Barber</span> and <span class='font-bold'>Expert?</span>",
+      "oleg": "Oleg",
+      "roma": "Roman",
+      "maksim": "Maksim",
+      "liza": "Eliza",
+      "expert_vs_top_01": "In our barbershop there are two categories of masters: <b class='text-[#e62621]'>Expert</b> and <b class='text-[#e62621]'>Top Barber.</b>",
+      "expert_vs_top_02": "<b class='text-[#e62621]'>Experts</b> are experienced craftsmen with many years of experience and a large client base, offering a high level of services.",
+      "expert_vs_top_03": "<b class='text-[#e62621]'>Top Barbers</b> are the same professionals in their field as experts, but due to less experience, they have a smaller client base, and therefore, due to affordable prices, we help the master find his client, and the client his master.",
+      "expert_vs_top_04": "<b class='text-[#e62621]'>And remember - no matter who you sign up with, you will always receive service and results at the highest level!</b>"
+    },
+    "gallery": {
+      "title": "Gallery",
+      "instagram": "More on Instagram"
+    },
+    "about": {
+      "title": "About us",
+      "text_01_HTML": "Welcome to <b>Rowdy Barbershop</b> - your faithful companion on the path to the perfect look! Our barbershop is not just a place for a haircut, it is a real temple of male beauty and style in the very heart of <b>Zaporozhye</b>.",
+      "text_02_HTML": "Our experienced barbers are masters of <b class='font-semibold'>men's haircuts</b>, <b class='font-semibold'>bearded</b> design and professional <b class='font-semibold'> shaving</b>. They are always ready to turn any of your ideas into reality and give your image a unique charm.",
+      "text_03_HTML": "You can also enjoy a <b class='font-semibold'>gray hair coloring service</b> that will make you look younger and more stylish. And the look will be completed with the perfect <b class='font-semibold'>hair styling</b>, which will highlight your individuality and style.",
+      "text_04_HTML": "<b class='font-semibold'>Rowdy Barbershop</b> is not just a men's hair salon, it is a place where every man can feel stylish and confident. We invite you to visit us and see for yourself!"
+    },
+    "contacts": {
+      "title": "Contacts",
+      "maps_loader": "We are waiting for Google to load the maps... 🙄",
+      "address": "st. Peremohy, 59"
+    }
+  }
+}

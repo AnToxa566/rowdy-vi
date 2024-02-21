@@ -1,18 +1,10 @@
-import { NextResponse } from "next/server";
-import { NextRequest } from "next/server";
+import createMiddleware from "next-intl/middleware";
 
-import { AppPath, CookieKey } from "@/common/enums";
-
-export function middleware(request: NextRequest) {
-  const accessToken = request.cookies.get(CookieKey.ACCESS_TOKEN)?.value;
-
-  if (accessToken) {
-    return NextResponse.next();
-  }
-
-  return NextResponse.redirect(new URL(AppPath.LOGIN, request.url));
-}
+export default createMiddleware({
+  locales: ["en", "ru", "uk"],
+  defaultLocale: "uk",
+});
 
 export const config = {
-  matcher: ["/admin", "/transactions", "/accounts"],
+  matcher: ["/", "/(en|ru|uk)/:path*"],
 };

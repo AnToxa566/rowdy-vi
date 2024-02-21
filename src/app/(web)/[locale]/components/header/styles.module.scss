@@ -1,0 +1,39 @@
+.header {
+  &__menu {
+    @apply xl:hidden;
+
+    &-burger {
+      @apply relative w-8 h-8 flex flex-col gap-3 justify-center cursor-pointer;
+
+      span {
+        @apply w-full h-[2px] bg-white transition-all;
+      }
+
+      &:hover {
+        span {
+          @apply bg-gray-300;
+        }
+      }
+    }
+
+    &-dropdown {
+      @apply absolute top-full left-0 w-full px-4 bg-black text-white max-h-0 overflow-hidden transition-all;
+    }
+
+    &--active &-burger {
+      span {
+        &:nth-child(odd) {
+          @apply absolute rotate-45 left-0 top-[50%] -translate-y-1/2;
+        }
+
+        &:nth-child(even) {
+          @apply absolute -rotate-45 left-0 bottom-[50%] translate-y-1/2;
+        }
+      }
+    }
+
+    &--active &-dropdown {
+      @apply py-6 max-h-screen;
+    }
+  }
+}
