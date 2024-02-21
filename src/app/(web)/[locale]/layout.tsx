@@ -6,6 +6,7 @@ import {
   useMessages,
   useTranslations,
 } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import { SEO } from "@/common/enums";
 
@@ -18,33 +19,52 @@ import "./globals.scss";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: SEO.TITLE,
-  description: SEO.DESCRIPTION,
-  applicationName: SEO.APLICATION_NAME,
-  creator: SEO.AUTHOR_NAME,
-  authors: { name: SEO.AUTHOR_NAME, url: SEO.AUTHOR_URL },
-  keywords: SEO.KEYWORDS,
-  generator: SEO.GENERATOR,
-  publisher: SEO.PUBLISHER,
-  metadataBase: new URL(process.env.APP_URL || ""),
-  openGraph: {
-    title: SEO.TITLE,
-    description: SEO.DESCRIPTION,
-    emails: SEO.EMAIL,
-    phoneNumbers: [SEO.PHONE_NUMBER_1, SEO.PHONE_NUMBER_2],
-    siteName: SEO.APLICATION_NAME,
-    type: SEO.OG_TYPE,
-    locale: SEO.LOCALE,
-    url: process.env.APP_URL,
-    countryName: SEO.COUNTRY_NAME,
-  },
-  twitter: {
-    card: "summary",
-    title: SEO.TITLE,
-    description: SEO.DESCRIPTION,
-  },
+type Props = {
+  params: { locale: string };
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = params.locale;
+
+  const t = await getTranslations({ locale, namespace: "seo" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    applicationName: SEO.APLICATION_NAME,
+    creator: SEO.AUTHOR_NAME,
+    authors: { name: SEO.AUTHOR_NAME, url: SEO.AUTHOR_URL },
+    keywords: SEO.KEYWORDS,
+    generator: SEO.GENERATOR,
+    publisher: SEO.PUBLISHER,
+    metadataBase: new URL(process.env.APP_URL || ""),
+    alternates: {
+      canonical: process.env.APP_URL,
+      languages: {
+        uk: `${process.env.APP_URL}/uk`,
+        ru: `${process.env.APP_URL}/ru`,
+        en: `${process.env.APP_URL}/en`,
+      },
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      emails: SEO.EMAIL,
+      phoneNumbers: [SEO.PHONE_NUMBER_1, SEO.PHONE_NUMBER_2],
+      siteName: SEO.APLICATION_NAME,
+      type: SEO.OG_TYPE,
+      locale: locale,
+      url: process.env.APP_URL,
+      countryName: SEO.COUNTRY_NAME,
+      images: `${process.env.APP_URL}/images/logo-circle.jpg`,
+    },
+    twitter: {
+      card: "summary",
+      title: t("title"),
+      description: t("description"),
+    },
+  };
+}
 
 export default function RootLayout({
   children,
