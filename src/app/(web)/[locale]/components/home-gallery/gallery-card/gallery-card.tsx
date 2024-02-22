@@ -14,7 +14,7 @@ export const GalleryCard: FC<GalleryCardProps> = ({ imageSrc }) => {
     >
       <Image
         unoptimized
-        loading="lazy"
+        loading="eager"
         width={300}
         height={500}
         src={imageSrc}

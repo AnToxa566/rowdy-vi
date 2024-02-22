@@ -120,6 +120,7 @@ export const HomeHero = () => {
       <Image
         width={1200}
         height={800}
+        loading="eager"
         src="/images/barbershop-bg.jpg"
         alt=""
         className="fixed top-0 left-0 h-screen w-screen object-cover z-0"
