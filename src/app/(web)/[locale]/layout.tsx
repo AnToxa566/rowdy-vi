@@ -95,11 +95,13 @@ export default function RootLayout({
 
         {/* Start Altegio Widget */}
         <Script
+          async
           type="text/javascript"
           src="https://w848214.alteg.io/widgetJS"
         />
 
         <Script
+          async
           id="altegio_widget"
           dangerouslySetInnerHTML={{
             __html: `var yWidgetSettings = {

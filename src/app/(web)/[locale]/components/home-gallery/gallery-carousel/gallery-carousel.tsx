@@ -32,6 +32,7 @@ export const GalleryCarousel: FC<GalleryCarouselProps> = ({
     { src: "/images/gallery/06.jpg" },
     { src: "/images/gallery/07.jpg" },
     { src: "/images/gallery/08.jpg" },
+    { src: "/images/gallery/09.jpg" },
   ];
 
   const handlePrevClick = () => {

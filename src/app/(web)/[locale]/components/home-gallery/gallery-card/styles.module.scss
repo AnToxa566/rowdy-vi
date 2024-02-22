@@ -1,6 +1,6 @@
 .gallery-card {
   &__backdrop {
-    @apply lg:bg-black lg:opacity-10 transition-opacity;
+    @apply lg:bg-black lg:opacity-0 transition-opacity;
   }
 
   &__image {
@@ -12,6 +12,6 @@
   }
 
   &:hover &__image {
-    @apply scale-110;
+    @apply scale-125;
   }
 }

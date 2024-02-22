@@ -13,6 +13,8 @@ export const GalleryCard: FC<GalleryCardProps> = ({ imageSrc }) => {
       className={`relative rounded-xl overflow-hidden w-full aspect-[3/5] ${styles["gallery-card"]}`}
     >
       <Image
+        unoptimized
+        loading="lazy"
         width={300}
         height={500}
         src={imageSrc}
