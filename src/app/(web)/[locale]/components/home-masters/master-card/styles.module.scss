@@ -4,7 +4,7 @@
   }
 
   &__image {
-    @apply transition-transform scale-[1.25];
+    @apply transition-transform;
   }
 
   &__actions {
@@ -16,7 +16,7 @@
   }
 
   &:hover &__image {
-    @apply scale-[1.3];
+    @apply scale-125;
   }
 
   &:hover &__actions {
