@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 import {
@@ -48,9 +51,18 @@ export const HomeMasters = () => {
   ];
 
   return (
-    <section className="relative py-10 px-4 bg-black text-white z-30" id="masters">
+    <section
+      className="relative py-10 px-4 bg-black text-white z-30"
+      id="masters"
+    >
       <div className="container mx-auto flex flex-col gap-8">
-        <div className="flex items-center gap-4">
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true }}
+          className="flex items-center gap-4"
+        >
           <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
             {t("title")}
           </h2>
@@ -65,62 +77,76 @@ export const HomeMasters = () => {
               {t("select_master")}
             </Button>
           </Link>
-        </div>
+        </motion.div>
 
-        <div className="flex items-center gap-4 overflow-x-scroll">
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true }}
+          className="flex items-center gap-4 overflow-x-scroll"
+        >
           {masters.map((master, idx) => (
             <MasterCard key={idx} master={master} />
           ))}
-        </div>
+        </motion.div>
 
-        <Popover showArrow offset={10} placement="bottom" backdrop="blur">
-          <PopoverTrigger>
-            <Button
-              radius="full"
-              color="primary"
-              className="bg-[#e62621] mx-auto"
-              startContent={<RiInformationLine size={18} />}
-            >
-              <span
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1, viewTarget: 1 }}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true }}
+          className="mx-auto"
+        >
+          <Popover showArrow offset={10} placement="bottom" backdrop="blur">
+            <PopoverTrigger>
+              <Button
+                radius="full"
+                color="primary"
+                className="bg-[#e62621] mx-auto"
+                startContent={<RiInformationLine size={18} />}
+              >
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: t.raw("expert_vs_top_desktop_HTML"),
+                  }}
+                  className="hidden md:flex gap-1"
+                ></span>
+
+                <span className="md:hidden flex gap-1">
+                  <span className="font-bold">Top Barber</span> vs
+                  <span className="font-bold">Expert</span>
+                </span>
+              </Button>
+            </PopoverTrigger>
+
+            <PopoverContent className="max-w-[600px] flex flex-col gap-2 text-left items-start p-4">
+              <p
                 dangerouslySetInnerHTML={{
-                  __html: t.raw("expert_vs_top_desktop_HTML"),
+                  __html: t.raw("expert_vs_top_01"),
                 }}
-                className="hidden md:flex gap-1"
-              ></span>
+              ></p>
 
-              <span className="md:hidden flex gap-1">
-                <span className="font-bold">Top Barber</span> vs
-                <span className="font-bold">Expert</span>
-              </span>
-            </Button>
-          </PopoverTrigger>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: t.raw("expert_vs_top_02"),
+                }}
+              ></p>
 
-          <PopoverContent className="max-w-[600px] flex flex-col gap-2 text-left items-start p-4">
-            <p
-              dangerouslySetInnerHTML={{
-                __html: t.raw("expert_vs_top_01"),
-              }}
-            ></p>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: t.raw("expert_vs_top_03"),
+                }}
+              ></p>
 
-            <p
-              dangerouslySetInnerHTML={{
-                __html: t.raw("expert_vs_top_02"),
-              }}
-            ></p>
-
-            <p
-              dangerouslySetInnerHTML={{
-                __html: t.raw("expert_vs_top_03"),
-              }}
-            ></p>
-
-            <p
-              dangerouslySetInnerHTML={{
-                __html: t.raw("expert_vs_top_04"),
-              }}
-            ></p>
-          </PopoverContent>
-        </Popover>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: t.raw("expert_vs_top_04"),
+                }}
+              ></p>
+            </PopoverContent>
+          </Popover>
+        </motion.div>
       </div>
     </section>
   );

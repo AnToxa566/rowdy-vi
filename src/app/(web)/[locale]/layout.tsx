@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import {
@@ -12,6 +13,7 @@ import { SEO } from "@/common/enums";
 
 import { Providers } from "../../providers";
 
+import Loading from "./loading";
 import { Footer, Header } from "./components";
 
 import "swiper/scss";
@@ -127,7 +129,9 @@ export default function RootLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
             <Header />
-            <main>{children}</main>
+            <Suspense fallback={<Loading />}>
+              <main className="w-screen overflow-x-hidden">{children}</main>
+            </Suspense>
             <Footer />
           </Providers>
         </NextIntlClientProvider>

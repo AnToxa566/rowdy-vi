@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 import { Button } from "@nextui-org/react";
@@ -60,9 +63,15 @@ export const HomeServices = () => {
   ];
 
   return (
-    <section className="relative py-10 px-4 bg-white z-30" id="services">
+    <section id="services" className="relative py-10 px-4 bg-white z-30">
       <div className="container mx-auto flex flex-col gap-8">
-        <div className="flex items-center gap-4">
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          viewport={{ once: true }}
+          className="flex items-center gap-4"
+        >
           <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
             {t("title")}
           </h2>
@@ -77,29 +86,43 @@ export const HomeServices = () => {
               {t("look_prices")}
             </Button>
           </Link>
-        </div>
+        </motion.div>
 
-        <div className="flex items-center gap-4 overflow-x-scroll">
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          viewport={{ once: true }}
+          className="flex items-center gap-4 overflow-x-scroll"
+        >
           {services.map((service) => (
             <ServiceCard key={service.label} service={service} />
           ))}
-        </div>
+        </motion.div>
 
-        <Link
-          href={AppLink.ALTEGIO_SERVICES}
-          target="_blank"
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          viewport={{ once: true }}
           className="mx-auto"
         >
-          <Button
-            color="primary"
-            radius="full"
-            size="lg"
-            endContent={<RiArrowRightLine />}
-            className="bg-[#e62621] animate-pulsate"
+          <Link
+            href={AppLink.ALTEGIO_SERVICES}
+            target="_blank"
+            className="mx-auto"
           >
-            {t("select_service")}
-          </Button>
-        </Link>
+            <Button
+              color="primary"
+              radius="full"
+              size="lg"
+              endContent={<RiArrowRightLine />}
+              className="bg-[#e62621] animate-pulsate"
+            >
+              {t("select_service")}
+            </Button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@
 
 import { FC } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 import { AppPath } from "@/common/enums";
@@ -33,15 +34,21 @@ export const NavLinks: FC<NavLinksProps> = ({
         variant === "horizontal" ? "items-center gap-4" : "flex-col gap-6"
       }`}
     >
-      {links.map((link) => (
-        <Link
+      {links.map((link, idx) => (
+        <motion.div
           key={link.label}
-          href={link.href}
-          onClick={onClick}
-          className="hover:text-gray-300 text-white transition-colors uppercase whitespace-nowrap"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.3, delay: idx * 0.3, ease: "easeInOut" }}
         >
-          {link.label}
-        </Link>
+          <Link
+            href={link.href}
+            onClick={onClick}
+            className="hover:text-gray-300 text-white transition-colors uppercase whitespace-nowrap"
+          >
+            {link.label}
+          </Link>
+        </motion.div>
       ))}
     </div>
   );

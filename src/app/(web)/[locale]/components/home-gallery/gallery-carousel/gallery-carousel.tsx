@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { FC, useRef } from "react";
+import { motion } from "framer-motion";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 
@@ -45,7 +46,13 @@ export const GalleryCarousel: FC<GalleryCarouselProps> = ({
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex items-center justify-between gap-4">
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        viewport={{ once: true }}
+        className="flex items-center justify-between gap-4"
+      >
         <div className="flex items-center gap-4">
           <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
             {title}
@@ -86,9 +93,14 @@ export const GalleryCarousel: FC<GalleryCarouselProps> = ({
             <RiArrowDropRightLine />
           </Button>
         </div>
-      </div>
+      </motion.div>
 
-      <div>
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        viewport={{ once: true }}
+      >
         <Swiper
           ref={swiperRef}
           slidesPerView={1}
@@ -114,7 +126,7 @@ export const GalleryCarousel: FC<GalleryCarouselProps> = ({
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </motion.div>
     </div>
   );
 };

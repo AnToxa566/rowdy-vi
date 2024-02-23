@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
 
 import {
@@ -21,12 +24,24 @@ export const HomeContacts = () => {
   return (
     <section className="relative z-30 bg-white py-10 px-4" id="contacts">
       <div className="container mx-auto flex flex-col gap-8">
-        <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
+        <motion.h2
+          initial={{ x: -200, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          viewport={{ once: true }}
+          className="text-3xl lg:text-4xl font-bold leading-tight uppercase"
+        >
           {t("home.contacts.title")}
-        </h2>
+        </motion.h2>
 
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-          <div className="flex flex-col gap-5 text-lg font-medium w-full md:w-auto">
+          <motion.div
+            initial={{ x: -200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            viewport={{ once: true }}
+            className="flex flex-col gap-5 text-lg font-medium w-full md:w-auto"
+          >
             <div className="flex items-center gap-2">
               <RiMapPinLine />
 
@@ -89,9 +104,17 @@ export const HomeContacts = () => {
                 {t("shared.book_visit")}
               </Button>
             </Link>
-          </div>
+          </motion.div>
 
-          <Map locale={locale} loader={t("home.contacts.maps_loader")} />
+          <motion.div
+            initial={{ x: 200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            viewport={{ once: true }}
+            className="w-full"
+          >
+            <Map locale={locale} loader={t("home.contacts.maps_loader")} />
+          </motion.div>
         </div>
       </div>
     </section>

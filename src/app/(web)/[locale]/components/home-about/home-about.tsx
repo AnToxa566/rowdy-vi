@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 import { Button } from "@nextui-org/react";
@@ -11,14 +14,29 @@ export const HomeAbout = () => {
   const t = useTranslations();
 
   return (
-    <section className="relative z-30 py-10 px-4 bg-black text-white" id="about">
+    <section
+      className="relative z-30 py-10 px-4 bg-black text-white"
+      id="about"
+    >
       <div className="container mx-auto flex flex-col gap-8">
-        <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
+        <motion.h2
+          initial={{ x: -200, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          viewport={{ once: true }}
+          className="text-3xl lg:text-4xl font-bold leading-tight uppercase"
+        >
           {t("home.about.title")}
-        </h2>
+        </motion.h2>
 
         <div className="flex items-center justify-between gap-8 flex-col lg:flex-row">
-          <div className="flex flex-col gap-4 lg:w-1/2">
+          <motion.div
+            initial={{ x: -200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            viewport={{ once: true }}
+            className="flex flex-col gap-4 lg:w-1/2"
+          >
             <p
               dangerouslySetInnerHTML={{
                 __html: t.raw("home.about.text_01_HTML"),
@@ -58,9 +76,15 @@ export const HomeAbout = () => {
                 {t("shared.online_booking")}
               </Button>
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="lg:w-1/2">
+          <motion.div
+            initial={{ x: 200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            viewport={{ once: true }}
+            className="lg:w-1/2"
+          >
             <Image
               width={630}
               height={470}
@@ -68,7 +92,7 @@ export const HomeAbout = () => {
               src="/images/about/hero.jpg"
               className="w-full h-auto rounded-xl"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

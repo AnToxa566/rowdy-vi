@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 import { Button, Card, CardBody } from "@nextui-org/react";
@@ -50,7 +53,12 @@ export const HomeHero = () => {
     <section className="text-white h-screen" id="hero">
       <div className="relative py-8 px-4 h-full z-20">
         <div className="container mx-auto h-full flex items-center">
-          <div className="flex flex-col gap-4 lg:gap-6 lg:w-1/2">
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="flex flex-col gap-4 lg:gap-6 lg:w-1/2"
+          >
             <h1
               dangerouslySetInnerHTML={{ __html: t.raw("home.hero.titleHTML") }}
               className="text-2xl lg:text-5xl font-semibold leading-tight"
@@ -93,16 +101,21 @@ export const HomeHero = () => {
                 </Button>
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           <div className="w-1/2 relative hidden lg:block">
-            {services.map((service) => {
-              return (
-                <Link
-                  key={service.label}
-                  href={AppLink.ALTEGIO}
-                  target="_blank"
-                >
+            {services.map((service, idx) => (
+              <motion.div
+                key={service.label}
+                initial={{ opacity: 0, y: -100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: idx * 0.4,
+                  ease: "easeInOut",
+                }}
+              >
+                <Link href={AppLink.ALTEGIO} target="_blank">
                   <Card
                     className={`absolute hover:bg-gray-100 ${service.styles}`}
                   >
@@ -111,8 +124,8 @@ export const HomeHero = () => {
                     </CardBody>
                   </Card>
                 </Link>
-              );
-            })}
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
@@ -126,22 +139,28 @@ export const HomeHero = () => {
         className="fixed top-0 left-0 h-screen w-screen object-cover z-0"
       />
 
-      <Link
-        href={AppPath.HOME_SERVICES}
-        className="absolute bottom-6 left-1/2 z-20 translate-x-[-50%]"
+      <motion.div
+        initial={{ opacity: 0, y: -150 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
       >
-        <Button
-          isIconOnly
-          radius="full"
-          variant="bordered"
-          aria-label={t("shared.down")}
-          className="text-white animate-bounce"
+        <Link
+          href={AppPath.HOME_SERVICES}
+          className="absolute bottom-6 left-1/2 z-20 translate-x-[-50%]"
         >
-          <RiArrowDownLine />
-        </Button>
-      </Link>
+          <Button
+            isIconOnly
+            radius="full"
+            variant="bordered"
+            aria-label={t("shared.down")}
+            className="text-white animate-bounce"
+          >
+            <RiArrowDownLine />
+          </Button>
+        </Link>
+      </motion.div>
 
-      <div className="absolute top-0 h-screen w-screen z-10 bg-black opacity-75"></div>
+      <div className="absolute top-0 h-screen w-screen z-10 bg-black opacity-70"></div>
     </section>
   );
 };

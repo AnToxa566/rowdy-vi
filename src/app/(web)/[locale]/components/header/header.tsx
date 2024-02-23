@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { useContext, useEffect, useState } from "react";
 
@@ -66,13 +67,24 @@ export const Header = () => {
       } ${menuOpened ? "bg-black" : ""}`}
     >
       <div className="container mx-auto flex items-center justify-between">
-        <Logo />
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+          <Logo />
+        </motion.div>
 
         <div className="hidden xl:block">
           <NavLinks />
         </div>
 
-        <div className="flex items-center gap-4">
+        <motion.div
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className="flex items-center gap-4"
+        >
           <NavSocials />
 
           <div className="hidden md:block">
@@ -119,7 +131,7 @@ export const Header = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </header>
   );
