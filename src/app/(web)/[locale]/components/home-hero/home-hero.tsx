@@ -12,7 +12,7 @@ import {
   RiMapPinLine,
 } from "@remixicon/react";
 
-import { AppLink, AppPath } from "@/common/enums";
+import { AppLink } from "@/common/enums";
 
 export const HomeHero = () => {
   const t = useTranslations();
@@ -48,6 +48,11 @@ export const HomeHero = () => {
       styles: "top-[130px] left-[180px] animate-[levitate_6s_ease_infinite]",
     },
   ];
+
+  const handleDownClick = () => {
+    const element = document.querySelector("#services");
+    element?.scrollIntoView();
+  };
 
   return (
     <section className="text-white h-screen" id="hero">
@@ -144,20 +149,16 @@ export const HomeHero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
       >
-        <Link
-          href={AppPath.HOME_SERVICES}
-          className="absolute bottom-6 left-1/2 z-20 translate-x-[-50%]"
+        <Button
+          isIconOnly
+          radius="full"
+          variant="bordered"
+          aria-label={t("shared.down")}
+          className="text-white animate-bounce absolute bottom-6 left-1/2 z-20 translate-x-[-50%]"
+          onClick={handleDownClick}
         >
-          <Button
-            isIconOnly
-            radius="full"
-            variant="bordered"
-            aria-label={t("shared.down")}
-            className="text-white animate-bounce"
-          >
-            <RiArrowDownLine />
-          </Button>
-        </Link>
+          <RiArrowDownLine />
+        </Button>
       </motion.div>
 
       <div className="absolute top-0 h-screen w-screen z-10 bg-black opacity-70"></div>
