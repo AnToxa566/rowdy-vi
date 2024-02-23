@@ -35,6 +35,7 @@ export const LanguageSelector = () => {
       radius="full"
       variant="bordered"
       isLoading={isPending}
+      disallowEmptySelection
       aria-label={t("select_lang")}
       classNames={{
         value: "text-white",

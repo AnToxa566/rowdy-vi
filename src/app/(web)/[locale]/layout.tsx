@@ -73,9 +73,9 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const t = useTranslations("shared");
-
   const messages = useMessages();
+
+  const t = useTranslations("shared");
 
   return (
     <html lang={locale}>

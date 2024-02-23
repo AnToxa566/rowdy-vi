@@ -3,6 +3,7 @@ export * from "./app-link.enum";
 export * from "./app-path.enum";
 export * from "./column-key.enum";
 export * from "./cookie-key.enum";
+export * from "./locale.enum";
 export * from "./entity-slug.enum";
 export * from "./storage-key.enum";
 export * from "./form-field-type.enum";

@@ -1,22 +1,41 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { useContext, useEffect, useState } from "react";
 
+import { Locale } from "@/common/enums";
 import { useOutsideClick } from "@/hooks";
+import { ModalContext } from "@/app/providers";
+
+import {
+  LanguageSelector,
+  Logo,
+  NavLinks,
+  NavPhones,
+  NavSocials,
+  RuLangModal,
+} from ".";
 
 import styles from "./styles.module.scss";
 
-import { LanguageSelector, Logo, NavLinks, NavPhones, NavSocials } from ".";
-
 export const Header = () => {
+  const locale = useLocale();
+
   const t = useTranslations("shared");
+
+  const { onClose, handleModal } = useContext(ModalContext);
 
   const menuRef = useOutsideClick(() => setMenuOpened(false));
 
   const [scrolled, setScrolled] = useState<boolean>(false);
 
   const [menuOpened, setMenuOpened] = useState<boolean>(false);
+
+  const openLangModal = () => {
+    handleModal({
+      content: <RuLangModal onCancel={onClose} />,
+    });
+  };
 
   const handleScroll = () => {
     if (window.scrollY > 20) {
@@ -30,7 +49,12 @@ export const Header = () => {
     handleScroll();
     addEventListener("scroll", handleScroll);
 
+    if (locale === Locale.RU) {
+      openLangModal();
+    }
+
     return () => removeEventListener("scroll", handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
