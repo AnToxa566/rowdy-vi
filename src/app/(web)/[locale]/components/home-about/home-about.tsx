@@ -83,7 +83,7 @@ export const HomeAbout = () => {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
             viewport={{ once: true }}
-            className="lg:w-1/2"
+            className="hidden sm:block lg:w-1/2"
           >
             <Image
               width={630}
@@ -93,6 +93,14 @@ export const HomeAbout = () => {
               className="w-full h-auto rounded-xl"
             />
           </motion.div>
+
+          <Image
+            width={630}
+            height={470}
+            alt=""
+            src="/images/about/hero.jpg"
+            className="w-full h-auto rounded-xl sm:hidden"
+          />
         </div>
       </div>
     </section>
