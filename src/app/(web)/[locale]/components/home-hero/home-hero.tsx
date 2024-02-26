@@ -12,7 +12,8 @@ import {
   RiMapPinLine,
 } from "@remixicon/react";
 
-import { AppLink } from "@/common/enums";
+import { scrollTo } from "@/common/utils";
+import { AppLink, ScrollOffset, SectionSelector } from "@/common/enums";
 
 export const HomeHero = () => {
   const t = useTranslations();
@@ -50,8 +51,7 @@ export const HomeHero = () => {
   ];
 
   const handleDownClick = () => {
-    const element = document.querySelector("#services");
-    element?.scrollIntoView();
+    scrollTo(SectionSelector.SERVICES, ScrollOffset.HEADER);
   };
 
   return (

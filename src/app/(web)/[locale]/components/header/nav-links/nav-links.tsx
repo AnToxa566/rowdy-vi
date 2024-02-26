@@ -1,11 +1,11 @@
 "use client";
 
 import { FC } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
-import { AppPath } from "@/common/enums";
+import { scrollTo } from "@/common/utils";
+import { ScrollOffset, SectionSelector } from "@/common/enums";
 
 export type NavLinksVariant = "horizontal" | "vertical";
 
@@ -21,12 +21,17 @@ export const NavLinks: FC<NavLinksProps> = ({
   const t = useTranslations();
 
   const links = [
-    { label: t("shared.services"), href: AppPath.HOME_SERVICES },
-    { label: t("shared.barbers"), href: AppPath.HOME_MASTERS },
-    { label: t("shared.gallery"), href: AppPath.HOME_GALLERY },
-    { label: t("shared.about_us"), href: AppPath.HOME_ABOUT },
-    { label: t("shared.contacts"), href: AppPath.HOME_CONTACTS },
+    { label: t("shared.services"), selector: SectionSelector.SERVICES },
+    { label: t("shared.barbers"), selector: SectionSelector.MASTERS },
+    { label: t("shared.gallery"), selector: SectionSelector.GALLERY },
+    { label: t("shared.about_us"), selector: SectionSelector.ABOUT_US },
+    { label: t("shared.contacts"), selector: SectionSelector.CONTACTS },
   ];
+
+  const handleLinkClick = (selector: SectionSelector) => {
+    scrollTo(selector, ScrollOffset.HEADER);
+    onClick();
+  };
 
   return (
     <div
@@ -41,13 +46,12 @@ export const NavLinks: FC<NavLinksProps> = ({
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.3, delay: idx * 0.3, ease: "easeInOut" }}
         >
-          <Link
-            href={link.href}
-            onClick={onClick}
-            className="hover:text-gray-300 text-white transition-colors uppercase whitespace-nowrap"
+          <span
+            onClick={() => handleLinkClick(link.selector)}
+            className="hover:text-gray-300 text-white transition-colors uppercase whitespace-nowrap cursor-pointer"
           >
             {link.label}
-          </Link>
+          </span>
         </motion.div>
       ))}
     </div>

@@ -10,3 +10,5 @@ export * from "./form-field-type.enum";
 export * from "./seo.enum";
 export * from "./transaction-type.enum";
 export * from "./dashboard-period.enum";
+export * from "./section-selector.enum";
+export * from "./scroll-offset.enum";
