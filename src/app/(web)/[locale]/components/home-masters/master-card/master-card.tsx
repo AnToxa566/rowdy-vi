@@ -30,7 +30,7 @@ export const MasterCard: FC<MasterCardProps> = ({ master }) => {
       <Image
         width={300}
         height={500}
-        loading="eager"
+        loading="lazy"
         src={master.imageSrc}
         alt={master.name}
         className={`absolute top-0 left-0 w-full h-full object-cover ${styles["master-card__image"]}`}

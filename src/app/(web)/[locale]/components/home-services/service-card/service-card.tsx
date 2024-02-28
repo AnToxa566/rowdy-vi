@@ -24,6 +24,7 @@ export const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
       <Image
         width={200}
         height={240}
+        loading="lazy"
         src={service.imageSrc}
         alt={service.label}
         className={`absolute top-0 left-0 w-full h-full object-cover ${styles["service-card__image"]}`}

@@ -1,0 +1,32 @@
+<svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink" 
+  xml:space="preserve" 
+  version="1.1" 
+  style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;" 
+  viewBox="0 0 80 317" 
+  x="0px" 
+  y="0px" fill-rule="evenodd" 
+  clip-rule="evenodd"
+>
+  <defs>
+    <style type="text/css">
+      .white { fill:white }
+      .red { fill:#e62621 }
+    </style>
+  </defs>
+  
+  <g>
+    <g>
+      <path class="white" d="M33 12c-23,5 -32,31 -19,52l53 0c13,-21 4,-47 -19,-52 3,-5 -1,-12 -8,-12 -6,0 -10,7 -7,12zm2 9l-1 0c20,-5 37,16 28,34l-10 0c12,-14 1,-34 -17,-34z"/>
+      <rect class="white" y="68" width="80.1905" height="11.0065" rx="6" ry="6"/>
+      <path class="white" d="M33 304c-23,-5 -32,-31 -19,-52l53 0c13,21 4,47 -19,52 3,6 -1,13 -8,13 -6,0 -10,-7 -7,-13zm2 -9l-1 0c20,5 37,-15 28,-34l-10 0c12,14 1,34 -17,34z"/>
+      <rect class="white" y="237" width="80.1905" height="11.0065" rx="6" ry="6"/>
+      <polygon class="white" points="48,87 68,99 68,120 12,87 12,87 "/>
+      <polygon class="red" points="12,102 68,136 68,157 12,124 "/>
+      <polygon class="white" points="12,139 68,173 68,194 12,161 "/>
+      <polygon class="red" points="12,176 68,210 68,229 65,229 12,198 "/>
+      <polygon class="white" points="12,213 39,229 12,229 "/>
+    </g>
+  </g>
+</svg>

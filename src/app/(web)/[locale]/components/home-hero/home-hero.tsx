@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 import { Button, Card, CardBody } from "@nextui-org/react";
 import {
@@ -15,8 +16,12 @@ import {
 import { scrollTo } from "@/common/utils";
 import { AppLink, ScrollOffset, SectionSelector } from "@/common/enums";
 
+import Loading from "../../loading";
+
 export const HomeHero = () => {
   const t = useTranslations();
+
+  const [isLoading, setIsLoading] = useState(true);
 
   const services = [
     {
@@ -50,9 +55,19 @@ export const HomeHero = () => {
     },
   ];
 
+  useEffect(() => {
+    if (window !== undefined) {
+      setIsLoading(false);
+    }
+  }, []);
+
   const handleDownClick = () => {
     scrollTo(SectionSelector.SERVICES, ScrollOffset.HEADER);
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <section className="text-white h-screen" id="hero">
@@ -138,7 +153,6 @@ export const HomeHero = () => {
       <Image
         width={1200}
         height={800}
-        loading="eager"
         src="/images/barbershop-bg.jpg"
         alt=""
         className="fixed top-0 left-0 h-screen w-screen object-cover z-0"
