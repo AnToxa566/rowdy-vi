@@ -31,7 +31,7 @@ export const Map: FC<MapProps> = ({ loader, locale }) => {
 
   if (!isLoaded) {
     return (
-      <div className="w-full max-w-[900px] py-10 px-4 text-center">
+      <div className="w-full py-10 px-4 sm:px-8 text-center">
         {loader}
       </div>
     );
@@ -45,7 +45,6 @@ export const Map: FC<MapProps> = ({ loader, locale }) => {
       mapTypeId={google.maps.MapTypeId.ROADMAP}
       mapContainerStyle={{
         width: "100%",
-        maxWidth: "900px",
         height: "400px",
         borderWidth: "3px",
         borderColor: "black",

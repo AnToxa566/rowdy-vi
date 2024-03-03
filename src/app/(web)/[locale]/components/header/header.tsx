@@ -60,7 +60,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed px-4 py-4 w-full z-40 transition-all ${
+      className={`fixed px-4 sm:px-8 py-4 w-full z-40 transition-all ${
         scrolled && !menuOpened
           ? "bg-black bg-opacity-80 backdrop-blur-sm shadow"
           : ""

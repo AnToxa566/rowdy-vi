@@ -52,7 +52,7 @@ export const HomeMasters = () => {
 
   return (
     <section
-      className="relative py-10 px-4 bg-black text-white z-30"
+      className="relative py-10 px-4 sm:px-8 bg-black text-white z-30"
       id="masters"
     >
       <div className="container mx-auto flex flex-col gap-8">

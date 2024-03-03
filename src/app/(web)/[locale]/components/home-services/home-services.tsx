@@ -63,7 +63,7 @@ export const HomeServices = () => {
   ];
 
   return (
-    <section id="services" className="relative py-10 px-4 bg-white z-30">
+    <section id="services" className="relative py-10 px-4 sm:px-8 bg-white z-30">
       <div className="container mx-auto flex flex-col gap-8">
         <motion.div
           initial={{ y: 100, opacity: 0 }}

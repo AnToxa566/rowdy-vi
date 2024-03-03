@@ -42,7 +42,7 @@ export default function RootLayout({
 
         <main className="w-full">
           <Providers>
-            <section className="container mx-auto py-8 px-4">
+            <section className="container mx-auto py-8 px-4 sm:px-8">
               {children}
             </section>
           </Providers>

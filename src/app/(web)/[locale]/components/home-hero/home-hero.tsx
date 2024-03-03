@@ -71,7 +71,7 @@ export const HomeHero = () => {
 
   return (
     <section className="text-white h-screen" id="hero">
-      <div className="relative py-8 px-4 h-full z-20">
+      <div className="relative py-8 px-4 sm:px-8 h-full z-20">
         <div className="container mx-auto h-full flex items-center">
           <motion.div
             initial={{ opacity: 0, x: -100 }}

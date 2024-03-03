@@ -22,7 +22,7 @@ export const HomeContacts = () => {
   const locale = useLocale();
 
   return (
-    <section className="relative z-30 bg-white py-10 px-4" id="contacts">
+    <section className="relative z-30 bg-white py-10 px-4 sm:px-8" id="contacts">
       <div className="container mx-auto flex flex-col gap-8">
         <motion.h2
           initial={{ x: -200, opacity: 0 }}
