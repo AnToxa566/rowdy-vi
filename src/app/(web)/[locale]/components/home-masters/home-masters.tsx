@@ -25,28 +25,32 @@ export const HomeMasters = () => {
       name: t("oleg"),
       graduation: "Expert",
       instagramLink: "https://www.instagram.com/_barber_marcus_1337/",
-      altegioLink: "https://b829839.alteg.io/company/778954/menu?o=m2222922",
+      altegioLink:
+        "https://b829839.alteg.io/company/778954/personal/select-master?o=m2222922",
     },
     {
       imageSrc: "/images/masters/roma.jpg",
       name: t("roma"),
       graduation: "Expert",
       instagramLink: "https://www.instagram.com/rg.ruslanovich/",
-      altegioLink: "https://b829839.alteg.io/company/778954/menu?o=m2231976",
+      altegioLink:
+        "https://b829839.alteg.io/company/778954/personal/select-master?o=m2231976",
     },
     {
       imageSrc: "/images/masters/maksim.jpg",
       name: t("maksim"),
       graduation: "Expert",
       instagramLink: "https://www.instagram.com/maxim.tsirylnik/",
-      altegioLink: "https://b829839.alteg.io/company/778954/menu?o=m2231978",
+      altegioLink:
+        "https://b829839.alteg.io/company/778954/personal/select-master?o=m2231978",
     },
     {
       imageSrc: "/images/masters/liza.jpg",
       name: t("liza"),
       graduation: "Top Barber",
       instagramLink: "https://www.instagram.com/ewaitingbaydak_/",
-      altegioLink: "https://b829839.alteg.io/company/778954/menu?o=m2231977",
+      altegioLink:
+        "https://b829839.alteg.io/company/778954/personal/select-master?o=m2231977",
     },
   ];
 
