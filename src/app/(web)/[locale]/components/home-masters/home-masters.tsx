@@ -88,7 +88,7 @@ export const HomeMasters = () => {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4 }}
           viewport={{ once: true }}
-          className="flex items-center gap-4 overflow-x-scroll"
+          className="flex items-center gap-4 overflow-x-auto no-scrollbar"
         >
           {masters.map((master, idx) => (
             <MasterCard key={idx} master={master} />

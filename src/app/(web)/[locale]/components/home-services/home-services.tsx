@@ -93,7 +93,7 @@ export const HomeServices = () => {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
           viewport={{ once: true }}
-          className="flex items-center gap-4 overflow-x-scroll"
+          className="flex items-center gap-4 overflow-x-auto no-scrollbar"
         >
           {services.map((service) => (
             <ServiceCard key={service.label} service={service} />
