@@ -31,6 +31,7 @@
     "hero": {
       "titleHTML": "<span class='font-black'>Rowdy Barbershop</span> - the place where your style begins",
       "subtitle": "Feel the Energy of Rowdy in Every Haircut 🔥",
+      "hero_img": "Rowdy Barbershop Team",
       "services": {
         "haircut": "👨 Men's haircut",
         "beard": "🧔‍♂️ Beard trim",

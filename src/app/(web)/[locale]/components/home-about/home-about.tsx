@@ -86,18 +86,18 @@ export const HomeAbout = () => {
             className="hidden sm:block lg:w-1/2"
           >
             <Image
-              width={630}
-              height={470}
-              alt=""
+              width={750}
+              height={500}
+              alt="Процес чоловічої стрижки в Rowdy Barbershop"
               src="/images/about/hero.jpg"
               className="w-full h-auto rounded-xl"
             />
           </motion.div>
 
           <Image
-            width={630}
-            height={470}
-            alt=""
+            width={750}
+            height={500}
+            alt="Процес чоловічої стрижки в Rowdy Barbershop"
             src="/images/about/hero.jpg"
             className="w-full h-auto rounded-xl sm:hidden"
           />

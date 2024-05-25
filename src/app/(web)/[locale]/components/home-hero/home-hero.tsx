@@ -155,7 +155,7 @@ export const HomeHero = () => {
         height={800}
         loading="eager"
         src="/images/barbershop-bg.jpg"
-        alt=""
+        alt={t("home.hero.hero_img")}
         className="fixed top-0 left-0 h-screen w-screen object-cover z-0"
       />
 
