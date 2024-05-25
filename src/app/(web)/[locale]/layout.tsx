@@ -8,6 +8,7 @@ import {
   useTranslations,
 } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import { Analytics } from '@vercel/analytics/react';
 
 import { SEO } from "@/common/enums";
 
@@ -136,6 +137,8 @@ export default function RootLayout({
             <Footer />
           </Providers>
         </NextIntlClientProvider>
+        
+        <Analytics />
       </body>
     </html>
   );
