@@ -1,27 +1,16 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
 
 import { Button, Card, CardBody } from "@nextui-org/react";
-import {
-  RiArrowDownLine,
-  RiArrowRightLine,
-  RiMapPinLine,
-} from "@remixicon/react";
+import { RiMapPinLine, RiArrowRightLine } from "@remixicon/react";
 
-import { scrollTo } from "@/common/utils";
-import { AppLink, ScrollOffset, SectionSelector } from "@/common/enums";
+import { AppLink } from "@/common/enums";
 
-import Loading from "../../loading";
+import { ScrollButton } from "./scroll-btn";
 
 export const HomeHero = () => {
   const t = useTranslations();
-
-  const [isLoading, setIsLoading] = useState(true);
 
   const services = [
     {
@@ -55,30 +44,11 @@ export const HomeHero = () => {
     },
   ];
 
-  useEffect(() => {
-    if (window !== undefined) {
-      setIsLoading(false);
-    }
-  }, []);
-
-  const handleDownClick = () => {
-    scrollTo(SectionSelector.SERVICES, ScrollOffset.HEADER);
-  };
-
-  if (isLoading) {
-    return <Loading />;
-  }
-
   return (
     <section className="text-white h-screen" id="hero">
       <div className="relative py-8 px-4 sm:px-8 h-full z-20">
         <div className="container mx-auto h-full flex items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="flex flex-col gap-4 lg:gap-6 lg:w-1/2"
-          >
+          <div className="flex flex-col gap-4 lg:gap-6 lg:w-1/2">
             <h1
               dangerouslySetInnerHTML={{ __html: t.raw("home.hero.titleHTML") }}
               className="text-2xl lg:text-5xl font-semibold leading-tight"
@@ -121,30 +91,19 @@ export const HomeHero = () => {
                 </Button>
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           <div className="w-1/2 relative hidden lg:block">
             {services.map((service, idx) => (
-              <motion.div
-                key={service.label}
-                initial={{ opacity: 0, y: -100 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: idx * 0.4,
-                  ease: "easeInOut",
-                }}
-              >
-                <Link href={AppLink.ALTEGIO} target="_blank">
-                  <Card
-                    className={`absolute hover:bg-gray-100 ${service.styles}`}
-                  >
-                    <CardBody>
-                      <p className="whitespace-nowrap">{service.label}</p>
-                    </CardBody>
-                  </Card>
-                </Link>
-              </motion.div>
+              <Link key={service.label} href={AppLink.ALTEGIO} target="_blank">
+                <Card
+                  className={`absolute hover:bg-gray-100 ${service.styles}`}
+                >
+                  <CardBody>
+                    <p className="whitespace-nowrap">{service.label}</p>
+                  </CardBody>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -159,22 +118,9 @@ export const HomeHero = () => {
         className="fixed top-0 left-0 h-screen w-screen object-cover z-0"
       />
 
-      <motion.div
-        initial={{ opacity: 0, y: -150 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-      >
-        <Button
-          isIconOnly
-          radius="full"
-          variant="bordered"
-          aria-label={t("shared.down")}
-          className="text-white animate-bounce absolute bottom-6 left-1/2 z-20 translate-x-[-50%]"
-          onClick={handleDownClick}
-        >
-          <RiArrowDownLine />
-        </Button>
-      </motion.div>
+      <div className="absolute bottom-6 left-1/2 z-20 translate-x-[-50%]">
+        <ScrollButton />
+      </div>
 
       <div className="absolute top-0 h-screen w-screen z-10 bg-black opacity-70"></div>
     </section>
