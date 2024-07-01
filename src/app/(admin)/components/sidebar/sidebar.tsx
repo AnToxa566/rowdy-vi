@@ -12,6 +12,7 @@ export const Sidebar = () => {
     { link: AppPath.ADMIN, label: "Дашбоард" },
     { link: AppPath.TRANSACTIONS, label: "Транзакції" },
     { link: AppPath.ACCOUNTS, label: "Рахунки" },
+    { link: AppPath.CATEGORIES, label: "Категорії" },
   ];
 
   return (

@@ -32,6 +32,16 @@ export const transactionSchema: ColumnDef[] = [
     isRequired: true,
   },
   {
+    type: FormFieldType.CATEGORY_SELECT,
+    name: ColumnKey.CATEGORY,
+    label: "Категорія",
+    placeholder: "Виберіть категорію",
+    labelPlacement: "outside",
+    isHidden: true,
+    isFormField: true,
+    isRequired: true,
+  },
+  {
     type: FormFieldType.DATE,
     name: ColumnKey.DATE,
     label: "Дата",

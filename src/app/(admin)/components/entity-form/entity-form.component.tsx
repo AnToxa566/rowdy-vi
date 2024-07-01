@@ -4,10 +4,10 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { Button, Input, Select, SelectItem, Textarea } from "@nextui-org/react";
 
 import { ColumnDef } from "@/common/types";
+import { formateDate } from "@/common/utils";
 import { FormFieldType } from "@/common/enums";
 
-import { AccountSelect } from "..";
-import { formateDate } from "@/common/utils";
+import { AccountSelect, CategorySelect } from "..";
 
 export interface InputsTemplate {
   [key: string]: string;
@@ -98,6 +98,17 @@ export function EntityForm<T>({
             } else if (field.type === FormFieldType.ACCOUNT_SELECT) {
               return (
                 <AccountSelect
+                  key={field.name}
+                  field={field}
+                  defaultSelectedKey={
+                    item ? (item[field.name as keyof T] as string) : ""
+                  }
+                  register={register}
+                />
+              );
+            } else if (field.type === FormFieldType.CATEGORY_SELECT) {
+              return (
+                <CategorySelect
                   key={field.name}
                   field={field}
                   defaultSelectedKey={

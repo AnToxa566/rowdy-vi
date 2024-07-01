@@ -99,7 +99,7 @@ export const HomeHero = () => {
                 <Card
                   className={`absolute hover:bg-gray-100 ${service.styles}`}
                 >
-                  <CardBody>
+                  <CardBody className="p-4">
                     <p className="whitespace-nowrap">{service.label}</p>
                   </CardBody>
                 </Card>
