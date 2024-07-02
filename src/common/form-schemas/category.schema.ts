@@ -11,4 +11,13 @@ export const categorySchema: ColumnDef[] = [
     isFormField: true,
     isRequired: true,
   },
+  {
+    label: "Пріоритет",
+    name: "order",
+    type: FormFieldType.NUMBER,
+    placeholder: "0",
+    labelPlacement: "outside",
+    isFormField: true,
+    isRequired: true,
+  },
 ];

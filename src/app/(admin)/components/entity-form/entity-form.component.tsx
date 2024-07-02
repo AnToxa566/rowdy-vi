@@ -144,7 +144,7 @@ export function EntityForm<T>({
                   placeholder={field.placeholder}
                   labelPlacement={field.labelPlacement}
                   defaultValue={
-                    item ? item[field.name as keyof T] : field.defaultValue
+                    item ? `${item[field.name as keyof T]}` : field.defaultValue
                   }
                   isRequired={field.isRequired}
                   disabled={field.disabled}
