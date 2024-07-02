@@ -159,11 +159,11 @@ function DataGrid<T extends BaseModel, C, U>({
     ],
     [
       ColumnKey.CATEGORY,
-      ({ cellValue }) => (cellValue as Category).name,
+      ({ cellValue }) => (cellValue as Category)?.name || 'Не знайдено',
     ],
     [
       ColumnKey.ACCOUNT,
-      ({ cellValue }) => (cellValue as Account).name,
+      ({ cellValue }) => (cellValue as Account)?.name || 'Не знайдено',
     ],
     [
       ColumnKey.ACTIONS,
