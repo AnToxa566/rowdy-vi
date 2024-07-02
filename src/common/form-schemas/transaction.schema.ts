@@ -4,15 +4,6 @@ import { formateDate } from "../utils";
 
 export const transactionSchema: ColumnDef[] = [
   {
-    label: "Назва",
-    name: "name",
-    type: FormFieldType.TEXT,
-    placeholder: "Каса за день...",
-    labelPlacement: "outside",
-    isFormField: true,
-    isRequired: true,
-  },
-  {
     type: FormFieldType.NUMBER,
     name: "sum",
     label: "Сума",
@@ -27,7 +18,6 @@ export const transactionSchema: ColumnDef[] = [
     label: "Рахунок",
     placeholder: "Виберіть рахунок",
     labelPlacement: "outside",
-    isHidden: true,
     isFormField: true,
     isRequired: true,
   },
@@ -37,7 +27,6 @@ export const transactionSchema: ColumnDef[] = [
     label: "Категорія",
     placeholder: "Виберіть категорію",
     labelPlacement: "outside",
-    isHidden: true,
     isFormField: true,
     isRequired: true,
   },

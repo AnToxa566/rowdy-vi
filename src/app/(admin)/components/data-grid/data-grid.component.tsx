@@ -33,7 +33,7 @@ import {
 } from "@remixicon/react";
 
 import { ColumnKey } from "@/common/enums";
-import { BaseModel } from "@/common/models";
+import { Account, BaseModel, Category } from "@/common/models";
 import { ModalContext } from "@/app/providers";
 import { ColumnDef } from "@/common/types";
 
@@ -156,6 +156,14 @@ function DataGrid<T extends BaseModel, C, U>({
       ColumnKey.DATE,
       ({ cellValue }) =>
         new Date(cellValue?.toString() || "").toLocaleDateString("uk"),
+    ],
+    [
+      ColumnKey.CATEGORY,
+      ({ cellValue }) => (cellValue as Category).name,
+    ],
+    [
+      ColumnKey.ACCOUNT,
+      ({ cellValue }) => (cellValue as Account).name,
     ],
     [
       ColumnKey.ACTIONS,

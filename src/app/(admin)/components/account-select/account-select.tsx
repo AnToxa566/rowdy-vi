@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { Select, SelectItem } from "@nextui-org/react";
 import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
-import { Account } from "@/common/models";
 import { ColumnDef } from "@/common/types";
 import { accountService } from "@/services";
+import { Account, BaseModel } from "@/common/models";
 
 interface AccountSelectProps<TFieldValues extends FieldValues> {
   field: ColumnDef;
-  defaultSelectedKey?: string;
+  defaultSelectedKey?: string | BaseModel;
   register: UseFormRegister<TFieldValues>;
 }
 
@@ -39,7 +39,11 @@ export const AccountSelect = <TFieldValues extends FieldValues>({
         isRequired={field.isRequired}
         disabled={field.disabled}
         defaultSelectedKeys={
-          defaultSelectedKey ? [defaultSelectedKey] : field.defaultSelectedKeys
+          typeof defaultSelectedKey === 'string' ? 
+            [defaultSelectedKey] :
+          typeof defaultSelectedKey === 'object' ? 
+            [defaultSelectedKey._id] :
+          field.defaultSelectedKeys
         }
         {...register(field.name as Path<TFieldValues>)}
       >
