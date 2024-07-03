@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Select, SelectItem } from "@nextui-org/react";
+import { Key, useEffect, useState } from "react";
+import { Autocomplete, AutocompleteItem } from "@nextui-org/react";
 import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
 import { ColumnDef } from "@/common/types";
@@ -26,33 +26,50 @@ export const AccountSelect = <TFieldValues extends FieldValues>({
     setAccounts(data);
   };
 
+  const handleSelectionChange = (value: Key) => {
+    const event = {
+      target: {
+        name: field.name,
+        value: value,
+      },
+    };
+
+    register(field.name as Path<TFieldValues>).onChange(event);
+  };
+
+  const getDefaultKey = () => {
+    return typeof defaultSelectedKey === "string"
+      ? defaultSelectedKey
+      : typeof defaultSelectedKey === "object"
+      ? defaultSelectedKey._id
+      : field.defaultSelectedKeys?.length
+      ? field.defaultSelectedKeys[0]
+      : "";
+  };
+
   useEffect(() => {
     fetchAccounts();
+    handleSelectionChange(getDefaultKey());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     accounts.length && (
-      <Select
+      <Autocomplete
         label={field.label}
         placeholder={field.placeholder}
         labelPlacement={field.labelPlacement}
         isRequired={field.isRequired}
         disabled={field.disabled}
-        defaultSelectedKeys={
-          typeof defaultSelectedKey === 'string' ? 
-            [defaultSelectedKey] :
-          typeof defaultSelectedKey === 'object' ? 
-            [defaultSelectedKey._id] :
-          field.defaultSelectedKeys
-        }
-        {...register(field.name as Path<TFieldValues>)}
+        defaultSelectedKey={getDefaultKey()}
+        onSelectionChange={handleSelectionChange}
       >
         {accounts.map((account) => (
-          <SelectItem key={account._id} value={account._id}>
+          <AutocompleteItem key={account._id} value={account._id}>
             {account.name}
-          </SelectItem>
+          </AutocompleteItem>
         ))}
-      </Select>
+      </Autocomplete>
     )
   );
 };

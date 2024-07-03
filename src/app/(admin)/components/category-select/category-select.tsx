@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Select, SelectItem } from "@nextui-org/react";
+import { Key, useEffect, useState } from "react";
+import { Autocomplete, AutocompleteItem } from "@nextui-org/react";
 import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
 import { ColumnDef } from "@/common/types";
@@ -26,33 +26,50 @@ export const CategorySelect = <TFieldValues extends FieldValues>({
     setCategories(data);
   };
 
+  const handleSelectionChange = (value: Key) => {
+    const event = {
+      target: {
+        name: field.name,
+        value: value,
+      },
+    };
+
+    register(field.name as Path<TFieldValues>).onChange(event);
+  };
+
+  const getDefaultKey = () => {
+    return typeof defaultSelectedKey === "string"
+      ? defaultSelectedKey
+      : typeof defaultSelectedKey === "object"
+      ? defaultSelectedKey._id
+      : field.defaultSelectedKeys?.length
+      ? field.defaultSelectedKeys[0]
+      : "";
+  };
+
   useEffect(() => {
     fetchCategories();
+    handleSelectionChange(getDefaultKey());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     categories.length && (
-      <Select
+      <Autocomplete
         label={field.label}
         placeholder={field.placeholder}
         labelPlacement={field.labelPlacement}
         isRequired={field.isRequired}
         disabled={field.disabled}
-        defaultSelectedKeys={
-          typeof defaultSelectedKey === 'string' ? 
-            [defaultSelectedKey] :
-          typeof defaultSelectedKey === 'object' ? 
-            [defaultSelectedKey._id] :
-          field.defaultSelectedKeys
-        }
-        {...register(field.name as Path<TFieldValues>)}
+        defaultSelectedKey={getDefaultKey()}
+        onSelectionChange={handleSelectionChange}
       >
         {categories.map((Category) => (
-          <SelectItem key={Category._id} value={Category._id}>
+          <AutocompleteItem key={Category._id} value={Category._id}>
             {Category.name}
-          </SelectItem>
+          </AutocompleteItem>
         ))}
-      </Select>
+      </Autocomplete>
     )
   );
 };
