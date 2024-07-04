@@ -157,13 +157,14 @@ function DataGrid<T extends BaseModel, C, U>({
       ({ cellValue }) =>
         new Date(cellValue?.toString() || "").toLocaleDateString("uk"),
     ],
+    [ColumnKey.SUM, ({ cellValue }) => (cellValue as number).toFixed(2)],
     [
       ColumnKey.CATEGORY,
-      ({ cellValue }) => (cellValue as Category)?.name || 'Не знайдено',
+      ({ cellValue }) => (cellValue as Category)?.name || "Не знайдено",
     ],
     [
       ColumnKey.ACCOUNT,
-      ({ cellValue }) => (cellValue as Account)?.name || 'Не знайдено',
+      ({ cellValue }) => (cellValue as Account)?.name || "Не знайдено",
     ],
     [
       ColumnKey.ACTIONS,

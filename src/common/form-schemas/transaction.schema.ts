@@ -1,11 +1,11 @@
 import { ColumnKey, FormFieldType } from "../enums";
-import { ColumnDef } from "../types";
 import { formateDate } from "../utils";
+import { ColumnDef } from "../types";
 
 export const transactionSchema: ColumnDef[] = [
   {
     type: FormFieldType.NUMBER,
-    name: "sum",
+    name: ColumnKey.SUM,
     label: "Сума",
     placeholder: "50000",
     labelPlacement: "outside",

@@ -1,10 +1,10 @@
 import {
   ExpenseTransactionsGrid,
   IncomeTransactionsGrid,
-  PeriodSelect,
-  DateSelect,
   TotalProfit,
 } from "./components";
+
+import { DateSelect, PeriodSelect } from "../../components";
 
 export default function TransactionsPage() {
   return (

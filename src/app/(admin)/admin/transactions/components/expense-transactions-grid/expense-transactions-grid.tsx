@@ -34,7 +34,11 @@ const ExpenseTransactionsGrid = () => {
 
     dispatch(
       dashboardCountsActions.setTotalExpense(
-        data.reduce((acc, transaction) => (acc += transaction.sum), 0)
+        parseFloat(
+          data
+            .reduce((acc, transaction) => (acc += transaction.sum), 0)
+            .toFixed(2)
+        )
       )
     );
 

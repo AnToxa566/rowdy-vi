@@ -9,7 +9,8 @@ const TotalProfit = () => {
     (state) => state.dashboardCounts
   );
 
-  const totalProfit = () => totalIncome - totalExpense;
+  const totalProfit = (): number =>
+    parseFloat((totalIncome - totalExpense).toFixed(2));
 
   return (
     <Card className="p-4">

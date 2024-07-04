@@ -34,7 +34,11 @@ const IncomeTransactionsGrid = () => {
 
     dispatch(
       dashboardCountsActions.setTotalIncome(
-        data.reduce((acc, transaction) => (acc += transaction.sum), 0)
+        parseFloat(
+          data
+            .reduce((acc, transaction) => (acc += transaction.sum), 0)
+            .toFixed(2)
+        )
       )
     );
 

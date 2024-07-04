@@ -1,4 +1,4 @@
-import { FormFieldType } from "../enums";
+import { ColumnKey, FormFieldType } from "../enums";
 import { ColumnDef } from "../types";
 
 export const accountSchema: ColumnDef[] = [
@@ -13,7 +13,7 @@ export const accountSchema: ColumnDef[] = [
   },
   {
     type: FormFieldType.NUMBER,
-    name: "sum",
+    name: ColumnKey.SUM,
     label: "Сума",
     placeholder: "Сума на початок",
     labelPlacement: "outside",
