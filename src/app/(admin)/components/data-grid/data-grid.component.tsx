@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  ChangeEvent,
   Key,
   PropsWithChildren,
   ReactNode,
@@ -24,6 +25,8 @@ import {
   Tooltip,
   Pagination,
   Progress,
+  Select,
+  SelectItem,
 } from "@nextui-org/react";
 import {
   RiAddFill,
@@ -64,7 +67,7 @@ function DataGrid<T extends BaseModel, C, U>({
   schema,
   children,
   loading = false,
-  rowsPerPage = 4,
+  rowsPerPage = 6,
   enableActios = true,
   enableAdd = true,
   enableDetails = true,
@@ -74,18 +77,26 @@ function DataGrid<T extends BaseModel, C, U>({
   onCreate = () => {},
   onUpdate = () => {},
 }: DataGridProps<T, C, U>) {
+  const pageSizes = [6, 10, 25, 50, 100];
+
   const [page, setPage] = useState(1);
 
-  const pages = Math.ceil(data.length / rowsPerPage);
+  const [pageSize, setPageSize] = useState<number>(rowsPerPage);
+
+  const pages = Math.ceil(data.length / pageSize);
 
   const { onClose, handleModal } = useContext(ModalContext);
 
   const paginatedData = useMemo(() => {
-    const start = (page - 1) * rowsPerPage;
-    const end = start + rowsPerPage;
+    const start = (page - 1) * pageSize;
+    const end = start + pageSize;
 
     return data.slice(start, end);
-  }, [data, page, rowsPerPage]);
+  }, [data, page, pageSize]);
+
+  const handlePageSizeChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    setPageSize(parseInt(event.target.value));
+  };
 
   const handleCreateEntity = (data: C) => {
     onCreate(data);
@@ -258,7 +269,7 @@ function DataGrid<T extends BaseModel, C, U>({
             )
           }
           bottomContent={
-            <div className="flex w-full justify-center">
+            <div className="flex w-full justify-between items-center">
               <Pagination
                 isCompact
                 showControls
@@ -268,6 +279,21 @@ function DataGrid<T extends BaseModel, C, U>({
                 total={pages}
                 onChange={(page) => setPage(page)}
               />
+
+              <Select
+                size="sm"
+                variant="underlined"
+                label="Розмір пагінації"
+                className="max-w-xs"
+                defaultSelectedKeys={[pageSize.toString()]}
+                onChange={handlePageSizeChange}
+              >
+                {pageSizes.map((pageSize) => (
+                  <SelectItem key={pageSize.toString()}>
+                    {pageSize.toString()}
+                  </SelectItem>
+                ))}
+              </Select>
             </div>
           }
         >
