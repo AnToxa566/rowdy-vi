@@ -4,8 +4,9 @@ import { ColumnDef } from "../types";
 
 export const transactionSchema: ColumnDef[] = [
   {
-    type: FormFieldType.NUMBER,
-    name: ColumnKey.SUM,
+    columnType: ColumnKey.NUMBER,
+    formType: FormFieldType.NUMBER,
+    name: "sum",
     label: "Сума",
     placeholder: "50000",
     labelPlacement: "outside",
@@ -13,8 +14,9 @@ export const transactionSchema: ColumnDef[] = [
     isRequired: true,
   },
   {
-    type: FormFieldType.ACCOUNT_SELECT,
-    name: ColumnKey.ACCOUNT,
+    columnType: ColumnKey.ACCOUNT,
+    formType: FormFieldType.ACCOUNT_SELECT,
+    name: "account",
     label: "Рахунок",
     placeholder: "Виберіть рахунок",
     labelPlacement: "outside",
@@ -22,8 +24,9 @@ export const transactionSchema: ColumnDef[] = [
     isRequired: true,
   },
   {
-    type: FormFieldType.CATEGORY_SELECT,
-    name: ColumnKey.CATEGORY,
+    columnType: ColumnKey.CATEGORY,
+    formType: FormFieldType.CATEGORY_SELECT,
+    name: "category",
     label: "Категорія",
     placeholder: "Виберіть категорію",
     labelPlacement: "outside",
@@ -31,8 +34,9 @@ export const transactionSchema: ColumnDef[] = [
     isRequired: true,
   },
   {
-    type: FormFieldType.DATE,
-    name: ColumnKey.DATE,
+    columnType: ColumnKey.DATE,
+    formType: FormFieldType.DATE,
+    name: "date",
     label: "Дата",
     placeholder: "12.12.2012",
     labelPlacement: "outside",
@@ -42,7 +46,7 @@ export const transactionSchema: ColumnDef[] = [
   },
   {
     label: "Опис",
-    type: FormFieldType.TEXTAREA,
+    formType: FormFieldType.TEXTAREA,
     name: "description",
     placeholder: "Додайте деталей до транзакції...",
     labelPlacement: "outside",

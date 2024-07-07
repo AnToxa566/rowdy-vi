@@ -1,12 +1,11 @@
-import { Key } from "react";
-
-import { FormFieldType } from "../enums";
+import { ColumnKey, FormFieldType } from "../enums";
 
 export interface ColumnDef {
   name: string;
   label: string;
+  columnType?: ColumnKey;
   isHidden?: boolean;
-  type?: FormFieldType;
+  formType?: FormFieldType;
   isFormField?: boolean;
   placeholder?: string;
   labelPlacement?: "inside" | "outside" | "outside-left";

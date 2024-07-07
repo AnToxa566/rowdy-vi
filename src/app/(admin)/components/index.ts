@@ -6,3 +6,4 @@ export * from "./delete-modal";
 export * from "./sidebar";
 export * from "./account-select";
 export * from "./category-select";
+export * from "./color-picker";

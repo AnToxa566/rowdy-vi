@@ -1,7 +1,10 @@
 export enum ColumnKey {
-  SUM = "sum",
+  TEXT = "text",
+  NUMBER = "number",
   DATE = "date",
   ACCOUNT = "account",
   CATEGORY = "category",
   ACTIONS = "actions",
+  COLOR = "color",
+  COLOR_CHIP = "colorChip",
 }

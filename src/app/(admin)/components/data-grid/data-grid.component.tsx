@@ -159,7 +159,7 @@ function DataGrid<T extends BaseModel, C, U>({
     });
   };
 
-  const columnKeyViewMap = new Map<
+  const columnTypeViewMap = new Map<
     Key,
     ({ cellValue, item }: { cellValue: T[keyof T]; item: T }) => ReactNode
   >([
@@ -168,14 +168,41 @@ function DataGrid<T extends BaseModel, C, U>({
       ({ cellValue }) =>
         new Date(cellValue?.toString() || "").toLocaleDateString("uk"),
     ],
-    [ColumnKey.SUM, ({ cellValue }) => (cellValue as number).toFixed(2)],
+    [
+      ColumnKey.COLOR,
+      ({ cellValue }) => (
+        <div
+          style={{ backgroundColor: cellValue as string }}
+          className="w-4 h-4 rounded-full"
+        ></div>
+      ),
+    ],
+    [ColumnKey.NUMBER, ({ cellValue }) => (cellValue as number).toFixed(2)],
     [
       ColumnKey.CATEGORY,
-      ({ cellValue }) => (cellValue as Category)?.name || "Не знайдено",
+      ({ cellValue }) => (
+        <div
+          style={{
+            backgroundColor: (cellValue as Category)?.color || "#808080",
+          }}
+          className="py-1 px-2 rounded-full text-white w-min text-nowrap"
+        >
+          {(cellValue as Category)?.name || "Не знайдено"}
+        </div>
+      ),
     ],
     [
       ColumnKey.ACCOUNT,
-      ({ cellValue }) => (cellValue as Account)?.name || "Не знайдено",
+      ({ cellValue }) => (
+        <div
+          style={{
+            backgroundColor: (cellValue as Account)?.color || "#808080",
+          }}
+          className="py-1 px-2 rounded-full text-white w-min text-nowrap"
+        >
+          {(cellValue as Account)?.name || "Не знайдено"}
+        </div>
+      ),
     ],
     [
       ColumnKey.ACTIONS,
@@ -219,10 +246,12 @@ function DataGrid<T extends BaseModel, C, U>({
   ]);
 
   const renderCell = (item: T, columnKey: Key) => {
-    const cellValue = item[columnKey as keyof T];
+    const [columnName, columnType] = columnKey.toString().split(":");
 
-    if (columnKeyViewMap.has(columnKey)) {
-      return columnKeyViewMap.get(columnKey)?.({ cellValue, item });
+    const cellValue = item[columnName as keyof T];
+
+    if (columnTypeViewMap.has(columnType)) {
+      return columnTypeViewMap.get(columnType)?.({ cellValue, item });
     }
 
     return cellValue?.toString();
@@ -232,7 +261,11 @@ function DataGrid<T extends BaseModel, C, U>({
     const columns = [...schema.filter((column) => !column.isHidden)];
 
     if (enableActios) {
-      columns.push({ name: ColumnKey.ACTIONS, label: "Дії" });
+      columns.push({
+        name: ColumnKey.ACTIONS,
+        columnType: ColumnKey.ACTIONS,
+        label: "Дії",
+      });
     }
 
     return columns;
@@ -299,7 +332,9 @@ function DataGrid<T extends BaseModel, C, U>({
         >
           <TableHeader columns={getColumns()}>
             {(column) => (
-              <TableColumn key={column.name}>{column.label}</TableColumn>
+              <TableColumn key={`${column.name}:${column.columnType}`}>
+                {column.label}
+              </TableColumn>
             )}
           </TableHeader>
 

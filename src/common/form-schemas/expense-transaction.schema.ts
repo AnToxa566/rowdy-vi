@@ -1,11 +1,11 @@
 import { ColumnDef } from "../types";
-import { FormFieldType, TransactionType } from "../enums";
+import { ColumnKey, FormFieldType, TransactionType } from "../enums";
 
 import { transactionSchema } from ".";
 
 export const expenseTransactionSchema: ColumnDef[] = [
   {
-    type: FormFieldType.SELECT,
+    formType: FormFieldType.SELECT,
     name: "type",
     label: "Тип",
     placeholder: "Дохід / витрата",

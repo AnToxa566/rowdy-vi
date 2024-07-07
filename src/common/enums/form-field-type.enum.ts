@@ -6,4 +6,5 @@ export enum FormFieldType {
   ACCOUNT_SELECT = "accountSelect",
   CATEGORY_SELECT = "categorySelect",
   TEXTAREA = "textarea",
+  COLOR = "color",
 }

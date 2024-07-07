@@ -7,7 +7,7 @@ import { ColumnDef } from "@/common/types";
 import { formateDate } from "@/common/utils";
 import { FormFieldType } from "@/common/enums";
 
-import { AccountSelect, CategorySelect } from "..";
+import { AccountSelect, CategorySelect, ColorPicker } from "..";
 
 export interface InputsTemplate {
   [key: string]: string;
@@ -53,7 +53,7 @@ export function EntityForm<T>({
       <main className="flex flex-col gap-3">
         {schema.map((field) => {
           if (field.isFormField) {
-            if (field.type === FormFieldType.TEXTAREA) {
+            if (field.formType === FormFieldType.TEXTAREA) {
               return (
                 <Textarea
                   key={field.name}
@@ -69,7 +69,7 @@ export function EntityForm<T>({
                 />
               );
             } else if (
-              field.type === FormFieldType.SELECT &&
+              field.formType === FormFieldType.SELECT &&
               field.options &&
               field.options.length
             ) {
@@ -95,7 +95,7 @@ export function EntityForm<T>({
                   ))}
                 </Select>
               );
-            } else if (field.type === FormFieldType.ACCOUNT_SELECT) {
+            } else if (field.formType === FormFieldType.ACCOUNT_SELECT) {
               return (
                 <AccountSelect
                   key={field.name}
@@ -106,7 +106,7 @@ export function EntityForm<T>({
                   register={register}
                 />
               );
-            } else if (field.type === FormFieldType.CATEGORY_SELECT) {
+            } else if (field.formType === FormFieldType.CATEGORY_SELECT) {
               return (
                 <CategorySelect
                   key={field.name}
@@ -117,11 +117,11 @@ export function EntityForm<T>({
                   register={register}
                 />
               );
-            } else if (field.type === FormFieldType.DATE) {
+            } else if (field.formType === FormFieldType.DATE) {
               return (
                 <Input
                   key={field.name}
-                  type={field.type}
+                  type={field.formType}
                   label={field.label}
                   placeholder={field.placeholder}
                   labelPlacement={field.labelPlacement}
@@ -135,11 +135,24 @@ export function EntityForm<T>({
                   {...register(field.name)}
                 />
               );
+            } else if (field.formType === FormFieldType.COLOR) {
+              return (
+                <ColorPicker
+                  key={field.name}
+                  field={field}
+                  register={register}
+                  label={field.label}
+                  isRequired={field.isRequired}
+                  defaultSelectedColor={
+                    item ? item[field.name as keyof T] : field.defaultValue
+                  }
+                />
+              );
             } else {
               return (
                 <Input
                   key={field.name}
-                  type={field.type}
+                  type={field.formType}
                   label={field.label}
                   placeholder={field.placeholder}
                   labelPlacement={field.labelPlacement}

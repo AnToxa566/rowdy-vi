@@ -3,17 +3,27 @@ import { ColumnDef } from "../types";
 
 export const accountSchema: ColumnDef[] = [
   {
+    label: "Колір",
+    name: "color",
+    columnType: ColumnKey.COLOR,
+    formType: FormFieldType.COLOR,
+    isFormField: true,
+    isRequired: true,
+  },
+  {
     label: "Назва",
     name: "name",
-    type: FormFieldType.TEXT,
+    columnType: ColumnKey.TEXT,
+    formType: FormFieldType.TEXT,
     placeholder: "Кеш",
     labelPlacement: "outside",
     isFormField: true,
     isRequired: true,
   },
   {
-    type: FormFieldType.NUMBER,
-    name: ColumnKey.SUM,
+    columnType: ColumnKey.NUMBER,
+    formType: FormFieldType.NUMBER,
+    name: "sum",
     label: "Сума",
     placeholder: "Сума на початок",
     labelPlacement: "outside",

@@ -95,7 +95,11 @@ const BaseCategoriesGrid: FC<BaseCategoriesGridProps> = ({ type }) => {
     >
       <p className="font-semibold">
         Сума:{" "}
-        <span className="text-success">
+        <span
+          className={
+            type === TransactionType.INCOME ? "text-success" : "text-danger"
+          }
+        >
           {type === TransactionType.INCOME ? totalIncome : totalExpense}&#8372;
         </span>
       </p>
