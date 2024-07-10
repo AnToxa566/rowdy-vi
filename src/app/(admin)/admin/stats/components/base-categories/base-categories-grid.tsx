@@ -86,7 +86,11 @@ const BaseCategoriesGrid: FC<BaseCategoriesGridProps> = ({ type }) => {
 
   return (
     <DataGrid
-      title={type === TransactionType.INCOME ? "Доходи" : "Витрати"}
+      title={
+        type === TransactionType.INCOME
+          ? "Доходи (категорії)"
+          : "Витрати (категорії)"
+      }
       entitySlug=""
       enableActios={false}
       enableAdd={false}

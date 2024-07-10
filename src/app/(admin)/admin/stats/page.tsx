@@ -1,12 +1,8 @@
-import {
-  ExpenseTransactionsGrid,
-  IncomeTransactionsGrid,
-  TotalProfit,
-} from "./components";
+import { ExpenseCategoriesGrid, IncomeCategoriesGrid } from "./components";
 
 import { DateSelect, PeriodSelect } from "../../components";
 
-export default function TransactionsPage() {
+export default function AdminPage() {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-4 w-full">
@@ -14,10 +10,8 @@ export default function TransactionsPage() {
         <DateSelect />
       </div>
 
-      <IncomeTransactionsGrid />
-      <ExpenseTransactionsGrid />
-
-      <TotalProfit />
+      <IncomeCategoriesGrid />
+      <ExpenseCategoriesGrid />
     </div>
   );
 }

@@ -2,6 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {
+  RiBankCardLine,
+  RiLineChartLine,
+  RiMoneyDollarCircleLine,
+  RiPriceTag3Line,
+} from "@remixicon/react";
 
 import { AppPath } from "@/common/enums";
 
@@ -9,10 +15,14 @@ export const Sidebar = () => {
   const pathname = usePathname();
 
   const pages = [
-    { link: AppPath.ADMIN, label: "Дашбоард" },
-    { link: AppPath.TRANSACTIONS, label: "Транзакції" },
-    { link: AppPath.ACCOUNTS, label: "Рахунки" },
-    { link: AppPath.CATEGORIES, label: "Категорії" },
+    {
+      link: AppPath.ADMIN,
+      label: "Транзакції",
+      icon: <RiMoneyDollarCircleLine />,
+    },
+    { link: AppPath.STATS, label: "Огляд", icon: <RiLineChartLine /> },
+    { link: AppPath.ACCOUNTS, label: "Рахунки", icon: <RiBankCardLine /> },
+    { link: AppPath.CATEGORIES, label: "Категорії", icon: <RiPriceTag3Line /> },
   ];
 
   return (
@@ -24,11 +34,12 @@ export const Sidebar = () => {
           <Link
             key={page.label}
             href={page.link}
-            className={`p-2 rounded-md hover:bg-gray-200 ${
+            className={`p-2 rounded-md hover:bg-gray-200 flex gap-2 ${
               page.link === pathname ? "bg-gray-200" : ""
             }`}
           >
-            {page.label}
+            {page.icon}
+            <span className="font-medium">{page.label}</span>
           </Link>
         ))}
       </div>
