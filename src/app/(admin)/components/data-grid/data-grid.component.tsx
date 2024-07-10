@@ -181,13 +181,15 @@ function DataGrid<T extends BaseModel, C, U>({
     [
       ColumnKey.CATEGORY,
       ({ cellValue }) => (
-        <div
-          style={{
-            backgroundColor: (cellValue as Category)?.color || "#808080",
-          }}
-          className="py-1 px-2 rounded-full text-white w-min text-nowrap"
-        >
-          {(cellValue as Category)?.name || "Не знайдено"}
+        <div className="flex gap-2 items-center">
+          <div
+            style={{
+              backgroundColor: (cellValue as Category)?.color || "#808080",
+            }}
+            className="w-3 h-3 rounded-full"
+          ></div>
+
+          <span>{(cellValue as Category)?.name || "Не знайдено"}</span>
         </div>
       ),
     ],
