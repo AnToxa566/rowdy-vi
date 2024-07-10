@@ -53,11 +53,15 @@ const BaseCategoriesGrid: FC<BaseCategoriesGridProps> = ({ type }) => {
     );
 
     const categorySums: { [key: string]: number } = {};
+    const categoryColors: { [key: string]: string } = {};
 
     data.forEach((transaction) => {
       if (!categorySums[transaction.category?.name || undefinedCategory]) {
         categorySums[transaction.category?.name || undefinedCategory] = 0;
+        categoryColors[transaction.category?.name || undefinedCategory] =
+          transaction.category?.color || "#808080";
       }
+
       categorySums[transaction.category?.name || undefinedCategory] +=
         transaction.sum;
     });
@@ -69,8 +73,9 @@ const BaseCategoriesGrid: FC<BaseCategoriesGridProps> = ({ type }) => {
         return {
           _id: category,
           name: category,
-          percent: ((sum / totalSum) * 100).toFixed(2) + "%",
+          percent: ((sum / totalSum) * 100).toFixed(2),
           sum: parseFloat(sum.toFixed(2)),
+          color: categoryColors[category],
         };
       }
     );

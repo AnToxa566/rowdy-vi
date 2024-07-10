@@ -7,4 +7,5 @@ export enum ColumnKey {
   ACTIONS = "actions",
   COLOR = "color",
   COLOR_CHIP = "colorChip",
+  PERCENT = "percent",
 }

@@ -179,6 +179,19 @@ function DataGrid<T extends BaseModel, C, U>({
     ],
     [ColumnKey.NUMBER, ({ cellValue }) => (cellValue as number).toFixed(2)],
     [
+      ColumnKey.PERCENT,
+      ({ cellValue }) => (
+        <div
+          style={{ width: `${cellValue}%` }}
+          className="relative h-6 bg-danger-300"
+        >
+          <span className="absolute left-2 h-full flex items-center font-semibold">
+            {`${cellValue}%`}
+          </span>
+        </div>
+      ),
+    ],
+    [
       ColumnKey.CATEGORY,
       ({ cellValue }) => (
         <div className="flex gap-2 items-center">

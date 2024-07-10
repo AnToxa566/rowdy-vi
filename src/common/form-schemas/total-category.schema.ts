@@ -3,6 +3,11 @@ import { ColumnDef } from "../types";
 
 export const totalCategoriesSchema: ColumnDef[] = [
   {
+    label: "",
+    name: "color",
+    columnType: ColumnKey.COLOR,
+  },
+  {
     label: "Назва",
     name: "name",
     columnType: ColumnKey.TEXT,
@@ -15,6 +20,6 @@ export const totalCategoriesSchema: ColumnDef[] = [
   {
     label: "Відсоток",
     name: "percent",
-    columnType: ColumnKey.TEXT,
+    columnType: ColumnKey.PERCENT,
   },
 ];
