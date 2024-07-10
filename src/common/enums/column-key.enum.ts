@@ -1,5 +1,6 @@
 export enum ColumnKey {
   TEXT = "text",
+  SUM = "sum",
   NUMBER = "number",
   DATE = "date",
   ACCOUNT = "account",

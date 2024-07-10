@@ -177,6 +177,14 @@ function DataGrid<T extends BaseModel, C, U>({
         ></div>
       ),
     ],
+    [
+      ColumnKey.SUM,
+      ({ cellValue }) => (
+        <span className="font-semibold">
+          {(cellValue as number).toFixed(2)}
+        </span>
+      ),
+    ],
     [ColumnKey.NUMBER, ({ cellValue }) => (cellValue as number).toFixed(2)],
     [
       ColumnKey.PERCENT,
@@ -185,7 +193,7 @@ function DataGrid<T extends BaseModel, C, U>({
           style={{ width: `${cellValue}%` }}
           className="relative h-6 bg-danger-300"
         >
-          <span className="absolute left-2 h-full flex items-center font-semibold">
+          <span className="absolute left-2 h-full flex items-center font-bold">
             {`${cellValue}%`}
           </span>
         </div>

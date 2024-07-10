@@ -4,7 +4,7 @@ import { ColumnDef } from "../types";
 
 export const transactionSchema: ColumnDef[] = [
   {
-    columnType: ColumnKey.NUMBER,
+    columnType: ColumnKey.SUM,
     formType: FormFieldType.NUMBER,
     name: "sum",
     label: "Сума",

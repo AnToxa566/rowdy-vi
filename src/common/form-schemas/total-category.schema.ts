@@ -15,7 +15,7 @@ export const totalCategoriesSchema: ColumnDef[] = [
   {
     label: "Сума",
     name: "sum",
-    columnType: ColumnKey.NUMBER,
+    columnType: ColumnKey.SUM,
   },
   {
     label: "Відсоток",

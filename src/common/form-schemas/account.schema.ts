@@ -21,7 +21,7 @@ export const accountSchema: ColumnDef[] = [
     isRequired: true,
   },
   {
-    columnType: ColumnKey.NUMBER,
+    columnType: ColumnKey.SUM,
     formType: FormFieldType.NUMBER,
     name: "sum",
     label: "Сума",
