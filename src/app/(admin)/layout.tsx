@@ -7,7 +7,7 @@ import { AppPath, CookieKey } from "@/common/enums";
 
 import { Providers } from "../providers";
 
-import { Sidebar } from "./components";
+import { DropdownNavMenu, Sidebar } from "./components";
 
 import "./admin.scss";
 
@@ -38,15 +38,21 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} relative min-h-screen flex ga-8 w-screen`}
       >
-        <Sidebar />
+        <div className="hidden md:block">
+          <Sidebar />
+        </div>
 
         <main className="w-full">
           <Providers>
-            <section className="container mx-auto py-8 px-4 sm:px-8">
+            <section className="container mx-auto p-4 md:p-8">
               {children}
             </section>
           </Providers>
         </main>
+
+        <div className="fixed bottom-4 right-4 md:hidden">
+          <DropdownNavMenu />
+        </div>
       </body>
     </html>
   );

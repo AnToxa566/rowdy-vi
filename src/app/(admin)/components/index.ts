@@ -3,6 +3,7 @@ export * from "./date-select";
 export * from "./entity-form";
 export * from "./period-select";
 export * from "./delete-modal";
+export * from "./dropdown-nav-menu";
 export * from "./sidebar";
 export * from "./account-select";
 export * from "./category-select";

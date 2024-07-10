@@ -295,9 +295,9 @@ function DataGrid<T extends BaseModel, C, U>({
   };
 
   return (
-    <Card className="p-4" shadow="sm">
+    <Card className="p-1 md:p-4" shadow="sm">
       <CardHeader className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold">{title}</h2>
+        <h2 className="text-xl md:text-2xl font-bold">{title}</h2>
 
         {enableAdd && (
           <Button
@@ -325,7 +325,7 @@ function DataGrid<T extends BaseModel, C, U>({
             )
           }
           bottomContent={
-            <div className="flex w-full justify-between items-center">
+            <div className="flex flex-wrap justify-between items-center gap-2 w-full">
               <Pagination
                 isCompact
                 showControls
