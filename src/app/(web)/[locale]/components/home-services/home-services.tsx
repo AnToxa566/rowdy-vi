@@ -18,27 +18,27 @@ export const HomeServices = () => {
     {
       label: t("cards.haircut"),
       imageSrc: "/images/services/haircut.jpeg",
-      price: 450,
+      price: 500,
     },
     {
       label: t("cards.beard"),
       imageSrc: "/images/services/beard.jpeg",
-      price: 350,
+      price: 400,
     },
     {
       label: t("cards.haircut_and_beard"),
       imageSrc: "/images/services/haircut_and_beard.jpeg",
-      price: 700,
+      price: 800,
     },
     {
       label: t("cards.shaving"),
       imageSrc: "/images/services/shaving.jpeg",
-      price: 450,
+      price: 400,
     },
     {
       label: t("cards.kids"),
       imageSrc: "/images/services/kids_haircut.jpeg",
-      price: 450,
+      price: 500,
     },
     {
       label: t("cards.coloring"),
@@ -48,12 +48,12 @@ export const HomeServices = () => {
     {
       label: t("cards.long_hair"),
       imageSrc: "/images/services/long-hair.jpeg",
-      price: 500,
+      price: 550,
     },
     {
       label: t("cards.styling"),
       imageSrc: "/images/services/hair-styling.jpg",
-      price: 100,
+      price: 150,
     },
     {
       label: t("cards.wax"),
