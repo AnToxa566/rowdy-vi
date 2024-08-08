@@ -3,7 +3,7 @@
     @apply xl:hidden;
 
     &-burger {
-      @apply relative w-5 h-8 flex flex-col gap-3 justify-center cursor-pointer;
+      @apply relative w-6 h-8 flex flex-col gap-3 justify-center cursor-pointer;
 
       span {
         @apply w-full h-[2px] bg-white transition-all;

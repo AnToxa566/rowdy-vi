@@ -1,5 +1,6 @@
 {
   "shared": {
+    "rowdy_barbershop": "Rowdy Barbershop",
     "booking": "Booking",
     "online_booking": "Online booking",
     "book_visit": "Book a visit",
@@ -29,7 +30,7 @@
   },
   "home": {
     "hero": {
-      "titleHTML": "<span class='font-black'>Rowdy Barbershop</span> - the place where your style begins",
+      "title": "- the place where your style begins",
       "subtitle": "Feel the Energy of Rowdy in Every Haircut 🔥",
       "hero_img": "Rowdy Barbershop Team",
       "services": {

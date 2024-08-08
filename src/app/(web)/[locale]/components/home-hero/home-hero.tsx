@@ -49,10 +49,10 @@ export const HomeHero = () => {
       <div className="relative py-8 px-4 sm:px-8 h-full z-20">
         <div className="container mx-auto h-full flex items-center">
           <div className="flex flex-col gap-4 lg:gap-6 lg:w-1/2">
-            <h1
-              dangerouslySetInnerHTML={{ __html: t.raw("home.hero.titleHTML") }}
-              className="text-2xl lg:text-5xl font-semibold leading-tight"
-            ></h1>
+            <h1 className="text-2xl lg:text-5xl font-semibold leading-tight">
+              <span className="font-black">{t("shared.rowdy_barbershop")}</span>{" "}
+              {t("home.hero.title")}
+            </h1>
 
             <h2 className="my-2 lg:text-xl font-light">
               {t("home.hero.subtitle")}
@@ -110,6 +110,7 @@ export const HomeHero = () => {
       </div>
 
       <Image
+        priority
         width={1200}
         height={800}
         loading="eager"

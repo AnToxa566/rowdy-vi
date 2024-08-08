@@ -1,5 +1,6 @@
 {
   "shared": {
+    "rowdy_barbershop": "Rowdy Barbershop",
     "booking": "Записатись",
     "online_booking": "Онлайн запис",
     "book_visit": "Забронювати візит",
@@ -29,7 +30,7 @@
   },
   "home": {
     "hero": {
-      "titleHTML": "<span class='font-black'>Rowdy Barbershop</span> - місце, де починається ваш стиль",
+      "title": " - місце, де починається ваш стиль",
       "subtitle": "Відчуй Енергію Бунту у Кожній Стрижці 🔥",
       "hero_img": "Команда Rowdy Barbershop",
       "services": {

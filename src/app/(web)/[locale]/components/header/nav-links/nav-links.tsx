@@ -1,7 +1,6 @@
 "use client";
 
 import { FC } from "react";
-import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 import { scrollTo } from "@/common/utils";
@@ -40,19 +39,13 @@ export const NavLinks: FC<NavLinksProps> = ({
       }`}
     >
       {links.map((link, idx) => (
-        <motion.div
-          key={link.label}
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.3, delay: idx * 0.3, ease: "easeInOut" }}
+        <span
+          key={idx}
+          onClick={() => handleLinkClick(link.selector)}
+          className="hover:text-gray-300 text-white transition-colors uppercase whitespace-nowrap cursor-pointer"
         >
-          <span
-            onClick={() => handleLinkClick(link.selector)}
-            className="hover:text-gray-300 text-white transition-colors uppercase whitespace-nowrap cursor-pointer"
-          >
-            {link.label}
-          </span>
-        </motion.div>
+          {link.label}
+        </span>
       ))}
     </div>
   );

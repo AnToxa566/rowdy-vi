@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 import { Button } from "@nextui-org/react";
@@ -63,15 +60,12 @@ export const HomeServices = () => {
   ];
 
   return (
-    <section id="services" className="relative py-10 px-4 sm:px-8 bg-white z-30">
+    <section
+      id="services"
+      className="relative py-10 px-4 sm:px-8 bg-white z-30"
+    >
       <div className="container mx-auto flex flex-col gap-8">
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-          viewport={{ once: true }}
-          className="flex items-center gap-4"
-        >
+        <div className="flex items-center gap-4">
           <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
             {t("title")}
           </h2>
@@ -86,27 +80,15 @@ export const HomeServices = () => {
               {t("look_prices")}
             </Button>
           </Link>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-          viewport={{ once: true }}
-          className="flex items-center gap-4 overflow-x-auto no-scrollbar"
-        >
+        <div className="flex items-center gap-4 overflow-x-auto no-scrollbar">
           {services.map((service) => (
             <ServiceCard key={service.label} service={service} />
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-          viewport={{ once: true }}
-          className="mx-auto"
-        >
+        <div className="mx-auto">
           <Link
             href={AppLink.ALTEGIO_SERVICES}
             target="_blank"
@@ -122,7 +104,7 @@ export const HomeServices = () => {
               {t("select_service")}
             </Button>
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

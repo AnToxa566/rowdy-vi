@@ -8,6 +8,7 @@ import {
   useTranslations,
 } from "next-intl";
 import { getTranslations } from "next-intl/server";
+
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -87,7 +88,7 @@ export default function RootLayout({
         {/* Google Tag Manager */}
         <Script
           id="gtag"
-          strategy="lazyOnload"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -100,13 +101,13 @@ export default function RootLayout({
 
         {/* Start Altegio Widget */}
         <Script
-          strategy="lazyOnload"
+          strategy="beforeInteractive"
           type="text/javascript"
           src="https://w848214.alteg.io/widgetJS"
         />
 
         <Script
-          strategy="lazyOnload"
+          strategy="beforeInteractive"
           id="altegio_widget"
           dangerouslySetInnerHTML={{
             __html: `var yWidgetSettings = {

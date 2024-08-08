@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 import { Button } from "@nextui-org/react";
@@ -19,24 +16,12 @@ export const HomeAbout = () => {
       id="about"
     >
       <div className="container mx-auto flex flex-col gap-8">
-        <motion.h2
-          initial={{ x: -200, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-          viewport={{ once: true }}
-          className="text-3xl lg:text-4xl font-bold leading-tight uppercase"
-        >
+        <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
           {t("home.about.title")}
-        </motion.h2>
+        </h2>
 
         <div className="flex items-center justify-between gap-8 flex-col lg:flex-row">
-          <motion.div
-            initial={{ x: -200, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            viewport={{ once: true }}
-            className="flex flex-col gap-4 lg:w-1/2"
-          >
+          <div className="flex flex-col gap-4 lg:w-1/2">
             <p
               dangerouslySetInnerHTML={{
                 __html: t.raw("home.about.text_01_HTML"),
@@ -76,15 +61,9 @@ export const HomeAbout = () => {
                 {t("shared.online_booking")}
               </Button>
             </Link>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ x: 200, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            viewport={{ once: true }}
-            className="hidden sm:block lg:w-1/2"
-          >
+          <div className="hidden sm:block lg:w-1/2">
             <Image
               width={750}
               height={500}
@@ -92,7 +71,7 @@ export const HomeAbout = () => {
               src="/images/about/hero.jpg"
               className="w-full h-auto rounded-xl"
             />
-          </motion.div>
+          </div>
 
           <Image
             width={750}
