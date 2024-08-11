@@ -9,7 +9,7 @@ import { Providers } from "../providers";
 
 import { DropdownNavMenu, Sidebar } from "./components";
 
-import "./admin.scss";
+import "../globals.scss";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
