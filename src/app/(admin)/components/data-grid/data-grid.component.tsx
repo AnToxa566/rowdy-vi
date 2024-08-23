@@ -312,6 +312,7 @@ function DataGrid<T extends BaseModel, C, U>({
 
       <CardBody>
         <Table
+          isStriped
           aria-label={`Таблиця ${title}`}
           topContent={
             loading && (
