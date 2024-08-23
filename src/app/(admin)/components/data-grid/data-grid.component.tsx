@@ -5,6 +5,7 @@ import {
   Key,
   PropsWithChildren,
   ReactNode,
+  useCallback,
   useContext,
   useMemo,
   useState,
@@ -27,12 +28,14 @@ import {
   Progress,
   Select,
   SelectItem,
+  Input,
 } from "@nextui-org/react";
 import {
   RiAddFill,
   RiDeleteBinLine,
   RiEdit2Line,
   RiEyeLine,
+  RiSearch2Line,
 } from "@remixicon/react";
 
 import { ColumnKey } from "@/common/enums";
@@ -55,9 +58,11 @@ export interface DataGridProps<T extends BaseModel, C, U>
   enableDetails?: boolean;
   enableUpdate?: boolean;
   enableDelete?: boolean;
+  enableSearch?: boolean;
   onDelete?: (id: string) => void;
   onCreate?: (data: C) => void;
   onUpdate?: (id: string, data: U) => void;
+  onSearch?: (query: string) => void;
 }
 
 function DataGrid<T extends BaseModel, C, U>({
@@ -73,11 +78,15 @@ function DataGrid<T extends BaseModel, C, U>({
   enableDetails = true,
   enableUpdate = true,
   enableDelete = true,
+  enableSearch = false,
   onDelete = () => {},
   onCreate = () => {},
   onUpdate = () => {},
+  onSearch = () => {},
 }: DataGridProps<T, C, U>) {
   const pageSizes = [6, 10, 25, 50, 100];
+
+  const [filterValue, setFilterValue] = useState("");
 
   const [page, setPage] = useState(1);
 
@@ -93,6 +102,27 @@ function DataGrid<T extends BaseModel, C, U>({
 
     return data.slice(start, end);
   }, [data, page, pageSize]);
+
+  const onClear = useCallback(() => {
+    setFilterValue("");
+    onSearch("");
+    setPage(1);
+  }, [onSearch]);
+
+  const onSearchChange = useCallback(
+    (value?: string) => {
+      if (value) {
+        setFilterValue(value);
+        onSearch(value);
+      } else {
+        setFilterValue("");
+        onSearch("");
+      }
+
+      setPage(1);
+    },
+    [onSearch]
+  );
 
   const handlePageSizeChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setPageSize(parseInt(event.target.value));
@@ -299,15 +329,29 @@ function DataGrid<T extends BaseModel, C, U>({
       <CardHeader className="flex justify-between items-center">
         <h2 className="text-xl md:text-2xl font-bold">{title}</h2>
 
-        {enableAdd && (
-          <Button
-            size="sm"
-            color="danger"
-            isIconOnly
-            startContent={<RiAddFill />}
-            onPress={handleOpenCreateModal}
-          ></Button>
-        )}
+        <div className="flex items-center gap-3">
+          {enableSearch && (
+            <Input
+              isClearable
+              size="sm"
+              placeholder="Пошук..."
+              startContent={<RiSearch2Line />}
+              value={filterValue}
+              onClear={() => onClear()}
+              onValueChange={onSearchChange}
+            />
+          )}
+
+          {enableAdd && (
+            <Button
+              size="sm"
+              color="danger"
+              isIconOnly
+              startContent={<RiAddFill />}
+              onPress={handleOpenCreateModal}
+            ></Button>
+          )}
+        </div>
       </CardHeader>
 
       <CardBody>

@@ -25,6 +25,8 @@ const ExpenseTransactionsGrid = () => {
     []
   );
 
+  const [categoryName, setCategoryName] = useState<string>("");
+
   const uploadTransactions = useCallback(async () => {
     const { data } = await transactionService.findAll({
       type: TransactionType.EXPENSE,
@@ -42,8 +44,14 @@ const ExpenseTransactionsGrid = () => {
       )
     );
 
-    setExpenseTransactions(data);
-  }, [dispatch, endDate, startDate]);
+    const filteredData = data.filter((item) =>
+      categoryName
+        ? item.category?.name.toLowerCase().includes(categoryName.toLowerCase())
+        : true
+    );
+
+    setExpenseTransactions(filteredData);
+  }, [dispatch, endDate, startDate, categoryName]);
 
   const handleCreateTransaction = async (data: CreateTransactionDto) => {
     await transactionService.create({
@@ -69,6 +77,11 @@ const ExpenseTransactionsGrid = () => {
     await uploadTransactions();
   };
 
+  const handleSearch = async (query: string) => {
+    setCategoryName(query);
+    uploadTransactions();
+  };
+
   useEffect(() => {
     uploadTransactions();
   }, [uploadTransactions]);
@@ -79,9 +92,11 @@ const ExpenseTransactionsGrid = () => {
       entitySlug={EntitySlug.EXPENSE_TRANSACTION}
       schema={expenseTransactionSchema}
       data={expenseTransactions}
+      enableSearch={true}
       onCreate={handleCreateTransaction}
       onUpdate={handleUpdateTransaction}
       onDelete={handleDeleteTransaction}
+      onSearch={handleSearch}
     >
       <p className="font-semibold">
         Загальні витрати:{" "}
