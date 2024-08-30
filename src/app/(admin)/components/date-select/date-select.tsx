@@ -101,7 +101,9 @@ const DateSelect = () => {
         ${endDate.toLocaleDateString("uk")}
       `;
     } else if (period === DashboardPeriod.MONTHLY) {
-      return startDate.toLocaleString("uk", { month: "long" }).toUpperCase();
+      return startDate
+        .toLocaleString("uk", { month: "long", year: "numeric" })
+        .toUpperCase();
     } else {
       return startDate.getFullYear().toString();
     }
