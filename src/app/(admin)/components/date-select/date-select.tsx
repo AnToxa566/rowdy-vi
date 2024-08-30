@@ -1,17 +1,40 @@
 "use client";
 
+import { ChangeEvent, ReactNode } from "react";
+
 import { RiArrowDropLeftLine, RiArrowDropRightLine } from "@remixicon/react";
 
+import { formateDate } from "@/common/utils";
 import { dashboardDateActions } from "@/store";
-import { useAppDispatch, useAppSelector } from "@/hooks";
 import { DashboardPeriod } from "@/common/enums";
+import { useAppDispatch, useAppSelector } from "@/hooks";
 
 const DateSelect = () => {
+  const datePickerId = "date-picker";
+
   const dispatch = useAppDispatch();
 
   const { period } = useAppSelector((state) => state.dashboardPeriod);
 
   const { startDate, endDate } = useAppSelector((state) => state.dashboardDate);
+
+  const handleDatePickerClick = (): void => {
+    const datePicker = document.querySelector(
+      `#${datePickerId}`
+    ) as HTMLInputElement;
+
+    datePicker.showPicker();
+  };
+
+  const handleDateChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newStartDate = new Date(event.target.value);
+    const newEndDate = new Date(newStartDate.toDateString());
+
+    newEndDate.setDate(newEndDate.getDate() + 1);
+
+    dispatch(dashboardDateActions.setStartDate(newStartDate));
+    dispatch(dashboardDateActions.setEndDate(newEndDate));
+  };
 
   const handleScrollDate = (next: boolean = true): void => {
     let newStartDate;
@@ -51,9 +74,27 @@ const DateSelect = () => {
     dispatch(dashboardDateActions.setEndDate(newEndDate));
   };
 
-  const getDateLabel = (): string => {
+  const getDateLabel = (): ReactNode => {
     if (period === DashboardPeriod.DAIYLY) {
-      return startDate.toLocaleDateString("uk");
+      return (
+        <div className="relative">
+          <label
+            htmlFor={datePickerId}
+            className="underline cursor-pointer"
+            onClick={handleDatePickerClick}
+          >
+            {startDate.toLocaleDateString("uk")}
+          </label>
+
+          <input
+            id={datePickerId}
+            value={formateDate(startDate)}
+            type="date"
+            className="absolute left-0 invisible -translate-x-1/2"
+            onChange={handleDateChange}
+          />
+        </div>
+      );
     } else if (period === DashboardPeriod.WEEKLY) {
       return `
         ${startDate.toLocaleDateString("uk")} - 
