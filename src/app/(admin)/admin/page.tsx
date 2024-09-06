@@ -4,7 +4,7 @@ import {
   TotalProfit,
 } from "./components";
 
-import { DateSelect, PeriodSelect } from "../components";
+import { AccountSelector, DateSelect, PeriodSelect } from "../components";
 
 export default function TransactionsPage() {
   return (
@@ -12,6 +12,7 @@ export default function TransactionsPage() {
       <div className="flex flex-col gap-4 w-full">
         <PeriodSelect />
         <DateSelect />
+        <AccountSelector />
       </div>
 
       <IncomeTransactionsGrid />

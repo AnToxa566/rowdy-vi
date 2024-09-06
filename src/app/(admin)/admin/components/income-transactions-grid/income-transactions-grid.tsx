@@ -15,9 +15,11 @@ import {
 import { dashboardCountsActions } from "@/store";
 
 const IncomeTransactionsGrid = () => {
-  const { startDate, endDate } = useAppSelector((state) => state.dashboardDate);
+  const { account } = useAppSelector((state) => state.dashboardAccount);
 
   const { totalIncome } = useAppSelector((state) => state.dashboardCounts);
+
+  const { startDate, endDate } = useAppSelector((state) => state.dashboardDate);
 
   const dispatch = useAppDispatch();
 
@@ -44,14 +46,20 @@ const IncomeTransactionsGrid = () => {
       )
     );
 
-    const filteredData = data.filter((item) =>
-      categoryName
-        ? item.category?.name.toLowerCase().includes(categoryName.toLowerCase())
-        : true
-    );
+    const filteredData = data
+      .filter((item) =>
+        categoryName
+          ? item.category?.name
+              .toLowerCase()
+              .includes(categoryName.toLowerCase())
+          : true
+      )
+      .filter((item) =>
+        account === "all" ? true : item.account?._id === account
+      );
 
     setIncomeTransactions(filteredData);
-  }, [dispatch, endDate, startDate, categoryName]);
+  }, [startDate, endDate, dispatch, categoryName, account]);
 
   const handleCreateTransaction = async (data: CreateTransactionDto) => {
     await transactionService.create({
