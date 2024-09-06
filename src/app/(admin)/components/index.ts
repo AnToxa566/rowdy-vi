@@ -1,5 +1,6 @@
 export * from "./data-grid";
 export * from "./date-select";
+export * from "./entity-details";
 export * from "./entity-form";
 export * from "./period-select";
 export * from "./delete-modal";

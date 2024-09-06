@@ -43,7 +43,7 @@ import { Account, BaseModel, Category } from "@/common/models";
 import { ModalContext } from "@/app/providers";
 import { ColumnDef } from "@/common/types";
 
-import { DeleteModal, EntityForm } from "..";
+import { DeleteModal, EntityDetails, EntityForm } from "..";
 
 export interface DataGridProps<T extends BaseModel, C, U>
   extends PropsWithChildren {
@@ -156,9 +156,11 @@ function DataGrid<T extends BaseModel, C, U>({
     });
   };
 
-  const handleOpenDetailsModal = () => {
+  const handleOpenDetailsModal = (item: T) => {
     handleModal({
-      content: "Will be soon",
+      content: (
+        <EntityDetails item={item} schema={schema} entitySlug={entitySlug} />
+      ),
     });
   };
 
@@ -277,7 +279,7 @@ function DataGrid<T extends BaseModel, C, U>({
             <Tooltip content="Деталі">
               <span
                 className="text-lg text-default-400 cursor-pointer active:opacity-50"
-                onClick={handleOpenDetailsModal}
+                onClick={() => handleOpenDetailsModal(item)}
               >
                 <RiEyeLine />
               </span>
