@@ -30,4 +30,13 @@ export const accountSchema: ColumnDef[] = [
     isFormField: true,
     isRequired: true,
   },
+  {
+    label: "Враховувати",
+    name: "countable",
+    columnType: ColumnKey.BOOLEAN,
+    formType: FormFieldType.BOOLEAN,
+    isFormField: true,
+    isRequired: true,
+    defaultValue: true,
+  },
 ];

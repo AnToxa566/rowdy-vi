@@ -217,6 +217,18 @@ function DataGrid<T extends BaseModel, C, U>({
     ],
     [ColumnKey.NUMBER, ({ cellValue }) => (cellValue as number).toFixed(2)],
     [
+      ColumnKey.BOOLEAN,
+      ({ cellValue }) => (
+        <span
+          className={`flex items-center justify-center py-1 px-4 text-white w-fit rounded-full font-bold ${
+            !!cellValue ? "bg-success-500" : "bg-danger-500"
+          }`}
+        >
+          {!!cellValue ? "On" : "Off"}
+        </span>
+      ),
+    ],
+    [
       ColumnKey.PERCENT,
       ({ cellValue }) => (
         <div

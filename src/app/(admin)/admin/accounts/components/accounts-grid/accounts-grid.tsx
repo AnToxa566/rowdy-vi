@@ -43,7 +43,9 @@ export const AccountsGrid = () => {
   }, [dispatch]);
 
   const getTotal = () =>
-    accounts.reduce((acc, account) => (acc += account.sum), 0).toFixed(2);
+    accounts
+      .reduce((acc, account) => (acc += account.countable ? account.sum : 0), 0)
+      .toFixed(2);
 
   return (
     <DataGrid

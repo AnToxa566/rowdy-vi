@@ -4,4 +4,5 @@ export interface Account extends BaseModel {
   name: string;
   sum: number;
   color?: string;
+  countable: boolean;
 }

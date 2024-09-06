@@ -1,7 +1,14 @@
 "use client";
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Button, Input, Select, SelectItem, Textarea } from "@nextui-org/react";
+import {
+  Button,
+  Input,
+  Select,
+  SelectItem,
+  Switch,
+  Textarea,
+} from "@nextui-org/react";
 
 import { ColumnDef } from "@/common/types";
 import { formateDate } from "@/common/utils";
@@ -41,6 +48,17 @@ export function EntityForm<T>({
   const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => onSave(data);
+
+  const onSwitched = (fieldName: string, value: boolean) => {
+    const event = {
+      target: {
+        name: fieldName,
+        value: value,
+      },
+    };
+
+    register(fieldName).onChange(event);
+  };
 
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
@@ -147,6 +165,23 @@ export function EntityForm<T>({
                     item ? item[field.name as keyof T] : field.defaultValue
                   }
                 />
+              );
+            } else if (field.formType === FormFieldType.BOOLEAN) {
+              return (
+                <Switch
+                  key={field.name}
+                  color="danger"
+                  defaultSelected={
+                    item ? item[field.name as keyof T] : field.defaultValue
+                  }
+                  required={field.isRequired}
+                  isDisabled={field.disabled}
+                  onValueChange={(isSelected) =>
+                    onSwitched(field.name, isSelected)
+                  }
+                >
+                  {field.label}
+                </Switch>
               );
             } else {
               return (
