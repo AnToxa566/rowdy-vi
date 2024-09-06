@@ -36,16 +36,6 @@ const ExpenseTransactionsGrid = () => {
       endDate: endDate.toString(),
     });
 
-    dispatch(
-      dashboardCountsActions.setTotalExpense(
-        parseFloat(
-          data
-            .reduce((acc, transaction) => (acc += transaction.sum), 0)
-            .toFixed(2)
-        )
-      )
-    );
-
     const filteredData = data
       .filter((item) =>
         categoryName
@@ -57,6 +47,16 @@ const ExpenseTransactionsGrid = () => {
       .filter((item) =>
         account === "all" ? true : item.account?._id === account
       );
+
+    dispatch(
+      dashboardCountsActions.setTotalExpense(
+        parseFloat(
+          filteredData
+            .reduce((acc, transaction) => (acc += transaction.sum), 0)
+            .toFixed(2)
+        )
+      )
+    );
 
     setExpenseTransactions(filteredData);
   }, [startDate, endDate, dispatch, categoryName, account]);

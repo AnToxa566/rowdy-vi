@@ -36,16 +36,6 @@ const IncomeTransactionsGrid = () => {
       endDate: endDate.toString(),
     });
 
-    dispatch(
-      dashboardCountsActions.setTotalIncome(
-        parseFloat(
-          data
-            .reduce((acc, transaction) => (acc += transaction.sum), 0)
-            .toFixed(2)
-        )
-      )
-    );
-
     const filteredData = data
       .filter((item) =>
         categoryName
@@ -57,6 +47,16 @@ const IncomeTransactionsGrid = () => {
       .filter((item) =>
         account === "all" ? true : item.account?._id === account
       );
+
+    dispatch(
+      dashboardCountsActions.setTotalIncome(
+        parseFloat(
+          filteredData
+            .reduce((acc, transaction) => (acc += transaction.sum), 0)
+            .toFixed(2)
+        )
+      )
+    );
 
     setIncomeTransactions(filteredData);
   }, [startDate, endDate, dispatch, categoryName, account]);
