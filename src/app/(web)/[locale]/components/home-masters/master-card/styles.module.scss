@@ -8,7 +8,7 @@
   }
 
   &__actions {
-    @apply max-h-0 overflow-hidden transition-all;
+    @apply max-h-40 lg:max-h-0 overflow-hidden transition-all;
   }
 
   &:hover &__backdrop {
