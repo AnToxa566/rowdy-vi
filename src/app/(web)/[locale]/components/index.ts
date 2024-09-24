@@ -1,5 +1,6 @@
 export * from "./header";
 export * from "./footer";
+export * from "./carousel";
 
 export * from "./home-hero";
 export * from "./home-services";

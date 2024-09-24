@@ -20,6 +20,8 @@ import Loading from "./loading";
 import { Footer, Header } from "./components";
 
 import "swiper/scss";
+import 'swiper/css/pagination';
+
 import "../../globals.scss";
 
 const montserrat = Montserrat({ subsets: ["latin"] });

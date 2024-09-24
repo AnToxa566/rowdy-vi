@@ -10,7 +10,7 @@ export interface GalleryCardProps {
 export const GalleryCard: FC<GalleryCardProps> = ({ imageSrc }) => {
   return (
     <div
-      className={`relative rounded-xl overflow-hidden w-full aspect-[3/5] ${styles["gallery-card"]}`}
+      className={`relative rounded-xl overflow-hidden w-full aspect-[4/5] ${styles["gallery-card"]}`}
     >
       <Image
         width={500}

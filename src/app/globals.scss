@@ -23,3 +23,17 @@ html {
 body {
   overflow-x: hidden;
 }
+
+.swiper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.swiper-pagination {
+  position: static;
+}
+
+.swiper-pagination-bullet-active {
+  background: #e62621;
+}

@@ -1,12 +1,16 @@
-import Link from "next/link";
-import { useTranslations } from "next-intl";
+"use client";
 
+import Link from "next/link";
 import { Button } from "@nextui-org/react";
+import { SwiperSlide } from "swiper/react";
+import { useTranslations } from "next-intl";
 import { RiArrowRightLine } from "@remixicon/react";
 
 import { AppLink } from "@/common/enums";
 
 import { Service, ServiceCard } from ".";
+
+import { Carousel } from "../carousel";
 
 export const HomeServices = () => {
   const t = useTranslations("home.services");
@@ -65,28 +69,20 @@ export const HomeServices = () => {
       className="relative py-10 px-4 sm:px-8 bg-white z-30"
     >
       <div className="container mx-auto flex flex-col gap-8">
-        <div className="flex items-center gap-4">
-          <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
-            {t("title")}
-          </h2>
-
-          <Link href={AppLink.ALTEGIO_SERVICES} target="_blank">
-            <Button
-              size="sm"
-              radius="full"
-              color="primary"
-              className="bg-[#e62621]"
-            >
-              {t("look_prices")}
-            </Button>
-          </Link>
-        </div>
-
-        <div className="flex items-center gap-4 overflow-x-auto no-scrollbar">
-          {services.map((service) => (
-            <ServiceCard key={service.label} service={service} />
+        <Carousel
+          title={t("title")}
+          actionOpt={{
+            label: t("look_prices"),
+            href: AppLink.ALTEGIO_SERVICES,
+            target: "_blank",
+          }}
+        >
+          {services.map((service, idx) => (
+            <SwiperSlide key={idx}>
+              <ServiceCard service={service} />
+            </SwiperSlide>
           ))}
-        </div>
+        </Carousel>
 
         <div className="mx-auto">
           <Link

@@ -19,11 +19,11 @@ export const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
 
   return (
     <div
-      className={`relative overflow-hidden rounded-xl w-[200px] min-w-[200px] h-[240px] cursor-pointer ${styles["service-card"]}`}
+      className={`relative overflow-hidden rounded-xl w-full aspect-[4/5] cursor-pointer ${styles["service-card"]}`}
     >
       <Image
-        width={200}
-        height={240}
+        width={500}
+        height={835}
         alt={service.label}
         src={service.imageSrc}
         className={`absolute top-0 left-0 w-full h-full object-cover ${styles["service-card__image"]}`}
@@ -34,8 +34,8 @@ export const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
       ></div>
 
       <div className="absolute z-20 bottom-0 left-0 p-3 text-white flex flex-col">
-        <span className="font-semibold">{service.label}</span>
-        <span className="text-sm font-extralight">
+        <span className="text-2xl font-semibold">{service.label}</span>
+        <span className="text-base font-extralight">
           {t("cards.price_from", { price: service.price })}
         </span>
       </div>
