@@ -94,7 +94,7 @@ export const HomeContacts = () => {
             </Link>
           </div>
 
-          <div className="w-full">
+          <div className="w-full drop-shadow-md">
             <Map locale={locale} loader={t("home.contacts.maps_loader")} />
           </div>
         </div>

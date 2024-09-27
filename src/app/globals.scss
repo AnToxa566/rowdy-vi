@@ -10,8 +10,8 @@
 
   /* Hide scrollbar for IE, Edge and Firefox */
   .no-scrollbar {
-    -ms-overflow-style: none;   /* IE and Edge */
-    scrollbar-width: none;      /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
 
@@ -28,6 +28,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.swiper-slide {
+  @apply drop-shadow-md;
 }
 
 .swiper-pagination {

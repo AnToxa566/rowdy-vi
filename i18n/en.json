@@ -43,6 +43,27 @@
         "wax": "👃 Hair removal with wax"
       }
     },
+    "features": {
+      "title": "Our advantages",
+      "cards": {
+        "01": {
+          "title": "Professional masters",
+          "description": "We have assembled a team of experienced barbers who know how to make you stylish and confident."
+        },
+        "02": {
+          "title": "Individual approach",
+          "description": "We understand that each client is unique, so we always select a haircut and care to suit your style and lifestyle."
+        },
+        "03": {
+          "title": "Quality materials",
+          "description": "We use only proven brands of cosmetics to keep your hair and skin healthy."
+        },
+        "04": {
+          "title": "Convenient location",
+          "description": "Our barbershop is located in the center of Zaporozhye, so it’s easy and convenient for you to find us and drop in for a haircut."
+        }
+      }
+    },
     "services": {
       "title": "Services",
       "look_prices": "Look the prices",

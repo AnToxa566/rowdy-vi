@@ -1,6 +1,7 @@
 import {
   HomeAbout,
   HomeContacts,
+  HomeFeatures,
   HomeGallery,
   HomeHero,
   HomeMasters,
@@ -11,6 +12,7 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
+      <HomeFeatures />
       <HomeServices />
       <HomeMasters />
       <HomeGallery />
