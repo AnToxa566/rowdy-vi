@@ -8,9 +8,10 @@ import { RiArrowRightLine } from "@remixicon/react";
 
 import { AppLink } from "@/common/enums";
 
-import { Service, ServiceCard } from ".";
-
 import { Carousel } from "../carousel";
+import { Container } from "../container";
+
+import { Service, ServiceCard } from ".";
 
 export const HomeServices = () => {
   const t = useTranslations("home.services");
@@ -64,11 +65,8 @@ export const HomeServices = () => {
   ];
 
   return (
-    <section
-      id="services"
-      className="relative py-10 px-4 sm:px-8 bg-white z-30"
-    >
-      <div className="container mx-auto flex flex-col gap-8">
+    <Container id="services">
+      <div className="flex flex-col gap-8">
         <Carousel
           title={t("title")}
           actionOpt={{
@@ -102,6 +100,6 @@ export const HomeServices = () => {
           </Link>
         </div>
       </div>
-    </section>
+    </Container>
   );
 };

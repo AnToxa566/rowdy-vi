@@ -11,6 +11,9 @@ import {
 import { Button } from "@nextui-org/react";
 
 import { AppLink } from "@/common/enums";
+
+import { Container } from "../container";
+
 import { Map } from "./map";
 
 export const HomeContacts = () => {
@@ -19,11 +22,8 @@ export const HomeContacts = () => {
   const locale = useLocale();
 
   return (
-    <section
-      className="relative z-30 bg-white py-10 px-4 sm:px-8"
-      id="contacts"
-    >
-      <div className="container mx-auto flex flex-col gap-8">
+    <Container id="contacts">
+      <div className="flex flex-col gap-8">
         <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
           {t("home.contacts.title")}
         </h2>
@@ -99,6 +99,6 @@ export const HomeContacts = () => {
           </div>
         </div>
       </div>
-    </section>
+    </Container>
   );
 };

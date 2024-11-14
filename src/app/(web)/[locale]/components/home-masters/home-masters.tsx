@@ -11,6 +11,8 @@ import { RiInformationLine } from "@remixicon/react";
 
 import { AppLink } from "@/common/enums";
 
+import { Container } from "../container";
+
 import { Master, MasterCard } from ".";
 
 export const HomeMasters = () => {
@@ -52,11 +54,8 @@ export const HomeMasters = () => {
   ];
 
   return (
-    <section
-      className="relative py-10 px-4 sm:px-8 bg-black text-white z-30"
-      id="masters"
-    >
-      <div className="container mx-auto flex flex-col gap-8">
+    <Container id="masters" isBlackBg>
+      <div className="flex flex-col gap-8">
         <div className="flex items-center gap-4">
           <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
             {t("title")}
@@ -131,6 +130,6 @@ export const HomeMasters = () => {
           </Popover>
         </div>
       </div>
-    </section>
+    </Container>
   );
 };

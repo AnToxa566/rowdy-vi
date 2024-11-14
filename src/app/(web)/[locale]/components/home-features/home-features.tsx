@@ -7,6 +7,8 @@ import {
   RiVerifiedBadgeLine,
 } from "@remixicon/react";
 
+import { Container } from "../container";
+
 import { Feature, FeatureCard } from ".";
 
 export const HomeFeatures = () => {
@@ -40,11 +42,8 @@ export const HomeFeatures = () => {
   ];
 
   return (
-    <section
-      id="features"
-      className="relative py-10 px-4 sm:px-8 bg-white z-30"
-    >
-      <div className="container mx-auto flex flex-col gap-8">
+    <Container id="features">
+      <div className="flex flex-col gap-8">
         <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
           {t("title")}
         </h2>
@@ -55,6 +54,6 @@ export const HomeFeatures = () => {
           ))}
         </div>
       </div>
-    </section>
+    </Container>
   );
 };
