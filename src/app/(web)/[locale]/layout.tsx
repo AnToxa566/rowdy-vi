@@ -9,6 +9,7 @@ import {
 } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
+import Clarity from '@microsoft/clarity';
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -80,6 +81,8 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
+  Clarity.init("or59jxtckc");
+
   const messages = useMessages();
 
   const t = useTranslations("shared");
@@ -115,19 +118,6 @@ export default function RootLayout({
           }}
         />
         {/* End Altegio Widget */}
-
-        {/* Start Clarity */}
-        <Script
-          id="clarity"
-          dangerouslySetInnerHTML={{
-            __html: `(function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "or59jxtckc");`,
-          }}
-        />
-        {/* End Clarity */}
       </head>
 
       <body className={montserrat.className}>
