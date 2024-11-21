@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 import {
@@ -11,7 +10,8 @@ import { RiInformationLine } from "@remixicon/react";
 
 import { AppLink } from "@/common/enums";
 
-import { Container } from "../container";
+import { SectionTitle } from "../section-title";
+import { SectionContainer } from "../section-container";
 
 import { Master, MasterCard } from ".";
 
@@ -54,24 +54,13 @@ export const HomeMasters = () => {
   ];
 
   return (
-    <Container id="masters" isBlackBg>
+    <SectionContainer id="masters" isBlackBg>
       <div className="flex flex-col gap-8">
-        <div className="flex items-center gap-4">
-          <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
-            {t("title")}
-          </h2>
-
-          <Link href={AppLink.ALTEGIO_MASTERS} target="_blank">
-            <Button
-              size="sm"
-              radius="full"
-              color="primary"
-              className="bg-[#e62621]"
-            >
-              {t("select_master")}
-            </Button>
-          </Link>
-        </div>
+        <SectionTitle
+          title={t("title")}
+          actionLabel={t("select_master")}
+          actionHref={AppLink.ALTEGIO_MASTERS}
+        ></SectionTitle>
 
         <div className="flex items-center gap-4 overflow-x-auto no-scrollbar">
           {masters.map((master, idx) => (
@@ -130,6 +119,6 @@ export const HomeMasters = () => {
           </Popover>
         </div>
       </div>
-    </Container>
+    </SectionContainer>
   );
 };

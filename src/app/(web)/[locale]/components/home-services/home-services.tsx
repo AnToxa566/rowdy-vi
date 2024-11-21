@@ -9,7 +9,7 @@ import { RiArrowRightLine } from "@remixicon/react";
 import { AppLink } from "@/common/enums";
 
 import { Carousel } from "../carousel";
-import { Container } from "../container";
+import { SectionContainer } from "../section-container";
 
 import { Service, ServiceCard } from ".";
 
@@ -65,7 +65,7 @@ export const HomeServices = () => {
   ];
 
   return (
-    <Container id="services">
+    <SectionContainer id="services">
       <div className="flex flex-col gap-8">
         <Carousel
           title={t("title")}
@@ -100,6 +100,6 @@ export const HomeServices = () => {
           </Link>
         </div>
       </div>
-    </Container>
+    </SectionContainer>
   );
 };

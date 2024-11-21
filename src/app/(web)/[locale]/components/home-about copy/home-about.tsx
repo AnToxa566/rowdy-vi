@@ -7,7 +7,6 @@ import { RiArrowRightLine } from "@remixicon/react";
 
 import { AppLink } from "@/common/enums";
 
-import { SectionTitle } from "../section-title";
 import { SectionContainer } from "../section-container";
 
 export const HomeAbout = () => {
@@ -16,7 +15,9 @@ export const HomeAbout = () => {
   return (
     <SectionContainer id="about" isBlackBg>
       <div className="flex flex-col gap-8">
-        <SectionTitle title={t("home.about.title")}></SectionTitle>
+        <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
+          {t("home.about.title")}
+        </h2>
 
         <div className="flex items-center justify-between gap-8 flex-col lg:flex-row">
           <div className="flex flex-col gap-4 lg:w-1/2">

@@ -64,6 +64,25 @@
         }
       }
     },
+    "prices": {
+      "title": "Prices",
+      "haircuts": "Haircuts",
+      "man_haircut": "Men's haircut",
+      "man_long_haircut": "Men's haircut (long hair)",
+      "baby_haircut": "Children's haircut (8-12 years)",
+      "haircut_and_beard": "Haircut + beard",
+      "beard": "Beard trimming",
+      "care": "Care",
+      "hairstyling": "Hair styling",
+      "wax": "Hair removal with wax",
+      "black_mask": "Black mask",
+      "shave": "Shaving",
+      "king_shave": "Royal shave",
+      "head_shave": "Shaving the head",
+      "camouflage": "Camouflage",
+      "head_camouflage": "Gray hair camouflage (head)",
+      "beard_camouflage": "Camouflage of gray hair (beard)"
+    },
     "services": {
       "title": "Services",
       "look_prices": "Look the prices",

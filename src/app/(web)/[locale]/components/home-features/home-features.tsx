@@ -7,7 +7,8 @@ import {
   RiVerifiedBadgeLine,
 } from "@remixicon/react";
 
-import { Container } from "../container";
+import { SectionTitle } from "../section-title";
+import { SectionContainer } from "../section-container";
 
 import { Feature, FeatureCard } from ".";
 
@@ -42,11 +43,9 @@ export const HomeFeatures = () => {
   ];
 
   return (
-    <Container id="features">
+    <SectionContainer id="features">
       <div className="flex flex-col gap-8">
-        <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
-          {t("title")}
-        </h2>
+        <SectionTitle title={t("title")}></SectionTitle>
 
         <div className="flex flex-col md:grid md:grid-rows-2 md:grid-cols-2 gap-4">
           {features.map((feature, idx) => (
@@ -54,6 +53,6 @@ export const HomeFeatures = () => {
           ))}
         </div>
       </div>
-    </Container>
+    </SectionContainer>
   );
 };

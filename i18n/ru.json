@@ -64,6 +64,25 @@
         }
       }
     },
+    "prices": {
+      "title": "Цены",
+      "haircuts": "Стрижки",
+      "man_haircut": "Мужская стрижка",
+      "man_long_haircut": "Мужская стрижка (длинные волосы)",
+      "baby_haircut": "Детская стрижка (8-12 лет)",
+      "haircut_and_beard": "Стрижка + борода",
+      "beard": "Стрижка бороды",
+      "care": "Уход",
+      "hairstyling": "Укладка волос",
+      "wax": "Удаление волос воском",
+      "black_mask": "Black mask",
+      "shave": "Бритьё",
+      "king_shave": "Королевское бритьё",
+      "head_shave": "Бритьё головы",
+      "camouflage": "Камуфляж",
+      "head_camouflage": "Камуфляж седины (голова)",
+      "beard_camouflage": "Камуфляж седины (борода)"
+    },
     "services": {
       "title": "Услуги",
       "look_prices": "Смотреть цены",

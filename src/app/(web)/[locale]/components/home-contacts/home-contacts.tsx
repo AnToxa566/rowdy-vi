@@ -12,7 +12,8 @@ import { Button } from "@nextui-org/react";
 
 import { AppLink } from "@/common/enums";
 
-import { Container } from "../container";
+import { SectionTitle } from "../section-title";
+import { SectionContainer } from "../section-container";
 
 import { Map } from "./map";
 
@@ -22,11 +23,9 @@ export const HomeContacts = () => {
   const locale = useLocale();
 
   return (
-    <Container id="contacts">
+    <SectionContainer id="contacts">
       <div className="flex flex-col gap-8">
-        <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
-          {t("home.contacts.title")}
-        </h2>
+        <SectionTitle title={t("home.contacts.title")}></SectionTitle>
 
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div className="flex flex-col gap-5 text-lg font-medium w-full md:w-auto">
@@ -99,6 +98,6 @@ export const HomeContacts = () => {
           </div>
         </div>
       </div>
-    </Container>
+    </SectionContainer>
   );
 };

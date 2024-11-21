@@ -5,14 +5,14 @@ import { RiArrowUpSLine } from "@remixicon/react";
 
 import { AppPath } from "@/common/enums";
 
-import { Container, Logo, NavLinks } from "..";
+import { SectionContainer, Logo, NavLinks } from "..";
 
 export const Footer = () => {
   const t = useTranslations("footer");
 
   return (
     <footer>
-      <Container id="footer" isBlackBg>
+      <SectionContainer id="footer" isBlackBg>
         <div className="flex items-center justify-between gap-8">
           <Logo />
 
@@ -29,7 +29,7 @@ export const Footer = () => {
 
           <span className="text-xs whitespace-nowrap">© ROWDY</span>
         </div>
-      </Container>
+      </SectionContainer>
     </footer>
   );
 };

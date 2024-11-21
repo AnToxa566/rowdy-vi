@@ -64,6 +64,25 @@
         }
       }
     },
+    "prices": {
+      "title": "Ціни",
+      "haircuts": "Стрижки",
+      "man_haircut": "Чоловіча стрижка",
+      "man_long_haircut": "Чоловіча стрижка (довге волосся)",
+      "baby_haircut": "Дитяча стрижка (8-12 років)",
+      "haircut_and_beard": "Стрижка + моделювання бороди",
+      "beard": "Моделювання бороди",
+      "care": "Догляд",
+      "hairstyling": "Укладка волосся",
+      "wax": "Видалення волосся воском",
+      "black_mask": "Black mask",
+      "shave": "Гоління",
+      "king_shave": "Королівське гоління",
+      "head_shave": "Гоління голови",
+      "camouflage": "Камуфляж",
+      "head_camouflage": "Камуфляж сивини (голова)",
+      "beard_camouflage": "Камуфляж сивини (борода)"
+    },
     "services": {
       "title": "Послуги",
       "look_prices": "Дивитися ціни",
