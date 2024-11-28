@@ -80,7 +80,7 @@ export const HomePrices = () => {
       <div className="flex flex-col gap-8 dark">
         <SectionTitle title={t("title")}></SectionTitle>
 
-        <Accordion variant="splitted" defaultExpandedKeys={["0"]}>
+        <Accordion variant="splitted">
           {masters.map((master, i) => (
             <AccordionItem
               key={i}
