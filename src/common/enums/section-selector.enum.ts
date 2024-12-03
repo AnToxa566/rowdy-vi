@@ -1,4 +1,5 @@
 export enum SectionSelector {
+  PRICES = "#prices",
   FEATURES = "#features",
   SERVICES = "#services",
   MASTERS = "#masters",

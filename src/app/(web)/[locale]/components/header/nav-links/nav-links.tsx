@@ -20,10 +20,10 @@ export const NavLinks: FC<NavLinksProps> = ({
   const t = useTranslations();
 
   const links = [
+    { label: t("shared.prices"), selector: SectionSelector.PRICES },
     { label: t("shared.services"), selector: SectionSelector.SERVICES },
     { label: t("shared.barbers"), selector: SectionSelector.MASTERS },
     { label: t("shared.gallery"), selector: SectionSelector.GALLERY },
-    { label: t("shared.about_us"), selector: SectionSelector.ABOUT_US },
     { label: t("shared.contacts"), selector: SectionSelector.CONTACTS },
   ];
 
