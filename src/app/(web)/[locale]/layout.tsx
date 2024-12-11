@@ -45,6 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     generator: SEO.GENERATOR,
     publisher: SEO.PUBLISHER,
     metadataBase: new URL(process.env.APP_URL || ""),
+    robots: { index: true, follow: true },
     alternates: {
       canonical: `${process.env.APP_URL}/${locale}`,
       languages: {

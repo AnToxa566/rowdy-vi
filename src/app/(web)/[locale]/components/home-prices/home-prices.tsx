@@ -85,7 +85,7 @@ export const HomePrices = () => {
             <AccordionItem
               key={i}
               aria-label={master}
-              title={<span className="text-xl font-bold">{master}</span>}
+              title={<span className="text-xl font-semibold">{master}</span>}
             >
               <div className="flex flex-col gap-8 mb-4">
                 {prices.map((pricesGroup, k) => (

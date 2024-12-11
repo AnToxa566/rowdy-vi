@@ -129,6 +129,39 @@
       "title": "Contacts",
       "maps_loader": "We are waiting for Google to load the maps... 🙄",
       "address": "st. Peremohy, 59"
+    },
+    "faq": {
+      "title": "FAQ",
+      "questions": {
+        "01": {
+          "question": "Do I need to make an appointment?",
+          "answer": "We recommend making an appointment in advance for your convenience. You can do this online on the website or by phone. You can also come without an appointment, but in this case we cannot guarantee that a free barber will be available at the time of your visit."
+        },
+        "02": {
+          "question": "What is the difference between a Top Barber and an Expert?",
+          "answer": "A Top Barber is a high-level professional, ideal for classic and modern haircuts. An Expert is a barber with a higher level of experience and skills. He can handle any task, including complex haircuts and creative looks."
+        },
+        "03": {
+          "question": "How long does a standard haircut last?",
+          "answer": "Usually about 40-60 minutes." 
+        },
+        "04": {
+          "question": "What is the difference between a \"Men's haircut\" and a \"Scissor haircut\"?",
+          "answer": "A men's haircut involves the use of clippers, scissors and/or a trimmer. A scissor haircut is done exclusively with scissors, without clippers. It is ideal for long or medium-long hair."
+        },
+        "05": {
+          "question": "Why do we cut children aged 8 and up?",
+          "answer": "We work with children aged 8 and up because at this age, a child can already sit quietly during a haircut, understand the hairdresser's instructions and participate in the discussion of the desired result. This allows us to ensure comfort and quality of service for both the child and the hairdresser." 
+        },
+        "06": {
+          "question": "Do we provide gift certificates?",
+          "answer": "Yes, we have gift certificates for any barbershop services. This is a great gift for friends and family! You can buy a certificate from the administrator at the barbershop."
+        },
+        "07": {
+          "question": "What payment methods do we accept?",
+          "answer": "We accept both cash and bank cards. Choose the method that is most convenient for you!"
+        }
+      }
     }
   }
 }
