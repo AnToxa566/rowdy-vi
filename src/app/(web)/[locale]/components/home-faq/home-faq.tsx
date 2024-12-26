@@ -11,13 +11,13 @@ export const HomeFAQ = () => {
   const tQuestions = useTranslations("home.faq.questions");
 
   const faqList = [
-    { title: tQuestions("01.question"), content: tQuestions("01.answer") },
-    { title: tQuestions("02.question"), content: tQuestions("02.answer") },
-    { title: tQuestions("03.question"), content: tQuestions("03.answer") },
-    { title: tQuestions("04.question"), content: tQuestions("04.answer") },
-    { title: tQuestions("05.question"), content: tQuestions("05.answer") },
-    { title: tQuestions("06.question"), content: tQuestions("06.answer") },
-    { title: tQuestions("07.question"), content: tQuestions("07.answer") },
+    { title: tQuestions("01.question"), content: tQuestions("01.answer"), startContent: "🕒" },
+    { title: tQuestions("02.question"), content: tQuestions("02.answer"), startContent: "🤔" },
+    { title: tQuestions("03.question"), content: tQuestions("03.answer"), startContent: "⏳" },
+    { title: tQuestions("04.question"), content: tQuestions("04.answer"), startContent: "✂️" },
+    { title: tQuestions("05.question"), content: tQuestions("05.answer"), startContent: "👶" },
+    { title: tQuestions("06.question"), content: tQuestions("06.answer"), startContent: "🎁" },
+    { title: tQuestions("07.question"), content: tQuestions("07.answer"), startContent: "💳" },
   ];
 
   return (
@@ -30,6 +30,7 @@ export const HomeFAQ = () => {
             <AccordionItem
               key={i}
               aria-label={faq.title}
+              startContent={faq.startContent}
               title={<h3 className="text-xl font-semibold">{faq.title}</h3>}
             >
               <p dangerouslySetInnerHTML={{ __html: faq.content }}></p>
