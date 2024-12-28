@@ -118,6 +118,10 @@
       "title": "Gallery",
       "instagram": "More on Instagram"
     },
+    "reviews": {
+      "title": "Feedback",
+      "leave_feedback": "Leave feedback"
+    },
     "about": {
       "title": "About us",
       "text_01_HTML": "Welcome to <b>Rowdy Barbershop</b> - your faithful companion on the path to the perfect look! Our barbershop is not just a place for a haircut, it is a real temple of male beauty and style in the very heart of <b>Zaporozhye</b>.",
