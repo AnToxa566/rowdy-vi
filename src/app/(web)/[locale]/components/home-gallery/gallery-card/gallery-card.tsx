@@ -19,10 +19,6 @@ export const GalleryCard: FC<GalleryCardProps> = ({ imageSrc }) => {
         alt="Зображення з Instagram профілю Rowdy Barbershop"
         className={`absolute top-0 left-0 w-full h-full object-cover ${styles["gallery-card__image"]}`}
       />
-
-      <div
-        className={`absolute top-0 left-0 w-full h-full z-10 ${styles["gallery-card__backdrop"]}`}
-      ></div>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import {
   HomeHero,
   HomeMasters,
   HomePrices,
+  HomeReviews,
   HomeServices,
 } from "./components";
 
@@ -20,6 +21,7 @@ export default function HomePage() {
       <HomeMasters />
       <HomeGallery />
       <HomeAbout />
+      <HomeReviews />
       <HomeContacts />
       <HomeFAQ />
     </>
