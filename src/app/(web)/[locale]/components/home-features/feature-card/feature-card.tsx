@@ -18,8 +18,8 @@ export const FeatureCard: FC<FeatureCardProps> = ({ feature }) => {
       <Image
         alt="Feature image"
         src={feature.imageSrc}
-        width={680}
-        height={380}
+        width={400}
+        height={150}
         className="absolute z-0 top-0 left-0 w-full h-full object-cover"
       />
 
