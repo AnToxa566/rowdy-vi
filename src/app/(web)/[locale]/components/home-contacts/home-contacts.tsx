@@ -46,7 +46,7 @@ export const HomeContacts = () => {
 
               <div className="flex flex-col">
                 <Link
-                  href="tel:380663372763"
+                  href="tel:+380663372763"
                   target="_blank"
                   className="hover:text-[#e62621] transition-colors"
                 >
@@ -54,7 +54,7 @@ export const HomeContacts = () => {
                 </Link>
 
                 <Link
-                  href="tel:380687710337"
+                  href="tel:+380687710337"
                   target="_blank"
                   className="hover:text-[#e62621] transition-colors"
                 >

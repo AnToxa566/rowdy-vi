@@ -14,8 +14,8 @@ export const NavPhones: FC<NavPhonesProps> = ({ onClick = () => {} }) => {
   const t = useTranslations("header");
 
   const phones = [
-    { href: "tel:380663372763", label: "+38 (066) 337 2763" },
-    { href: "tel:380687710337", label: "+38 (068) 771 0337" },
+    { href: "tel:+380663372763", label: "+38 (066) 337 2763" },
+    { href: "tel:+380687710337", label: "+38 (068) 771 0337" },
   ];
 
   return (
