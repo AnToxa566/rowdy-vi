@@ -47,7 +47,7 @@ export const HomeFeatures = () => {
       <div className="flex flex-col gap-8">
         <SectionTitle title={t("title")}></SectionTitle>
 
-        <div className="flex flex-col md:grid md:grid-rows-2 md:grid-cols-2 gap-4">
+        <div className="flex flex-col md:grid md:grid-rows-2 md:grid-cols-2 xl:grid-rows-1 xl:grid-cols-4 gap-4">
           {features.map((feature, idx) => (
             <FeatureCard key={idx} feature={feature} />
           ))}

@@ -22,7 +22,7 @@ const config: Config = {
       },
       animation: {
         levitate: "levitate 10s ease infinite",
-        pulsate: "pulsate 2s ease-in-out infinite both;",
+        pulsate: "pulsate 2s ease-in-out infinite both",
       },
     },
   },

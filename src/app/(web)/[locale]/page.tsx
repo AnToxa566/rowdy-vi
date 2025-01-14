@@ -15,7 +15,11 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
-      <HomeFeatures />
+
+      <div className="rounded-t-3xl overflow-hidden -mt-6">
+        <HomeFeatures />
+      </div>
+
       <HomePrices />
       <HomeServices />
       <HomeMasters />
