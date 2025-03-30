@@ -48,13 +48,7 @@ export const HomeHero = () => {
     <section className="relative text-white max-h-screen" id="hero">
       <div className="relative py-36 sm:py-64 px-4 sm:px-8 h-full z-20">
         <div className="container mx-auto h-full flex items-center">
-          <div className="flex flex-col gap-8 lg:gap-10 lg:w-1/2">
-            {/* <div className="animate-[levitate_8s_ease_infinite]">
-              <h1 className="lg:text-lg font-bold bg-[#e62621] w-fit py-2 px-4 sm:px-6 rounded-full -rotate-3 whitespace-nowrap">
-                {t("home.hero.subtitle")}
-              </h1>
-            </div> */}
-           
+          <div className="flex flex-col gap-8 lg:gap-10 lg:w-1/2">           
             <h1 className="text-3xl lg:text-5xl font-bold leading-tight">
               <span className="font-black">{t("shared.rowdy_barbershop")}</span>{" "}
               {t("home.hero.title")}
