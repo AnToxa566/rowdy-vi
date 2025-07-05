@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 import {
   RiBankCardLine,
+  RiInkBottleLine,
   RiLineChartLine,
   RiMoneyDollarCircleLine,
   RiPriceTag3Line,
@@ -20,6 +22,7 @@ export const sidebarLinks = [
   { link: AppPath.STATS, label: "Огляд", icon: <RiLineChartLine /> },
   { link: AppPath.ACCOUNTS, label: "Рахунки", icon: <RiBankCardLine /> },
   { link: AppPath.CATEGORIES, label: "Категорії", icon: <RiPriceTag3Line /> },
+  { link: AppPath.ADMIN_PRODUCTS, label: "Продукти", icon: <RiInkBottleLine /> },
 ];
 
 export const Sidebar = () => {

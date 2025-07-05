@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+import { productsReducer } from "./products";
 import { accountsReducer } from "./accounts";
 import { сategoriesReducer } from "./categories";
 import { dashboardDateReducer } from "./dashboard-date";
@@ -9,6 +10,7 @@ import { dashboardAccountReducer } from "./dashboard-account";
 
 export const store = configureStore({
   reducer: {
+    products: productsReducer,
     accounts: accountsReducer,
     сategories: сategoriesReducer,
     dashboardDate: dashboardDateReducer,

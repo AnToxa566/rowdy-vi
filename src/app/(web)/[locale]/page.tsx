@@ -7,6 +7,7 @@ import {
   HomeHero,
   HomeMasters,
   HomePrices,
+  HomeProducts,
   HomeReviews,
   HomeServices,
 } from "./components";
@@ -17,9 +18,11 @@ export default function HomePage() {
       <HomeHero />
 
       <div className="rounded-t-3xl overflow-hidden -mt-6">
+        {/* <HomeProducts /> */}
         <HomeFeatures />
       </div>
 
+      {/* <HomeFeatures /> */}
       <HomePrices />
       <HomeServices />
       <HomeMasters />

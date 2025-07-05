@@ -12,6 +12,16 @@ const nextConfig = {
     ADMIN_PASSWORD: process.env.ADMIN_PASSWORD,
     GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "storage.googleapis.com",
+        port: "",
+        pathname: "/rowdy-images/**",
+      },
+    ]
+  }
 };
 
 module.exports = withNextIntl(nextConfig);

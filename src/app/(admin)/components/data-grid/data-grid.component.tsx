@@ -29,6 +29,8 @@ import {
   Select,
   SelectItem,
   Input,
+  Divider,
+  Image,
 } from "@nextui-org/react";
 import {
   RiAddFill,
@@ -244,6 +246,19 @@ function DataGrid<T extends BaseModel, C, U>({
       ),
     ],
     [
+      ColumnKey.IMAGE,
+      ({ cellValue }) => (
+        <Image
+          src={cellValue as string}
+          radius="sm"
+          alt="Data grid image"
+          width={100}
+          height={100}
+          className="object-cover"
+        />
+      ),
+    ],
+    [
       ColumnKey.CATEGORY,
       ({ cellValue }) => (
         <div className="flex gap-2 items-center">
@@ -339,7 +354,7 @@ function DataGrid<T extends BaseModel, C, U>({
   };
 
   return (
-    <Card className="p-1 md:p-4" shadow="sm">
+    <Card shadow="sm">
       <CardHeader className="flex justify-between items-center">
         <h2 className="text-xl md:text-2xl font-bold">{title}</h2>
 
@@ -368,9 +383,12 @@ function DataGrid<T extends BaseModel, C, U>({
         </div>
       </CardHeader>
 
+      <Divider />
+
       <CardBody>
         <Table
           isStriped
+          removeWrapper
           aria-label={`Таблиця ${title}`}
           topContent={
             loading && (
@@ -432,7 +450,12 @@ function DataGrid<T extends BaseModel, C, U>({
         </Table>
       </CardBody>
 
-      {children && <CardFooter>{children}</CardFooter>}
+      {children && 
+        <>
+          <Divider />
+          <CardFooter>{children}</CardFooter>
+        </>
+      }
     </Card>
   );
 }

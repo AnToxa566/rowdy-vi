@@ -8,4 +8,5 @@ export enum FormFieldType {
   CATEGORY_SELECT = "categorySelect",
   TEXTAREA = "textarea",
   COLOR = "color",
+  IMAGE = "image",
 }

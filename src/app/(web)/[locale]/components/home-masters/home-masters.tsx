@@ -62,7 +62,7 @@ export const HomeMasters = () => {
           actionHref={AppLink.ALTEGIO_MASTERS}
         ></SectionTitle>
 
-        <div className="flex items-center gap-4 overflow-x-auto no-scrollbar">
+        <div className="flex items-center gap-4 overflow-x-auto">
           {masters.map((master, idx) => (
             <MasterCard key={idx} master={master} />
           ))}

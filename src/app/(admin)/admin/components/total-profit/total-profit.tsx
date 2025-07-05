@@ -13,7 +13,7 @@ const TotalProfit = () => {
     parseFloat((totalIncome - totalExpense).toFixed(2));
 
   return (
-    <Card className="p-4">
+    <Card>
       <CardBody>
         <p className="text-xl font-semibold">
           Чистий прибуток:{" "}

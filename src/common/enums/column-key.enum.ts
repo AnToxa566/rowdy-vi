@@ -10,4 +10,5 @@ export enum ColumnKey {
   COLOR = "color",
   COLOR_CHIP = "colorChip",
   PERCENT = "percent",
+  IMAGE = "image",
 }

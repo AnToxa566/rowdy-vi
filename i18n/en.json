@@ -43,6 +43,20 @@
         "wax": "👃 Hair removal with wax"
       }
     },
+    "products": {
+      "title": "Cosmetics",
+      "show_more": "Show more",
+      "cards": {
+        "aftershave": "Aftershave",
+        "beard_wax": "Beard Wax-Pomade",
+        "styling_paste": "Hair Styling Paste",
+        "beard_oil": "Beard Oil",
+        "daily_shampoo": "Daily Shampoo",
+        "matte_paste": "Matte Hair Styling Paste",
+        "beard_balm": "Beard Balm",
+        "price": "{price} UAH"
+      }
+    },
     "features": {
       "title": "Our advantages",
       "cards": {

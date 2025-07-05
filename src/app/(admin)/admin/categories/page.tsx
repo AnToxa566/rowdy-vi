@@ -1,5 +1,5 @@
 import { CategoriesGrid } from "./components";
 
-export default function AccountsPage() {
+export default function CategoriesPage() {
   return <CategoriesGrid />;
 }

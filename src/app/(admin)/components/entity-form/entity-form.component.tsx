@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+
 import {
   Button,
   Input,
@@ -14,7 +16,7 @@ import { ColumnDef } from "@/common/types";
 import { formateDate } from "@/common/utils";
 import { FormFieldType } from "@/common/enums";
 
-import { AccountSelect, CategorySelect, ColorPicker } from "..";
+import { AccountSelect, CategorySelect, ColorPicker, ImageUploader } from "..";
 
 export interface InputsTemplate {
   [key: string]: string;
@@ -37,6 +39,8 @@ export function EntityForm<T>({
   onCancel = () => {},
   onSave = () => {},
 }: EntityFormProps<T>) {
+  const [loading, setLoading] = useState<boolean>(false);
+
   const inputsTemplate: InputsTemplate = {};
 
   schema.forEach((field) => {
@@ -58,6 +62,10 @@ export function EntityForm<T>({
     };
 
     register(fieldName).onChange(event);
+  };
+
+  const onImageUploadingChange = (isUploading: boolean) => {
+    setLoading(isUploading);
   };
 
   return (
@@ -183,6 +191,18 @@ export function EntityForm<T>({
                   {field.label}
                 </Switch>
               );
+            } else if (field.formType === FormFieldType.IMAGE) {
+              return (
+                <ImageUploader
+                  key={field.name}
+                  field={field}
+                  register={register}
+                  defaultValue={
+                    item ? (item[field.name as keyof T] as string) : field.defaultValue
+                  }
+                  onUploadingChange={onImageUploadingChange}
+                />
+              );
             } else {
               return (
                 <Input
@@ -209,7 +229,7 @@ export function EntityForm<T>({
           Відміна
         </Button>
 
-        <Button type="submit" color="primary">
+        <Button type="submit" color="primary" isLoading={loading}>
           Зберегти
         </Button>
       </footer>
