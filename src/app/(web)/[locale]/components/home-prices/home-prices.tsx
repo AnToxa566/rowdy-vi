@@ -20,23 +20,23 @@ export const HomePrices = () => {
     {
       label: t("haircuts"),
       data: [
-        { label: t("man_haircut"), topBarberPrice: 500, expertPrice: 600 },
+        { label: t("man_haircut"), topBarberPrice: 550, expertPrice: 700 },
         {
           label: t("man_long_haircut"),
-          topBarberPrice: 550,
-          expertPrice: 650,
+          topBarberPrice: 600,
+          expertPrice: 750,
         },
         {
           label: t("baby_haircut"),
-          topBarberPrice: 500,
-          expertPrice: 600,
+          topBarberPrice: 550,
+          expertPrice: 700,
         },
         {
           label: t("haircut_and_beard"),
-          topBarberPrice: 800,
-          expertPrice: 900,
+          topBarberPrice: 850,
+          expertPrice: 1000,
         },
-        { label: t("beard"), topBarberPrice: 400, expertPrice: 450 },
+        { label: t("beard"), topBarberPrice: 450, expertPrice: 500 },
       ],
     },
     {
@@ -63,13 +63,13 @@ export const HomePrices = () => {
       data: [
         {
           label: t("head_camouflage"),
-          topBarberPrice: 500,
-          expertPrice: 500,
+          topBarberPrice: 600,
+          expertPrice: 600,
         },
         {
           label: t("beard_camouflage"),
-          topBarberPrice: 450,
-          expertPrice: 450,
+          topBarberPrice: 550,
+          expertPrice: 550,
         },
       ],
     },
