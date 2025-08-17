@@ -4,4 +4,5 @@ export enum EntitySlug {
   CATEGORY = "категорія",
   INCOME_TRANSACTION = "дохід",
   EXPENSE_TRANSACTION = "витрата",
+  ACCOUNT_TRANSFER = "переказ між рахунками",
 }
