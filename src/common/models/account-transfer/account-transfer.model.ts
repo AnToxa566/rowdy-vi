@@ -8,4 +8,6 @@ export interface AccountTransfer extends BaseModel {
   toOldSum: number;
   fromNewSum: number;
   toNewSum: number;
+  createdAt: string;
+  updatedAt: string;
 }

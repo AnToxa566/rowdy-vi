@@ -203,6 +203,11 @@ function DataGrid<T extends BaseModel, C, U>({
         new Date(cellValue?.toString() || "").toLocaleDateString("uk"),
     ],
     [
+      ColumnKey.DATE_TIME,
+      ({ cellValue }) =>
+        new Date(cellValue?.toString() || "").toLocaleString("uk"),
+    ],
+    [
       ColumnKey.COLOR,
       ({ cellValue }) => (
         <div

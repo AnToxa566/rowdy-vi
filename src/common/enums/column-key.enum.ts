@@ -3,6 +3,7 @@ export enum ColumnKey {
   SUM = "sum",
   NUMBER = "number",
   DATE = "date",
+  DATE_TIME = "dateTime",
   BOOLEAN = "boolean",
   ACCOUNT = "account",
   CATEGORY = "category",

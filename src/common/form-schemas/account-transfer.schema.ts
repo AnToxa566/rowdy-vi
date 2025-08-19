@@ -29,7 +29,7 @@ export const accountTransferSchema: ColumnDef[] = [
     isRequired: true,
   },
   {
-    label: "Баланс рахунку відправника (до)",
+    label: "Баланс відправника (до)",
     name: "fromOldSum",
     columnType: ColumnKey.SUM,
     formType: FormFieldType.NUMBER,
@@ -39,7 +39,7 @@ export const accountTransferSchema: ColumnDef[] = [
     isRequired: true,
   },
   {
-    label: "Баланс рахунку отримувача (до)",
+    label: "Баланс отримувача (до)",
     name: "toOldSum",
     columnType: ColumnKey.SUM,
     formType: FormFieldType.NUMBER,
@@ -49,7 +49,7 @@ export const accountTransferSchema: ColumnDef[] = [
     isRequired: true,
   },
   {
-    label: "Баланс рахунку відправника (після)",
+    label: "Баланс відправника (після)",
     name: "fromNewSum",
     columnType: ColumnKey.SUM,
     formType: FormFieldType.NUMBER,
@@ -59,7 +59,7 @@ export const accountTransferSchema: ColumnDef[] = [
     isRequired: true,
   },
   {
-    label: "Баланс рахунку отримувача (після)",
+    label: "Баланс отримувача (після)",
     name: "toNewSum",
     columnType: ColumnKey.SUM,
     formType: FormFieldType.NUMBER,
@@ -67,5 +67,13 @@ export const accountTransferSchema: ColumnDef[] = [
     labelPlacement: "outside",
     isFormField: true,
     isRequired: true,
+  },
+  {
+    label: "Дата створення",
+    name: "createdAt",
+    columnType: ColumnKey.DATE_TIME,
+    formType: FormFieldType.DATE,
+    isFormField: false,
+    isRequired: false,
   },
 ];
