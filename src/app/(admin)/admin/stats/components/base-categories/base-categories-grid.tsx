@@ -97,7 +97,7 @@ const BaseCategoriesGrid: FC<BaseCategoriesGridProps> = ({ type }) => {
           : "Витрати (категорії)"
       }
       entitySlug=""
-      enableActios={false}
+      enableActions={false}
       enableAdd={false}
       schema={totalCategoriesSchema}
       data={categoriesTotalData}

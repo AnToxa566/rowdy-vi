@@ -73,7 +73,7 @@ const AccountTransfersList = () => {
       schema={accountTransferSchema}
       data={enhancedTransfers}
       loading={loading}
-      enableActios={false}
+      enableActions={false}
       enableAdd={false}
       enableSearch={false}
       enableUpdate={false}

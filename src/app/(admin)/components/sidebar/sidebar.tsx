@@ -10,6 +10,7 @@ import {
   RiMoneyDollarCircleLine,
   RiPriceTag3Line,
   RiExchangeLine,
+  RiRefreshLine,
 } from "@remixicon/react";
 
 import { AppPath } from "@/common/enums";
@@ -23,6 +24,7 @@ export const sidebarLinks = [
   { link: AppPath.STATS, label: "Огляд", icon: <RiLineChartLine /> },
   { link: AppPath.ACCOUNTS, label: "Рахунки", icon: <RiBankCardLine /> },
   { link: AppPath.ACCOUNT_TRANSFERS, label: "Перекази", icon: <RiExchangeLine /> },
+  { link: AppPath.ACCOUNT_BALANCE_UPDATES, label: "Корегування", icon: <RiRefreshLine /> },
   { link: AppPath.CATEGORIES, label: "Категорії", icon: <RiPriceTag3Line /> },
   { link: AppPath.ADMIN_PRODUCTS, label: "Продукти", icon: <RiInkBottleLine /> },
 ];

@@ -55,7 +55,7 @@ export interface DataGridProps<T extends BaseModel, C, U>
   schema: ColumnDef[];
   loading?: boolean;
   rowsPerPage?: number;
-  enableActios?: boolean;
+  enableActions?: boolean;
   enableAdd?: boolean;
   enableDetails?: boolean;
   enableUpdate?: boolean;
@@ -75,7 +75,7 @@ function DataGrid<T extends BaseModel, C, U>({
   children,
   loading = false,
   rowsPerPage = 6,
-  enableActios = true,
+  enableActions = true,
   enableAdd = true,
   enableDetails = true,
   enableUpdate = true,
@@ -347,7 +347,7 @@ function DataGrid<T extends BaseModel, C, U>({
   const getColumns = () => {
     const columns = [...schema.filter((column) => !column.isHidden)];
 
-    if (enableActios) {
+    if (enableActions) {
       columns.push({
         name: ColumnKey.ACTIONS,
         columnType: ColumnKey.ACTIONS,

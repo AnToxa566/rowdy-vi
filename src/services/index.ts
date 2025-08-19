@@ -1,6 +1,7 @@
 export * from "./api-base.service";
 export * from "./storage.service";
 export * from "./account.service";
+export * from "./account-balance-update.service";
 export * from "./account-transfer.service";
 export * from "./category.service";
 export * from "./products.service";

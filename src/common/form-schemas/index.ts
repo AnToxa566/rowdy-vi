@@ -1,4 +1,5 @@
 export * from "./account.schema";
+export * from "./account-balance-update.schema";
 export * from "./account-transfer.schema";
 export * from "./category.schema";
 export * from "./transaction.schema";

@@ -3,6 +3,7 @@ export enum AppPath {
   STATS = "/admin/stats",
   ACCOUNTS = "/admin/accounts",
   ACCOUNT_TRANSFERS = "/admin/account-transfers",
+  ACCOUNT_BALANCE_UPDATES = "/admin/account-balance-updates",
   CATEGORIES = "/admin/categories",
   ADMIN_PRODUCTS = "/admin/products",
   HOME = "/",
