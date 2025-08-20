@@ -27,6 +27,12 @@ export const accountBalanceUpdateSchema: ColumnDef[] = [
     isFormField: false,
   },
   {
+    label: "Тип",
+    name: "type",
+    columnType: ColumnKey.TEXT,
+    isFormField: false,
+  },
+  {
     label: "Дата створення",
     name: "createdAt",
     columnType: ColumnKey.DATE_TIME,

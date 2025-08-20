@@ -53,4 +53,10 @@ export const transactionSchema: ColumnDef[] = [
     isFormField: true,
     isHidden: true,
   },
+  {
+    label: "Дата створення",
+    columnType: ColumnKey.DATE_TIME,
+    name: "created_at",
+    isFormField: false,
+  },
 ];

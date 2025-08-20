@@ -12,3 +12,4 @@ export * from "./transaction-type.enum";
 export * from "./dashboard-period.enum";
 export * from "./section-selector.enum";
 export * from "./scroll-offset.enum";
+export * from "./account-balance-update-type.enum";
