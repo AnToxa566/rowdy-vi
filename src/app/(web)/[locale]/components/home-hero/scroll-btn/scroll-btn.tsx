@@ -11,7 +11,7 @@ export const ScrollButton = () => {
   const t = useTranslations();
 
   const handleDownClick = () => {
-    scrollTo(SectionSelector.FEATURES, ScrollOffset.HEADER);
+    scrollTo(SectionSelector.PRODUCTS, ScrollOffset.HEADER);
   };
 
   return (

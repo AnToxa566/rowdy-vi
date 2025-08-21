@@ -55,7 +55,7 @@ export const HomeMasters = () => {
 
   return (
     <SectionContainer id="masters" isBlackBg>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-4 lg:gap-6">
         <SectionTitle
           title={t("title")}
           actionLabel={t("select_master")}

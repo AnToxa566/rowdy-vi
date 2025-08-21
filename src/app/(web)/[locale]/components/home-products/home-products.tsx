@@ -3,69 +3,37 @@
 import { SwiperSlide } from "swiper/react";
 import { useTranslations } from "next-intl";
 
+import { Product } from "@/common/models";
+
 import { Carousel } from "../carousel";
 import { SectionContainer } from "../section-container";
 
-import { Product, ProductCard } from ".";
+import { ProductCard } from "./product-card";
 
-export const HomeProducts = () => {
+interface HomeProductsProps {
+  products: Product[];
+}
+
+export const HomeProducts = ({ products }: HomeProductsProps) => {
   const t = useTranslations("home.products");
-
-  const products: Product[] = [
-    {
-      label: t("cards.aftershave"),
-      imageSrc: "/images/products/aftershave.jpg",
-      price: 350,
-    },
-    {
-      label: t("cards.beard_wax"),
-      imageSrc: "/images/products/aftershave.jpg",
-      price: 350,
-    },
-    {
-      label: t("cards.styling_paste"),
-      imageSrc: "/images/products/aftershave.jpg",
-      price: 450,
-    },
-    {
-      label: t("cards.beard_oil"),
-      imageSrc: "/images/products/aftershave.jpg",
-      price: 350,
-    },
-    {
-      label: t("cards.daily_shampoo"),
-      imageSrc: "/images/products/aftershave.jpg",
-      price: 350,
-    },
-    {
-      label: t("cards.aftershave"),
-      imageSrc: "/images/products/aftershave.jpg",
-      price: 350,
-    },
-    {
-      label: t("cards.matte_paste"),
-      imageSrc: "/images/products/aftershave.jpg",
-      price: 500,
-    },
-    {
-      label: t("cards.beard_balm"),
-      imageSrc: "/images/products/aftershave.jpg",
-      price: 750,
-    },
-  ];
 
   const handleActionClick = (): void => {
     alert("hello");
+  }
+
+  if (!products || products.length === 0) {
+    return null;
   }
 
   return (
     <SectionContainer id="products">
       <Carousel
         title={t("title")}
-        actionOpt={{
-          label: t("show_more"),
-        }}
-        onActionClick={handleActionClick}
+        description={t("description")}
+        // actionOpt={{
+        //   label: t("show_more"),
+        // }}
+        // onActionClick={handleActionClick}
       >
         {products.map((product, idx) => (
           <SwiperSlide key={idx}>

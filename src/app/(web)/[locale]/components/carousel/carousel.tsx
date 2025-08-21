@@ -18,6 +18,7 @@ export interface CarouselActionOpt {
 
 export interface CarouselProps {
   title: string;
+  description?: string;
   actionOpt?: CarouselActionOpt;
   children: React.ReactNode;
   onActionClick?: () => void;
@@ -25,6 +26,7 @@ export interface CarouselProps {
 
 export const Carousel: FC<CarouselProps> = ({
   title,
+  description,
   actionOpt,
   children,
   onActionClick,
@@ -40,27 +42,33 @@ export const Carousel: FC<CarouselProps> = ({
   };
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4 lg:gap-6">
       <div className="flex items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
-          <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
-            {title}
-          </h2>
+        <div className="flex flex-col gap-1 w-full">
+          <div className="flex items-center gap-4 justify-between w-full md:justify-start md:w-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
+              {title}
+            </h2>
 
-          {actionOpt &&
-            (actionOpt.href ? (
-              <Link href={actionOpt.href} target={actionOpt.target}>
+            {actionOpt &&
+              (actionOpt.href ? (
+                <Link href={actionOpt.href} target={actionOpt.target}>
+                  <CarouselActionButton
+                    label={actionOpt.label}
+                    onClick={onActionClick}
+                  />
+                </Link>
+              ) : (
                 <CarouselActionButton
                   label={actionOpt.label}
                   onClick={onActionClick}
                 />
-              </Link>
-            ) : (
-              <CarouselActionButton
-                label={actionOpt.label}
-                onClick={onActionClick}
-              />
-            ))}
+              ))}
+          </div>
+
+          {description && (
+            <p className="text-gray-500 text-lg leading-5 font-semibold">{description}</p>
+          )}
         </div>
 
         <div className="hidden md:flex items-center gap-4">

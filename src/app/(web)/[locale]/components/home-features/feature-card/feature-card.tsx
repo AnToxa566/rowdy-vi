@@ -23,7 +23,7 @@ export const FeatureCard: FC<FeatureCardProps> = ({ feature }) => {
         className="absolute z-0 top-0 left-0 w-full h-full object-cover"
       />
 
-      <div className="absolute z-10 top-0 left-0 w-full h-full bg-black opacity-65"></div>
+      <div className="absolute z-10 top-0 left-0 w-full h-full bg-black opacity-60"></div>
 
       <div className="relative z-20 p-4 flex gap-2 items-start">
         <span className="text-[#e62621] flex-shrink-0">{feature.icon}</span>

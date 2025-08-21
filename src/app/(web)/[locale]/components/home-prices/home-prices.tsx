@@ -77,7 +77,7 @@ export const HomePrices = () => {
 
   return (
     <SectionContainer id="prices" isBlackBg>
-      <div className="flex flex-col gap-8 dark">
+      <div className="flex flex-col gap-4 lg:gap-6 dark">
         <SectionTitle title={t("title")}></SectionTitle>
 
         <Accordion variant="splitted">

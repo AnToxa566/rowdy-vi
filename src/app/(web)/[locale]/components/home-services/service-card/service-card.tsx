@@ -30,7 +30,7 @@ export const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
       />
 
       <div
-        className={`absolute top-0 left-0 w-full h-full z-10 bg-black opacity-60 ${styles["service-card__backdrop"]}`}
+        className={`absolute bottom-0 left-0 w-full h-24 z-10 bg-gradient-to-t from-black to-transparent`}
       ></div>
 
       <div className="absolute z-20 bottom-0 left-0 p-3 text-white flex flex-col">

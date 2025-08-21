@@ -44,7 +44,7 @@ export const HomeFeatures = () => {
 
   return (
     <SectionContainer id="features">
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-4 lg:gap-6">
         <SectionTitle title={t("title")}></SectionTitle>
 
         <div className="flex flex-col md:grid md:grid-rows-2 md:grid-cols-2 xl:grid-rows-1 xl:grid-cols-4 gap-4">

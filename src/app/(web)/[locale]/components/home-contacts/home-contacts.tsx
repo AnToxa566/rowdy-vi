@@ -24,7 +24,7 @@ export const HomeContacts = () => {
 
   return (
     <SectionContainer id="contacts">
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-4 lg:gap-6">
         <SectionTitle title={t("home.contacts.title")}></SectionTitle>
 
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">

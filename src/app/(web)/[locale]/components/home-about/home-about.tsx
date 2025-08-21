@@ -15,7 +15,7 @@ export const HomeAbout = () => {
 
   return (
     <SectionContainer id="about" isBlackBg>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-4 lg:gap-6">
         <SectionTitle title={t("home.about.title")}></SectionTitle>
 
         <div className="flex items-center justify-between gap-8 flex-col lg:flex-row">

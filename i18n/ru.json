@@ -45,20 +45,15 @@
     },
     "products": {
       "title": "Косметика",
+      "description": "У нас найдешь все, что нужно для ухода за вашими волосами",
       "show_more": "Показать больше",
       "cards": {
-        "aftershave": "Лосьон после бритья",
-        "beard_wax": "Воск-помада для бороды",
-        "styling_paste": "Паста для укладки волос",
-        "beard_oil": "Масло для бороды",
-        "daily_shampoo": "Ежедневный шампунь",
-        "matte_paste": "Матовая паста для укладки волос",
-        "beard_balm": "Бальзам для бороды",
         "price": "{price} грн"
       }
     },
     "features": {
       "title": "Лучшее для вас",
+      "description": "Все, чтобы вы выглядели и чувствовали себя на максимум",
       "cards": {
         "01": {
           "title": "Профессиональные мастера",
@@ -99,6 +94,7 @@
     },
     "services": {
       "title": "Услуги",
+      "description": "Выбирай услугу, которая подходит именно тебе",
       "look_prices": "Смотреть цены",
       "select_service": "Вибрать услугу",
       "cards": {
@@ -116,6 +112,7 @@
     },
     "masters": {
       "title": "Мастера",
+      "description": "Те, кто создают твой стиль",
       "select_master": "Выбрать мастера",
       "expert_vs_top_desktop_HTML": "Чем отличается <span class='font-bold'>Top Barber</span> от <span class='font-bold'>Expert&apos;а?</span>",
       "oleg": "Олег",

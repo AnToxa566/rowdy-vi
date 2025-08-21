@@ -15,7 +15,7 @@ export const SectionTitle: FC<SectionTitleProps> = ({
   actionLabel,
 }) => {
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-4 justify-between w-full md:justify-start md:w-auto">
       <h2 className="text-3xl lg:text-4xl font-bold leading-tight uppercase">
         {title}
       </h2>

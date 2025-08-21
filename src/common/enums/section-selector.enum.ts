@@ -6,4 +6,5 @@ export enum SectionSelector {
   GALLERY = "#gallery",
   ABOUT_US = "#about",
   CONTACTS = "#contacts",
+  PRODUCTS = "#products",
 }

@@ -45,20 +45,15 @@
     },
     "products": {
       "title": "Cosmetics",
+      "description": "We have everything you need for hair care",
       "show_more": "Show more",
       "cards": {
-        "aftershave": "Aftershave",
-        "beard_wax": "Beard Wax-Pomade",
-        "styling_paste": "Hair Styling Paste",
-        "beard_oil": "Beard Oil",
-        "daily_shampoo": "Daily Shampoo",
-        "matte_paste": "Matte Hair Styling Paste",
-        "beard_balm": "Beard Balm",
         "price": "{price} UAH"
       }
     },
     "features": {
       "title": "Our advantages",
+      "description": "All to make you look and feel your best",
       "cards": {
         "01": {
           "title": "Professional masters",
@@ -99,6 +94,7 @@
     },
     "services": {
       "title": "Services",
+      "description": "Choose the service that suits you best",
       "look_prices": "Look the prices",
       "select_service": "Select a service",
       "cards": {
@@ -116,6 +112,7 @@
     },
     "masters": {
       "title": "Masters",
+      "description": "The ones who create your style",
       "select_master": "Select a master",
       "expert_vs_top_desktop_HTML": "What is the difference between <span class='font-bold'>Top Barber</span> and <span class='font-bold'>Expert?</span>",
       "oleg": "Oleg",

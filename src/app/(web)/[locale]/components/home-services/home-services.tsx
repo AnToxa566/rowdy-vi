@@ -19,54 +19,54 @@ export const HomeServices = () => {
   const services: Service[] = [
     {
       label: t("cards.haircut"),
-      imageSrc: "/images/services/haircut.jpeg",
+      imageSrc: "/images/services/service-1.jpg",
       price: 500,
     },
     {
       label: t("cards.beard"),
-      imageSrc: "/images/services/beard.jpeg",
+      imageSrc: "/images/services/service-2.jpg",
       price: 400,
     },
     {
       label: t("cards.haircut_and_beard"),
-      imageSrc: "/images/services/haircut_and_beard.jpeg",
+      imageSrc: "/images/services/service-3.jpg",
       price: 800,
     },
     {
       label: t("cards.shaving"),
-      imageSrc: "/images/services/shaving.jpeg",
+      imageSrc: "/images/services/service-4.jpg",
       price: 400,
     },
     {
       label: t("cards.kids"),
-      imageSrc: "/images/services/kids_haircut.jpeg",
+      imageSrc: "/images/services/service-5.jpg",
       price: 500,
     },
     {
       label: t("cards.coloring"),
-      imageSrc: "/images/services/gray_hair_coloring.jpeg",
+      imageSrc: "/images/services/service-6.jpg",
       price: 450,
     },
     {
       label: t("cards.long_hair"),
-      imageSrc: "/images/services/long-hair.jpeg",
+      imageSrc: "/images/services/service-7.jpg",
       price: 550,
     },
     {
       label: t("cards.styling"),
-      imageSrc: "/images/services/hair-styling.jpg",
+      imageSrc: "/images/services/service-8.jpg",
       price: 150,
     },
     {
       label: t("cards.wax"),
-      imageSrc: "/images/services/wax.jpeg",
+      imageSrc: "/images/services/service-9.jpg",
       price: 150,
     },
   ];
 
   return (
     <SectionContainer id="services">
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-4 lg:gap-6">
         <Carousel
           title={t("title")}
           actionOpt={{
