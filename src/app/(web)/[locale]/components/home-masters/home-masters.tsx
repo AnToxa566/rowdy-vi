@@ -47,7 +47,7 @@ export const HomeMasters = () => {
       imageSrc: "/images/masters/liza.jpg",
       name: t("liza"),
       graduation: "Top Barber",
-      instagramLink: "https://www.instagram.com/eliza.baydak/",
+      instagramLink: "https://www.instagram.com/eliza.baidak/",
       altegioLink:
         "https://b829839.alteg.io/company/778954/personal/select-master?o=m2231977",
     },
