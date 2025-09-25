@@ -7,7 +7,7 @@ import { SectionTitle } from "../section-title";
 import { SectionContainer } from "../section-container";
 
 enum Masters {
-  TopBarber = "Top Barber",
+  // TopBarber = "Top Barber",
   Expert = "Expert",
 }
 
@@ -101,9 +101,9 @@ export const HomePrices = () => {
                       >
                         <span>{prices.label}</span>
                         <span className="text-nowrap">
-                          {master === Masters.TopBarber
-                            ? prices.topBarberPrice
-                            : prices.expertPrice}{" "}
+                          {master === Masters.Expert
+                            ? prices.expertPrice
+                            : prices.topBarberPrice}{" "}
                           грн
                         </span>
                       </div>

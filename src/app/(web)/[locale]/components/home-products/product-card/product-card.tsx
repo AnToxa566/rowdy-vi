@@ -35,7 +35,7 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
       <div className="absolute z-20 bottom-0 left-0 p-3 text-white flex flex-col">
         <span className="text-2xl font-semibold">{label}</span>
 
-        <span className="text-base font-extralight">
+        <span className="text-base font-normal">
           {t("cards.price", { price: product.price })}
         </span>
       </div>

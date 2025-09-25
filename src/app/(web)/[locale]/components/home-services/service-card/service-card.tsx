@@ -35,7 +35,7 @@ export const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
 
       <div className="absolute z-20 bottom-0 left-0 p-3 text-white flex flex-col">
         <span className="text-2xl font-semibold">{service.label}</span>
-        <span className="text-base font-extralight">
+        <span className="text-base font-normal">
           {t("cards.price_from", { price: service.price })}
         </span>
       </div>

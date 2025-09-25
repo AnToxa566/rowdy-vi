@@ -43,14 +43,14 @@ export const HomeMasters = () => {
       altegioLink:
         "https://b829839.alteg.io/company/778954/personal/select-master?o=m2231978",
     },
-    {
-      imageSrc: "/images/masters/liza.jpg",
-      name: t("liza"),
-      graduation: "Top Barber",
-      instagramLink: "https://www.instagram.com/eliza.baidak/",
-      altegioLink:
-        "https://b829839.alteg.io/company/778954/personal/select-master?o=m2231977",
-    },
+    // {
+    //   imageSrc: "/images/masters/liza.jpg",
+    //   name: t("liza"),
+    //   graduation: "Top Barber",
+    //   instagramLink: "https://www.instagram.com/eliza.baidak/",
+    //   altegioLink:
+    //     "https://b829839.alteg.io/company/778954/personal/select-master?o=m2231977",
+    // },
   ];
 
   return (
@@ -68,7 +68,7 @@ export const HomeMasters = () => {
           ))}
         </div>
 
-        <div className="mx-auto">
+        {/* <div className="mx-auto">
           <Popover showArrow offset={10} placement="bottom" backdrop="blur">
             <PopoverTrigger>
               <Button
@@ -117,7 +117,7 @@ export const HomeMasters = () => {
               ></p>
             </PopoverContent>
           </Popover>
-        </div>
+        </div> */}
       </div>
     </SectionContainer>
   );

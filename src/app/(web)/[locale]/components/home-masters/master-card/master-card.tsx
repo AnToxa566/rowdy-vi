@@ -41,7 +41,7 @@ export const MasterCard: FC<MasterCardProps> = ({ master }) => {
 
       <div className="absolute z-20 bottom-0 left-0 p-3 text-white flex flex-col w-full">
         <span className="text-2xl font-semibold">{master.name}</span>
-        <span className="text-base font-extralight">{master.graduation}</span>
+        <span className="text-base font-normal">{master.graduation}</span>
 
         <div
           className={`text-sm font-extralight mt-1 flex flex-col gap-1 w-full ${styles["master-card__actions"]}`}
