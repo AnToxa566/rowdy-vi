@@ -28,8 +28,8 @@ export const MasterCard: FC<MasterCardProps> = ({ master }) => {
       className={`relative rounded-xl overflow-hidden min-w-[300px] w-full aspect-[3/5] cursor-pointer drop-shadow-md ${styles["master-card"]}`}
     >
       <Image
-        width={300}
-        height={500}
+        width={600}
+        height={600}
         alt={master.name}
         src={master.imageSrc}
         className={`absolute top-0 left-0 w-full h-full object-cover ${styles["master-card__image"]}`}

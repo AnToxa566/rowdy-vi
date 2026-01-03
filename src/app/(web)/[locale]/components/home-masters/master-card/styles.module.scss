@@ -1,4 +1,6 @@
 .master-card {
+  max-height: 80vh;
+
   &__image {
     @apply transition-transform;
   }
